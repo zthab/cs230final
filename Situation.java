@@ -2,8 +2,8 @@
 /**
  * Write a description of class Situation here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (zthabet,nbryant2,gbronzi)
+ * @version (12.1.18)
  */
 public class Situation
 {

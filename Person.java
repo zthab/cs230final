@@ -2,7 +2,7 @@
 /**
  * Write a description of class Person here.
  *
- * @author (nbryant22, zthabet, gbronzi)
+ * @author (gbronzi, zthabet,nbryant2)
  * @version (12.1.18)
  */
 public class Person

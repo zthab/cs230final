@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class Option here.
+ * Write a description of class ModMemoryGame here.
  *
- * @author (zthabet,nbryant2,gbronzi)
+ * @author (nbryant2, zthabet, gbronzi)
  * @version (12.1.18)
  */
-public class Option
+public class ModMemoryGame
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Option
+     * Constructor for objects of class ModMemoryGame
      */
-    public Option()
+    public ModMemoryGame()
     {
         // initialise instance variables
         x = 0;

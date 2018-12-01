@@ -1,19 +1,19 @@
 
 /**
- * Write a description of class Option here.
+ * Write a description of class GamesGUI here.
  *
- * @author (zthabet,nbryant2,gbronzi)
+ * @author (nbryant2, zthabet, gbronzi)
  * @version (12.1.18)
  */
-public class Option
+public class GamesGUI
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Option
+     * Constructor for objects of class GamesGUI
      */
-    public Option()
+    public GamesGUI()
     {
         // initialise instance variables
         x = 0;

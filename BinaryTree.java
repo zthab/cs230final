@@ -2,8 +2,8 @@
 /**
  * Write a description of class BinaryTree here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (gbronzi, zthabet,nbryant2)
+ * @version (12.1.18)
  */
 public class BinaryTree
 {
