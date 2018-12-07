@@ -1,33 +1,60 @@
+package TrailsGui;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  * Write a description of class WellesleyTrailGUI here.
- *
+ * look into copyright 
  * @author (zthabet,nbryant2,gbronzi)
  * @version (12.1.18)
  */
-public class TrailGUI
+public class TrailGUI implements ItemListener
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class WellesleyTrailGUI
-     */
-    public TrailGUI()
-    {
-        // initialise instance variables
-        x = 0;
+        JPanel trailGame; //a panel that uses CardLayout
+    final static String BUTTONPANEL = "Card with JButtons";
+    final static String TEXTPANEL = "Card with JTextField";
+    public void addComponents(Container pane){
+        //Put the JComboBox in a JPanel to get a nicer look.
+        JPanel comboBoxPane = new JPanel(); //use FlowLayout ///change this to button
+        String comboBoxItems[] = { BUTTONPANEL, TEXTPANEL }; //change this to tree?
+        JComboBox cb = new JComboBox(comboBoxItems);
+        cb.setEditable(false);
+        cb.addItemListener(this);
+        comboBoxPane.add(cb); //change this 
+         
+        //make Jpanels here 
+        JPanel card1 = new StartPanel();
+   
+        JPanel card2 = new CharSelection();
+ 
+         
+        //Create the panel that contains the "cards".
+        trailGame = new JPanel(new CardLayout());
+        trailGame.add(card1, BUTTONPANEL);
+        trailGame.add(card2, TEXTPANEL);
+         
+        //pane.add(comboBoxPane, BorderLayout.PAGE_START); //prev code's switch method
+        pane.add(trailGame, BorderLayout.CENTER);
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        public void itemStateChanged(ItemEvent evt) { //want to use this when next button is clicked
+        CardLayout cl = (CardLayout)(trailGame.getLayout());
+        cl.show(trailGame, (String)evt.getItem()); //change what it shows 
     }
+    public static void main (String[] args) 
+    {
+
+                JFrame frame = new JFrame("Wellesley Trails");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         
+        //Create and set up the content pane.
+        TrailGUI demo = new TrailGUI();
+        demo.addComponents(frame.getContentPane());
+         
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
+        
+
+    } 
 }
