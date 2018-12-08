@@ -14,15 +14,17 @@ public class TrailGUI implements ItemListener
         JPanel trailGame; //a panel that uses CardLayout
     final static String BUTTONPANEL = "Card with JButtons";
     final static String TEXTPANEL = "Card with JTextField";
+    JButton nextB;
     public void addComponents(Container pane){
         //Put the JComboBox in a JPanel to get a nicer look.
         JPanel comboBoxPane = new JPanel(); //use FlowLayout ///change this to button
         String comboBoxItems[] = { BUTTONPANEL, TEXTPANEL }; //change this to tree?
-        JComboBox cb = new JComboBox(comboBoxItems);
-        cb.setEditable(false);
-        cb.addItemListener(this);
-        comboBoxPane.add(cb); //change this 
-         
+        //JComboBox cb = new JComboBox(comboBoxItems);
+        //cb.setEditable(false);
+        //cb.addItemListener(this);
+        //comboBoxPane.add(cb); //change this 
+         nextB = new JButton ("Next");
+         nextB.addItemListener(this);
         //make Jpanels here 
         JPanel card1 = new StartPanel();
    
@@ -34,12 +36,13 @@ public class TrailGUI implements ItemListener
         trailGame.add(card1, BUTTONPANEL);
         trailGame.add(card2, TEXTPANEL);
          
-        //pane.add(comboBoxPane, BorderLayout.PAGE_START); //prev code's switch method
+        pane.add(nextB, BorderLayout.PAGE_START); //prev code's switch method
         pane.add(trailGame, BorderLayout.CENTER);
     }
         public void itemStateChanged(ItemEvent evt) { //want to use this when next button is clicked
         CardLayout cl = (CardLayout)(trailGame.getLayout());
-        cl.show(trailGame, (String)evt.getItem()); //change what it shows 
+        System.out.println("HERE");
+        cl.show(trailGame, TEXTPANEL); //change what it shows 
     }
     public static void main (String[] args) 
     {
