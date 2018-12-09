@@ -9,7 +9,7 @@ import javax.swing.*;
  * @author (zthabet,nbryant2,gbronzi)
  * @version (12.1.18)
  */
-public class TrailGUI implements ItemListener
+public class TrailGUI 
 {
         JPanel trailGame; //a panel that uses CardLayout
     final static String BUTTONPANEL = "Card with JButtons";
@@ -24,8 +24,9 @@ public class TrailGUI implements ItemListener
         //cb.addItemListener(this);
         //comboBoxPane.add(cb); //change this 
          nextB = new JButton ("Next");
-         nextB.addItemListener(this);
+         nextB.addActionListener(new ButtonListener());
         //make Jpanels here 
+        
         JPanel card1 = new StartPanel();
    
         JPanel card2 = new CharSelection();
@@ -39,10 +40,20 @@ public class TrailGUI implements ItemListener
         pane.add(nextB, BorderLayout.PAGE_START); //prev code's switch method
         pane.add(trailGame, BorderLayout.CENTER);
     }
-        public void itemStateChanged(ItemEvent evt) { //want to use this when next button is clicked
-        CardLayout cl = (CardLayout)(trailGame.getLayout());
-        System.out.println("HERE");
-        cl.show(trailGame, TEXTPANEL); //change what it shows 
+    private class ButtonListener implements ActionListener{
+        /**
+         * Creates a School object when a button is clicked. Only creates
+         * it if all the required comboListeners are selected, otherwise 
+         * an error will print. Text displaying the input characteristics 
+         * will appear in the lowest panel. 
+         * 
+         * @param Action the event of the button being clicked
+         */
+        public void actionPerformed(ActionEvent event){
+            //need a new frame here 
+            CardLayout cl = (CardLayout)(trailGame.getLayout());
+        cl.show(trailGame, TEXTPANEL);
+        }
     }
     public static void main (String[] args) 
     {
