@@ -1,4 +1,4 @@
-package TrailsGui;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -12,7 +12,7 @@ import java.awt.event.*;
 public class CharSelection extends JPanel
 {
     private JLabel quote;
-    private JRadioButton comedy, philosophy, carpentry;
+    private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
     //private String comedyQuote, philosophyQuote, carpentryQuote;
     public CharSelection()
     {
@@ -23,26 +23,47 @@ public class CharSelection extends JPanel
         //quote.setFont (new Font ("Helvetica", Font.BOLD, 24));
         //was working right here need to figure out how to get tooltiptext to work for showing stats. 
         //might add pic of avatar
-        comedy = new JRadioButton ("Wendy Wellesley", true);
-        comedy.setToolTipText("Click this button to disable the middle button.");
-
-        comedy.setBackground (Color.green);
-        philosophy = new JRadioButton ("Philosophy");
-        philosophy.setBackground (Color.green);
-        carpentry = new JRadioButton ("Carpentry");
-        carpentry.setBackground (Color.green);
+        athletic = new JRadioButton ("Athletic Alex", true);
+        athletic.setToolTipText("Click this button to disable the middle button.");
+        athletic .setBackground (Color.green);
+        
+        hermit = new JRadioButton ("Hermit Harper");
+        hermit.setBackground (Color.green);
+        
+        horse = new JRadioButton ("Horse Girl Grace");
+        horse.setBackground (Color.green);
+        
+        offCampus = new JRadioButton ("Off-Campus Ollie");
+        offCampus.setBackground (Color.green);
+        
+        society = new JRadioButton ("Society Skylar");
+        society.setBackground (Color.green);
+        
+        wendy = new JRadioButton ("Wendy Wellesley");
+        wendy.setBackground (Color.green);
+        
         ButtonGroup group = new ButtonGroup();
-        group.add (comedy);
-        group.add (philosophy);
-        group.add (carpentry);
+        group.add (athletic);
+        group.add (hermit);
+        group.add (horse);
+        group.add(offCampus);
+        group.add(society);
+        group.add(wendy);
+        
         QuoteListener listener = new QuoteListener();
-        comedy.addActionListener (listener);
-        philosophy.addActionListener (listener);
-        carpentry.addActionListener (listener);
+        athletic.addActionListener (listener);
+        hermit.addActionListener (listener);
+        horse.addActionListener (listener);
+        offCampus.addActionListener (listener);
+        society.addActionListener (listener);
+        wendy.addActionListener (listener);
         //add (quote);
-        add (comedy);
-        add (philosophy);
-        add (carpentry);
+        add (athletic);
+        add (hermit);
+        add (horse);
+        add (offCampus);
+        add (society);
+        add (wendy);
         setBackground (Color.green);
         setPreferredSize (new Dimension(300, 100));
     }
@@ -58,12 +79,17 @@ public class CharSelection extends JPanel
         public void actionPerformed (ActionEvent event)
         {
             Object source = event.getSource();
-            if (source == comedy){
+            if (source == athletic){
                // quote.setText (comedyQuote);
-            }else if (source == philosophy){
+            }else if (source == hermit){
                 //quote.setText (philosophyQuote);
-            }else{
+            }else if (source == horse){
                // quote.setText (carpentryQuote);
+            }else if (source == offCampus){
+                
+            }else if (source == society){
+                
+            }else{
             }
         }
     }//can use jlayered panel for selection

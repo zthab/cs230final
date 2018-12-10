@@ -1,8 +1,7 @@
-package TrailsGui;
+ 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
 /**
  * Write a description of class WellesleyTrailGUI here.
  * look into copyright 
@@ -11,7 +10,8 @@ import javax.swing.*;
  */
 public class TrailGUI 
 {
-        JPanel trailGame; //a panel that uses CardLayout
+    Person p;
+    JPanel trailGame; //a panel that uses CardLayout
     final static String BUTTONPANEL = "Card with JButtons";
     final static String TEXTPANEL = "Card with JTextField";
     JButton nextB;
