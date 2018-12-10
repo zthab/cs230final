@@ -62,4 +62,43 @@ public class Person
         return socialScore;
     }
     
+    /**
+     * Changes the sleep score to the inputted value
+     * 
+     * @param int score
+     */
+    public void setSleepScore(int score){
+        sleepScore = score;
+    }
+    
+    /**
+     * Changes the smart score to the inputted value
+     * 
+     * @param int score
+     */
+    public void setSmartScore(int score){
+        smartScore = score;
+    }
+    
+    /**
+     * Changes the social score to the inputted value
+     * 
+     * @param int score
+     */
+    public void setSocialScore(int score){
+        socialScore = score;
+    }
+    
+    /**
+     * Checks to see if scores are above zero
+     * 
+     * @return boolean true if all scores above zero
+     */
+    public boolean isAboveZero(){
+        //do we want to do this so we check whether all the scores are above zero
+        //or only check one? if we did one, we could have a param that would be one of the categories
+        
+        return sleepScore > 0 && smartScore > 0 && socialScore > 0;      
+    }
+    
 }
