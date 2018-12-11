@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.* ;
 import java.awt.Color;
+import java.util.Random;
 
 public class  RunningPanel extends JPanel
 {
@@ -45,7 +46,7 @@ public class  RunningPanel extends JPanel
 
       setBackground (Color.cyan);
       
-      setPreferredSize (new Dimension(300, 40));
+      //setPreferredSize (new Dimension(300, 40));
    }
 
    //*****************************************************************
@@ -60,59 +61,40 @@ public class  RunningPanel extends JPanel
       {
          count++; // When ANY button is clicked! (If there were more...)
          label.setText("Steps: " + count);
+         Random rand = new Random();
+         int r = rand.nextInt(9);
          
-         if (count%10==1)
+         if (r==1)
             setBackground (Color.green);
             
-         if (count%10==2)
+         if (r==2)
             setBackground (Color.magenta);
             
-         if (count%10==3)
+         if (r==3)
             setBackground (Color.yellow);
             
-         if (count%10==4)
+         if (r==4)
             setBackground (Color.blue);   
             
-         if (count%10==5)
+         if (r==5)
             setBackground (Color.black);
             
-         if (count%10==6)
+         if (r==6)
             setBackground (Color.yellow);
             
-         if (count%10==7)
+         if (r==7)
             setBackground (Color.lightGray);
             
-         if (count%10==8)
+         if (r==8)
             setBackground (Color.blue);
             
-         if (count%10==9)
+         if (r==9)
             setBackground (Color.orange);
             
-         if (count%10==0)
+         if (r==0)
             setBackground (Color.cyan);
       }
    }
    
-   private class CountdownPanel extends JPanel implements ActionListener {
-       public CountdownPanel(JLabel f){
-           
-           countdownTimerField = f;
-           refreshTimer.start();
-           setPreferredSize (new Dimension(300, 40));
-       }
-    
-       public void actionPerformed(ActionEvent e) {
-            counter--;
-            if (counter >= 0){
-            //System.out.println(" ** " + counter);
-            countdownTimerField.setText(" Time left: " + counter);
-            }
-            if (counter == 0){
-            //System.out.println("Time's UP! ");
-            countdownTimerField.setText(" Time's UP!");
-            refreshTimer.stop();
-            }
-       }
-   }
 }
 

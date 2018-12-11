@@ -16,7 +16,7 @@ public class Countdown
         
         CountdownPanel cTimer = new CountdownPanel(timerField);
         
-        JFrame frame = new JFrame("Countdown Timer");
+        JFrame frame = new JFrame("Timer");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(timerField);
         //frame.pack();

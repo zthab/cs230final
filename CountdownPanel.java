@@ -25,7 +25,7 @@ class CountdownPanel extends JPanel implements ActionListener {
         refreshTimer = new javax.swing.Timer(1000, this);
         countdownTimerField = f;
         refreshTimer.start();
-        setPreferredSize (new Dimension(300, 40));
+        //setPreferredSize (new Dimension(300, 40));
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -40,4 +40,9 @@ class CountdownPanel extends JPanel implements ActionListener {
             refreshTimer.stop();
         }
     }
+    
+    public int getCounter(){
+        return counter;
+    }
+    
 }
