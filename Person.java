@@ -10,21 +10,19 @@
 public class Person
 {
     //instance variables
-    int sleepScore, smartScore, socialScore; // three scores that are based on choosen character
-    int[] character; //array holds all the points for the choosen character
+    private int sleepScore, smartScore, socialScore; // three scores that are based on choosen character
+    private int[] character; //array holds all the points for the choosen character
     
-    //the six archetypes, each have a different array of sleep, social, smart points
+    //the six archetypes, each have a different array of sleep, smart, social points
     private final static int[] athletic = {2, 2, 4};
     private final static int[] hermit = {4, 5, 0};
     private final static int[] horse = {0, 0, 0};
     private final static int[] offCampus = {0, 3, 4};
-    private final static int[] society = {1, 2, 3};
+    private final static int[] society = {1, 2, 4};
     private final static int[] wendy = {2, 3, 3};
     
-    private final static int[][] characters = {athletic,hermit,horse,offCampus,society,wendy};
-    //was thinking we could do array of arrays for characters, through gui, each button for 
-    //the characters has a different number assigned, which will be the charInt inputted 
-    //to create the char
+    //array of arrays, each index has an array of ints
+    private final static int[][] allChars = {athletic,hermit,horse,offCampus,society,wendy};
     /**
      * Constructor for objects of class Person
      * 
@@ -32,7 +30,10 @@ public class Person
      */
     public Person(int charInt)
     {
-        character = characters[charInt];
+        //based on arch picked, a number is inputted which is associated to a index in characters[]
+        character = allChars[charInt];
+        
+        //sleep, smart and social in index 0,1,2 repectively
         sleepScore = character[0];
         smartScore = character[1];
         socialScore = character[2];
@@ -98,12 +99,8 @@ public class Person
      * 
      * @return boolean true if all scores above zero
      */
-    public boolean isAboveZero(){
-        //do we want to do this so we check whether all the scores are above zero
-        //or only check one? if we did one, we could have a param that would be one of the categories
-        
+    public boolean isAboveZero(){       
         return sleepScore > 0 && smartScore > 0 && socialScore > 0;      
     }
-   
     
 }

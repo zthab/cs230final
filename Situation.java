@@ -1,8 +1,8 @@
 
 /**
- * The sitution class creates an object that holds a situational question and the two options that
+ * The situation class creates an object that holds a situational question and the two options that
  * go with the question (which are the three instance variables). The class contains getter and 
- * setter methods for the all instance variables. 
+ * setter methods for the all instance variables, as well as a toString. 
  *
  * @author (zthabet,nbryant2,gbronzi)
  * @version (12.10.18)
@@ -11,8 +11,8 @@ public class Situation
 {
     //instance variable
     String question; //question that user is prompted with 
-    String option1; //first option that goes with question
-    String option2; //second option that goes with question
+    Option option1; //first option that goes with question
+    Option option2; //second option that goes with question
 
     /**
      * Constructor for objects of class Situation, has three parameters that are used to set
@@ -20,7 +20,7 @@ public class Situation
      * 
      * @param q,o1,o2 
      */
-    public Situation(String q, String o1, String o2)
+    public Situation(String q, Option o1, Option o2)
     {
         question = q;
         option1 = o1;
@@ -41,7 +41,7 @@ public class Situation
      * 
      * @return option1
      */
-    public String getOption1(){
+    public Option getOption1(){
         return option1;
     }
     
@@ -50,7 +50,7 @@ public class Situation
      * 
      * @return option2
      */
-    public String getOption2(){
+    public Option getOption2(){
         return option2;
     }
     
@@ -68,7 +68,7 @@ public class Situation
      * 
      * @param opt
      */
-    public void setOption1(String opt){
+    public void setOption1(Option opt){
         option1 = opt;
     }
     
@@ -77,9 +77,10 @@ public class Situation
      * 
      * @param opt
      */
-    public void setOption2(String opt){
+    public void setOption2(Option opt){
         option2 = opt;
     }
+    
     
     public String toString(){
         return question + "/nChoice 1: " + option1 + "/nChoice 2: " + option2;
