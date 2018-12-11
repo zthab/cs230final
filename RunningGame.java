@@ -15,7 +15,7 @@ public class  RunningGame
    //-----------------------------------------------------------------
    public static void main (String[] args)
    {
-      JFrame frame = new JFrame ("Push Counter"); // The title of the window
+      JFrame frame = new JFrame ("Running Mini Game"); // The title of the window
       frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE); // by clicking the red "close window" button
 
       RunningPanel panel = new RunningPanel(); // The Panel file only thing that needs to change
