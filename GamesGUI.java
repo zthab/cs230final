@@ -1,4 +1,4 @@
-package TrailsGui;
+ 
 
 /**
  * Write a description of class GamesGUI here.
