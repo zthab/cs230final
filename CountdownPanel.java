@@ -2,8 +2,8 @@
 /**
  * Write a description of class Timer here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (nbryant2, zthabet, gbronzi)
+ * @version (12.10.18)
  */
 
 
