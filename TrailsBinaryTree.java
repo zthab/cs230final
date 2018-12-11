@@ -24,6 +24,8 @@ public class TrailsBinaryTree
         String question;
         String option1;
         String option2;
+        int option1Sleep,option1Smart,option1Social;
+        int option2Sleep,option2Smart,option2Social;
         try{
             File file = new File(txtFile); 
             Scanner sc = new Scanner(file); 
@@ -37,9 +39,12 @@ public class TrailsBinaryTree
                 Scanner scanLine = new Scanner(line);
                 scanLine.useDelimiter(",");
                 question= scanLine.next();
-                option1=scanLine.next();
+                dec1=scanLine.next();
+                dec1Sleep=Integer.parseInt(scanLine.next());
+                option1Smart=Integer.parseInt(scanLine.next());
+                option1Social=Integer.parseInt(scanLine.next());
                 option2=scanLine.next();
-
+                option1Sleep=Integer.parseInt(scanLine.next());
                 years.get(count).add(new Situation(question,option1,option2));
                 scanLine.close();
             }

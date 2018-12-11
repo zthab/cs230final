@@ -20,7 +20,7 @@ public class TrailGUI
     int counter; 
     public void addComponents(Container pane){
         TrailsBinaryTree theTree = new TrailsBinaryTree("Situations.txt");
-        tree = theTree.getYears();
+        //tree = theTree.getYears();
         
         
         //Put the JComboBox in a JPanel to get a nicer look.
@@ -46,9 +46,9 @@ public class TrailGUI
             int j=0;
             while(j<tree.get(i).size()){
                 
-                trailGame.add(new JPanel(Situation(tree.get(i).get(j))));
-                if ()
-            }
+                //trailGame.add(new JPanel(Situation(tree.get(i).get(j))));
+                //if ()
+            //}
         }}
         //while loop thats like if counter doesn't reach zero
         //if yes add this one if no add other one

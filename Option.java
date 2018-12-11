@@ -7,36 +7,45 @@
  */
 public class Option
 {
-    private String option;
+    private String decision;
     private int[] points;
     
     /**
      * Constructor for objects of class Option, option and point are inputted
      */
-    public Option(String opt, int[] pts)
+    public Option(String dec, int[] pts)
     {
-        option = opt;
+        decision = dec;
         points = pts;
     }
 
-    public String getOption(){
-        return option;
+    public String getDecision(){
+        return decision;
+    }
+    
+    public Option getOption(){
+        return this;
     }
     
     public int[] getPoints(){
         return points;
     }
     
-    public void setOption(String o){
-        option = o;
+    public void setDecision(String o){
+        decision = o;
     }
     
     public void setPoints(int[] p){
         points = p;
     }
     
+    public void setOption(Option op){
+        decision=op.getDecision();
+        points=op.getPoints();
+    }
+    
     public String toString(){
-        return "Option: " + option + "/nSleep: " + points[0] + "/nSmart: " + points[1] 
+        return "Decision: " + decision + "/nSleep: " + points[0] + "/nSmart: " + points[1] 
                 + "/nSocial: " + points[2]; 
     }
 
