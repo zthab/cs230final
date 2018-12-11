@@ -6,7 +6,7 @@
  * @version (12.1.18)
  */
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class  RunningGame
 {
@@ -18,6 +18,10 @@ public class  RunningGame
       JFrame frame = new JFrame ("Running Mini Game"); // The title of the window
       frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE); // by clicking the red "close window" button
 
+      JLabel timerField = new JLabel();        
+      CountdownPanel countdown = new CountdownPanel(timerField);  
+      frame.add(countdown);
+      
       RunningPanel panel = new RunningPanel(); // The Panel file only thing that needs to change
       frame.getContentPane().add(panel);
 
