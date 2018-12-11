@@ -22,10 +22,12 @@ public class TrailsBinaryTree
         int count =0;
         String line="";
         String question;
-        String option1;
-        String option2;
-        int option1Sleep,option1Smart,option1Social;
-        int option2Sleep,option2Smart,option2Social;
+        Option op1,op2;
+        String dec1;
+        String dec2;
+        int dec1Sleep,dec1Smart,dec1Social;
+        int dec2Sleep,dec2Smart,dec2Social;
+        
         try{
             File file = new File(txtFile); 
             Scanner sc = new Scanner(file); 
@@ -38,14 +40,22 @@ public class TrailsBinaryTree
                 //make new situation so need to set up delimiter 
                 Scanner scanLine = new Scanner(line);
                 scanLine.useDelimiter(",");
+                
                 question= scanLine.next();
+                
                 dec1=scanLine.next();
                 dec1Sleep=Integer.parseInt(scanLine.next());
-                option1Smart=Integer.parseInt(scanLine.next());
-                option1Social=Integer.parseInt(scanLine.next());
-                option2=scanLine.next();
-                option1Sleep=Integer.parseInt(scanLine.next());
-                years.get(count).add(new Situation(question,option1,option2));
+                dec1Smart=Integer.parseInt(scanLine.next());
+                dec1Social=Integer.parseInt(scanLine.next());
+                op1=new Option(dec1,dec1Sleep,dec1Smart,dec1Social);
+                
+                dec2=scanLine.next();
+                dec2Sleep=Integer.parseInt(scanLine.next());
+                dec2Smart=Integer.parseInt(scanLine.next());
+                dec2Social=Integer.parseInt(scanLine.next());
+                op2=new Option(dec2,dec2Sleep,dec2Smart,dec2Social);
+                
+                years.get(count).add(new Situation(question,op1,op2));
                 scanLine.close();
             }
             sc.close();

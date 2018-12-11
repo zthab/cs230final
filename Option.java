@@ -18,6 +18,12 @@ public class Option
         decision = dec;
         points = pts;
     }
+    
+    public Option(String dec, int sleep, int smart, int social){
+        decision=dec;
+        int[] temp = new int[3];
+        temp[0]=sleep;temp[1]=smart;temp[2]=social;
+    }
 
     public String getDecision(){
         return decision;
