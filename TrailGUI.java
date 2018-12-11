@@ -2,6 +2,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.Vector;
 /**
  * Write a description of class WellesleyTrailGUI here.
  * look into copyright 
@@ -15,10 +16,12 @@ public class TrailGUI
     final static String BUTTONPANEL = "Card with JButtons";
     final static String TEXTPANEL = "Card with JTextField";
     JButton nextB;
+    Vector<Vector<Situation>> tree;
     int counter; 
     public void addComponents(Container pane){
-        //run class that imports from text file
-        //assign counter
+        TrailsBinaryTree theTree = new TrailsBinaryTree("Situations.txt");
+        tree = theTree.getYears();
+        
         
         //Put the JComboBox in a JPanel to get a nicer look.
         JPanel comboBoxPane = new JPanel(); //use FlowLayout ///change this to button
@@ -39,6 +42,13 @@ public class TrailGUI
         trailGame = new JPanel(new CardLayout());
         trailGame.add(card1, BUTTONPANEL);
         trailGame.add(card2, TEXTPANEL);
+        for (int i = 0 ; i < tree.size(); i ++){
+            int j=0;
+            while(j<tree.get(i).size()){
+                trailGame.add
+                if ()
+            }
+        }
         //while loop thats like if counter doesn't reach zero
         //if yes add this one if no add other one
 
@@ -55,9 +65,11 @@ public class TrailGUI
          * @param Action the event of the button being clicked
          */
         public void actionPerformed(ActionEvent event){
-            //need a new frame here 
+            //iff next button then remove //need a new frame here 
             CardLayout cl = (CardLayout)(trailGame.getLayout());
             cl.show(trailGame, TEXTPANEL);
+            //if first option is pressed, add right panel 
+            //check to make sure it still has stuff 
         }
     }
     public static void main (String[] args) 
