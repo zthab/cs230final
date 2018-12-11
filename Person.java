@@ -1,15 +1,19 @@
 
 /**
- * Write a description of class Person here.
+ * The Person class holds all the information for each of the six archetypes. There are getter and 
+ * setter methods that are used to get and set the three different score categories (smart, social, 
+ * sleep), as well as a method that checks whether all the scores are above zero.
  *
  * @author (gbronzi, zthabet,nbryant2)
- * @version (12.1.18)
+ * @version (12.10.18)
  */
 public class Person
 {
-    int sleepScore, smartScore, socialScore;
-    int[] character;
+    //instance variables
+    int sleepScore, smartScore, socialScore; // three scores that are based on choosen character
+    int[] character; //array holds all the points for the choosen character
     
+    //the six archetypes, each have a different array of sleep, social, smart points
     private final static int[] athletic = {2, 2, 4};
     private final static int[] hermit = {4, 5, 0};
     private final static int[] horse = {0, 0, 0};
@@ -100,5 +104,6 @@ public class Person
         
         return sleepScore > 0 && smartScore > 0 && socialScore > 0;      
     }
+   
     
 }

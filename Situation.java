@@ -1,18 +1,22 @@
 
 /**
- * Write a description of class Situation here.
+ * The sitution class creates an object that holds a situational question and the two options that
+ * go with the question (which are the three instance variables). The class contains getter and 
+ * setter methods for the all instance variables. 
  *
  * @author (zthabet,nbryant2,gbronzi)
- * @version (12.1.18)
+ * @version (12.10.18)
  */
 public class Situation
 {
-    String question;
-    String option1;
-    String option2;
+    //instance variable
+    String question; //question that user is prompted with 
+    String option1; //first option that goes with question
+    String option2; //second option that goes with question
 
     /**
-     * Constructor for objects of class Situation
+     * Constructor for objects of class Situation, has three parameters that are used to set
+     * the question and two option instance variables
      * 
      * @param q,o1,o2 
      */
@@ -75,6 +79,10 @@ public class Situation
      */
     public void setOption2(String opt){
         option2 = opt;
+    }
+    
+    public String toString(){
+        return question + "/nChoice 1: " + option1 + "/nChoice 2: " + option2;
     }
     
 }
