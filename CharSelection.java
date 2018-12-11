@@ -13,9 +13,11 @@ public class CharSelection extends JPanel
 {
     private JLabel quote;
     private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
+    private Person charac;
     //private String comedyQuote, philosophyQuote, carpentryQuote;
-    public CharSelection()
+    public CharSelection(Person pers)
     {
+        Person charac = pers;
         //comedyQuote = "Take my wife, please.";
         //philosophyQuote = "I think, therefore I am.";
         //carpentryQuote = "Measure twice. Cut once.";
@@ -80,16 +82,17 @@ public class CharSelection extends JPanel
         {
             Object source = event.getSource();
             if (source == athletic){
-               // quote.setText (comedyQuote);
+               charac=new Person(0);
             }else if (source == hermit){
-                //quote.setText (philosophyQuote);
+                charac = new Person(1);
             }else if (source == horse){
-               // quote.setText (carpentryQuote);
+               charac = new Person(2);
             }else if (source == offCampus){
-                
+                charac=new Person(3);
             }else if (source == society){
-                
+                charac = new Person(4);
             }else{
+                charac = new Person(5);
             }
         }
     }//can use jlayered panel for selection

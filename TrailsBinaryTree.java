@@ -1,4 +1,4 @@
-
+import java.io.*;
 /**
  * Write a description of class TrailsBinaryTree here.
  *
@@ -7,27 +7,29 @@
  */
 public class TrailsBinaryTree
 {
-    // instance variables - replace the example below with your own
-    private int x;
 
     /**
      * Constructor for objects of class TrailsBinaryTree
      */
-    public TrailsBinaryTree()
-    {
-        // initialise instance variables
-        x = 0;
+    public TrailsBinaryTree(){
+
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public TrailsBinaryTree(String txtFile){
+        File file = new File(txtFile); 
+        try{
+            BufferedReader br = new BufferedReader(new FileReader(file)); 
+
+            String st; 
+            while ((st = br.readLine()) != null) 
+                System.out.println(st); 
+        }catch(FileNotFoundException e){
+            System.out.println("File not found.");
+        }catch(IOException e){
+            System.out.println("File not formatted correctely.");
+        }
+        
+        
     }
+
 }
