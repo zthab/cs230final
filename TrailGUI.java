@@ -45,10 +45,11 @@ public class TrailGUI
         for (int i = 0 ; i < tree.size(); i ++){
             int j=0;
             while(j<tree.get(i).size()){
-                trailGame.add
+                
+                trailGame.add(new JPanel(Situation(tree.get(i).get(j))));
                 if ()
             }
-        }
+        }}
         //while loop thats like if counter doesn't reach zero
         //if yes add this one if no add other one
 
