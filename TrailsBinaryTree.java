@@ -1,4 +1,6 @@
 import java.io.*;
+import javafoundations.*;
+import java.util.Scanner;
 /**
  * Write a description of class TrailsBinaryTree here.
  *
@@ -7,7 +9,7 @@ import java.io.*;
  */
 public class TrailsBinaryTree
 {
-
+    private LinkedBinaryTree<Situation>[] arrYears;
     /**
      * Constructor for objects of class TrailsBinaryTree
      */
@@ -16,20 +18,25 @@ public class TrailsBinaryTree
     }
 
     public TrailsBinaryTree(String txtFile){
-        File file = new File(txtFile); 
+        int count =0;
+        
         try{
-            BufferedReader br = new BufferedReader(new FileReader(file)); 
-
-            String st; 
-            while ((st = br.readLine()) != null) 
-                System.out.println(st); 
+            File file = new File(txtFile); 
+             Scanner sc = new Scanner(file); 
+  
+    while (sc.hasNextLine()) 
+      //System.out.println(sc.nextLine()); 
+      if (sc.nextLine()==" "){
+        System.out.println("yes");}
+            
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
-        }catch(IOException e){
-            System.out.println("File not formatted correctely.");
         }
         
         
+    }
+    public static void main(String []args){
+        TrailsBinaryTree a = new TrailsBinaryTree("eee.txt");
     }
 
 }
