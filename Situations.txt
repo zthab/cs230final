@@ -92,7 +92,7 @@ Your best friend decided to study abroad so you..., sit in your room and mope ar
 
 You told your professor about your awesome summer internship and they recommend doing a Tanner. You... think its a great idea and start planning immediately,-2,3,1, ask everyone you know if they think its a good idea,0,1,1
 
-You're alarm didn't go off and your tanner starts in 10 minutes! You... run to the quad as fast as you can in your pajamas, 2,-1,-1, call in sick...its better than nothing, 2,-3,0
+You're alarm  didn't go off and your tanner starts in 10 minutes! You... run to the quad as fast as you can in your pajamas, 2,-1,-1, call in sick...its better than nothing, 2,-3,0
 
 Flu shot season! You..., are the first one in line, 2,2,2, don't worry about it. Your immune system is great!-2,-2,-2
 
