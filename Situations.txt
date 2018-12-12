@@ -1,37 +1,14 @@
-Question,option,0,0,0,option,0,0,0
+Time to pick a roommate! Will you go.../ Random/-2/0/2/Not random/2/0/1
+It's orientation week! There are a ton of events and you.../Go to all of them/0/2/4/Skip them/0/-2/-2
+It's the Saturday before classes start and your friend told you about a party at MIT so you.../Hop on the Peter!/-3/0/3/Decide you need sleep instead/3/0/0
+FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+Your FY Writing class has a 8 page paper due the second week of classes!! You.../start writing immediately/0/3/0/don't stress! (Shadow grading duhh)/2/-1/1
+First midterm!! You.../Pull an all nighter in sci/-4/1/0/Started studying at a reasonable time/2/3/0
+You finally find an entrance to the tunnels!/You... Bring a flashlight, a friend, and nothing else/-2/-2/3/would never enter the asbestos ridden caverns below Wellesley/0/2/0
+FINALS!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
 
-Time to pick a roommate! Will you go..., Random,-2,0,2,Not random,2,0,1
-
-It's orientation week! There are a ton of events and you..., Go to all of them,0,2,4,Skip them, 0,-2,-2
-
-It's the Saturday before classes start and your friend told you about a party at MIT so you..., Hop on the Peter!,-3,0,3,Decide you need sleep instead, 3,0,0
-
-FDOC! You..., Your up 3 hours before class to get ready,-2,0,0,You forgot to wake up...,2,-2,0
-
-Your FY Writing class has a 8 page paper due the second week of classes!! You..., start writing immediately, 0,3,0, don't stress! (Shadow grading duhh), 2,-1,1
-
-First midterm!! You...,Pull an all nighter in sci, -4,1,0, Started studying at a reasonable time, 2,3,0
-
-You finally find an entrance to the tunnels! You... Bring a flashlight, a friend, and nothing else, -2,-2,3, would never enter the asbestos ridden caverns below Wellesley, 0,2,0
-	- we can do tunnel game if you select the first option
-
-
-FINALS!! You're finally done with your first year at Wellesley!! You..., Leave as soon as you can, 3,0,-1, Stay until the last possible moment to spend time with friends, -2,0,3
-
-
-
-
-Move-in day round two! You..., start unpacking with your new roomie, 2,0,1, find your friends as quickly as you can, -2,0,2
-
-To go-abroad or to not go-abroad---that is the question, Staying in the comfort of the dorm you've already lived in for two years, 0,2,-1, You're picking between Oxford and Edinburgh and Spain and France and ...,-2,-1,3
-
-Quick! Find a major advisor! You...,ask the first person you find, 0,0,0, make a powerpoint presentation explaining why they should be your advisor, -1,2,0
-
-Time to declare! You..., double declare as soon as you can, -3,3,-1, remain undeclared until senior fall, 1,-1,2
-
-
-
-
-
-sleep smart social
+Move-in day round two! You.../start unpacking with your new roomie/2/0/1/find your friends as quickly as you can/-2/0/2
+To go-abroad or to not go-abroad---that is the question/Staying in the comfort of the dorm you've already lived in for two years/0/2/-1/You're picking between Oxford and Edinburgh and Spain and France and .../-2/-1/3
+Quick! Find a major advisor! You.../ask the first person you find/0/0/0/make a powerpoint presentation explaining why they should be your advisor/-1/2/0
+Time to declare! You.../double declare as soon as you can/-3/3/-1/remain undeclared until senior fall/1/-1/2
 

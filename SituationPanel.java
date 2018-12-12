@@ -55,14 +55,16 @@ public class SituationPanel extends JPanel
         {
             if (event.getSource().equals(option1Button)){
                 player.detractAllScores(option1.getPoints());
-            }else if (event.getSource().equals(option2Button)){
-                player.detractAllScores(option2.getPoints());
-            }
-            JButton button = (JButton)event.getSource();
+                
+                JButton button = (JButton)event.getSource();
             JPanel buttonPanel = (JPanel)button.getParent();
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             layout.show(cardLayoutPanel, "2");
+            }else if (event.getSource().equals(option2Button)){
+                player.detractAllScores(option2.getPoints());
+            }
+            
         }
     }//can use jlayered panel for selection
 

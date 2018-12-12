@@ -2,61 +2,90 @@ import java.io.*;
 import javafoundations.*;
 import java.util.Scanner;
 import java.util.Vector; 
+import java.lang.Throwable;
 /**
- * Write a description of class TrailsBinaryTree here.
+ *Creates a vector of binary trees of situations. Created specifically to 
+ *represent choices made in the four years of the Wellesley Trail. 
  *
- * @author (gbronzi, zthabet,nbryant2)
+ * @author gbronzi
+ * @author nbryant2
+ * @author zthabet
  * @version (12.1.18)
  */
 public class TrailsBinaryTree
 {
     private Vector<Vector<Situation>> years;
     /**
-     * Constructor for objects of class TrailsBinaryTree
+     * Constructor for objects of class TrailsBinaryTree.
+     * Instantiates the years variable as an empty vector.
      */
     public TrailsBinaryTree(){
-
+        years = new Vector<Vector<Situation>>();
     }
 
+    /**
+     * Constructor for objects of class TrailsBinary Tree. Takes parameter of a
+     * text file's name. 
+     * 
+     * @param txtFile Contains the Situation classes that the instance variable
+     *                years' vectors will get. Expected format of 
+     *                question/dec1/dec1sleep/dec1smart/dec1soc/dec2/dec2sleep/
+     *                dec2smart/decsoc <br></br>
+     *                One blank line expected between the different vectors. 
+     */
     public TrailsBinaryTree(String txtFile){
+        //sets the initial amount of vectors in years to 1
+        years=new Vector<Vector<Situation>>();
         int count =0;
+        years.add(new Vector<Situation>());
         String line="";
+
         String question;
-        Option op1,op2;
-        String dec1;
-        String dec2;
-        int dec1Sleep,dec1Smart,dec1Social;
-        int dec2Sleep,dec2Smart,dec2Social;
-        
+        Option[] opts =new Option[2];
+        String[] decs = new String[2];
+        int[][] decPoints = new int[2][3];
+
         try{
             File file = new File(txtFile); 
             Scanner sc = new Scanner(file); 
 
-            while (sc.hasNextLine()){ //make vector
+            while (sc.hasNextLine()){
+                //make vector
                 line=sc.nextLine();
+                //System.out.println(line);
+                //if an empty line is detected, number of vectors is increased
                 if (line.equals("")){
                     count++;
+                    years.add(new Vector<Situation>());
                 }
-                //make new situation so need to set up delimiter 
+                //parses Situation from line
+
                 Scanner scanLine = new Scanner(line);
-                scanLine.useDelimiter(",");
-                
-                question= scanLine.next();
-                
-                dec1=scanLine.next();
-                dec1Sleep=Integer.parseInt(scanLine.next());
-                dec1Smart=Integer.parseInt(scanLine.next());
-                dec1Social=Integer.parseInt(scanLine.next());
-                op1=new Option(dec1,dec1Sleep,dec1Smart,dec1Social);
-                
-                dec2=scanLine.next();
-                dec2Sleep=Integer.parseInt(scanLine.next());
-                dec2Smart=Integer.parseInt(scanLine.next());
-                dec2Social=Integer.parseInt(scanLine.next());
-                op2=new Option(dec2,dec2Sleep,dec2Smart,dec2Social);
-                
-                years.get(count).add(new Situation(question,op1,op2));
-                scanLine.close();
+                scanLine.useDelimiter("/");
+                if(scanLine.hasNext()){
+                    question= scanLine.next();
+                    for (int i = 0; i <decs.length;i++){
+                        if (scanLine.hasNext()){
+                            decs[i]=scanLine.next();
+                            //System.out.println(decs[i]);
+                            for (int j=0;j<decPoints[i].length;j++){
+                                if(scanLine.hasNextInt()){
+                                    //System.out.println(i+" "+j);
+                                    decPoints[i][j]=Integer.parseInt(scanLine.next());
+                                }else{
+                                    throw new IllegalArgumentException("File formatted incorrectely at line:" + line);
+                                }
+                            }
+
+                            opts[i]=new Option(decs[i],decPoints[i]);
+                        }else{
+                            throw new IllegalArgumentException("File formatted incorrectely.");
+                        }
+                    }
+                    System.out.println("size "+ years.size());
+                    years.get(count).add(new Situation(question,opts[0],opts[1]));
+                    scanLine.close();
+                }
             }
             sc.close();
         }catch(FileNotFoundException e){
@@ -64,39 +93,35 @@ public class TrailsBinaryTree
         }
 
     }
+
     public Vector<Vector<Situation>> getYears(){
         return years;
     }
+
     public String toString(){
         String ret = "";
         for (Vector<Situation> i : years){
             int twoPow = 0;//current power of two. Keeps track of what generation the while loop
-                //is on so that new lines can be inserted at proper intervals.
-                int lineVal = 1; //how many elements have printed so far for that generation
+            //is on so that new lines can be inserted at proper intervals.
+            int lineVal = 1; //how many elements have printed so far for that generation
             for (Situation j : i ){
-              
-                    //if all the members of a generation have been printed
-                    if(lineVal>=Math.pow(2,twoPow)){  
-                        lineVal = 1; //resets amt of members in generation that have been printed
-                        twoPow++; //increases the amount of people to be in a generation
-                        //concatenates a new line after printing out a generation
-                        ret+=j+"\n";
-                    }else{
-                        //if not all members have been printed, adds the next one to the string
-                        //and increases the lineVal
-                        ret+=j+" ";
-                        lineVal++;
-                    }
-                
+
+                //if all the members of a generation have been printed
+                if(lineVal>=Math.pow(2,twoPow)){  
+                    lineVal = 1; //resets amt of members in generation that have been printed
+                    twoPow++; //increases the amount of people to be in a generation
+                    //concatenates a new line after printing out a generation
+                    ret+=j+"\n";
+                }else{
+                    //if not all members have been printed, adds the next one to the string
+                    //and increases the lineVal
+                    ret+=j+" ";
+                    lineVal++;
+                }
+
             }
             ret+="\n\n\n";
         }
         return ret;
     }
-
-    public static void main(String []args){
-        TrailsBinaryTree a = new TrailsBinaryTree("eee.txt");
-
-    }
-
 }
