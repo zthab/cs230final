@@ -64,8 +64,10 @@ public class TrailsBinaryTree
         }
 
     }
-
-    public String getYears(){
+    public Vector<Vector<Situation>> getYears(){
+        return years;
+    }
+    public String toString(){
         String ret = "";
         for (Vector<Situation> i : years){
             int twoPow = 0;//current power of two. Keeps track of what generation the while loop

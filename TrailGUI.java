@@ -20,7 +20,7 @@ public class TrailGUI
     int counter; 
     public void addComponents(Container pane){
         TrailsBinaryTree theTree = new TrailsBinaryTree("Situations.txt");
-        //tree = theTree.getYears();
+        tree = theTree.getYears();
         
         
         //Put the JComboBox in a JPanel to get a nicer look.

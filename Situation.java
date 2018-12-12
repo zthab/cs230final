@@ -81,6 +81,12 @@ public class Situation
         option2 = opt;
     }
     
+    public void setSituation(Situation s){
+        question = s.getQuestion();
+        option1 = s.getOption1();
+        option2 = s.getOption2();
+    }
+    
     
     public String toString(){
         return question + "/nChoice 1: " + option1 + "/nChoice 2: " + option2;

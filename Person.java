@@ -34,9 +34,9 @@ public class Person
         character = allChars[charInt];
         
         //sleep, smart and social in index 0,1,2 repectively
-        sleepScore = character[0];
-        smartScore = character[1];
-        socialScore = character[2];
+        sleepScore = character[0]+10;
+        smartScore = character[1]+10;
+        socialScore = character[2]+10;
         
     }
 
@@ -92,6 +92,18 @@ public class Person
      */
     public void setSocialScore(int score){
         socialScore = score;
+    }
+    
+    public void detractAllScores(int[] scores){
+        for (int i =0 ; i <character.length; i ++){
+            character[i]-=scores[i];
+        }
+    }
+    
+    public void addAllScores(int[] scores){
+        for (int i =0 ; i <character.length; i ++){
+            character[i]+=scores[i];
+        }
     }
     
     /**
