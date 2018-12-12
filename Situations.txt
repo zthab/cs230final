@@ -30,7 +30,23 @@ Quick! Find a major advisor! You...,ask the first person you find, 0,0,0, make a
 Time to declare! You..., double declare as soon as you can, -3,3,-1, remain undeclared until senior fall, 1,-1,2
 
 
+Uh oh... Where'd you leave your laptop?? You...find it under a pile of laundry,0,2,0, can't find it!! Where'd it go??, -1,-2,0
+	- we can add another game similar to the tunnel one if we have time
 
+A new season of your favorite show just came out of netflix. You..., decided to treat yourself and finish your homework later, 2,-1,1, wait until winter break :(, -2,2,0
+
+You're walking back to class late at night when you see your arch enemy - - the geese... You..., RUN, -1,2,0, stare them down... you won't let them scare you, 1,1,0
+	- running game!
+
+Spring finals round two! You...,spend finals week hiding in clapp,-2,3,-1, spend the entire period wishing you still had shadow grading, -1,-2,0
+
+
+
+Year 3 is starting and you already have parties planned for the next month. You..., get campus po called on you, -3,-1,3, you burn out after the first one and decide never to throw a party again, -1, 2,-2
+
+Your best friend decided to study abroad so you..., sit in your room and mope around because she's having fun in France without you, 1,1,-2, decide to go out and make some more friends, -1,0,2
+
+You told your professor about your awesome summer internship and they recommend doing a Tanner
 
 
 sleep smart social
