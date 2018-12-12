@@ -1,9 +1,5 @@
 
 /**
- * This is working! Partly! The timer and the counter are in the same frame. 
- * Where I am stuck is in how to get the info from the counter (ie when it is 0)
- * and commnuicate it to the Main frame so it will stop displaying the the counter
- * and display the results. Gonna need a brain storm
  *
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.10.18)

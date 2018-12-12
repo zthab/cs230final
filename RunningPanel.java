@@ -22,7 +22,6 @@ public class  RunningPanel extends JPanel
     final int TOTAL_TIME = 20; //seconds to play the game
     int counter = TOTAL_TIME;
     javax.swing.Timer refreshTimer;
-    //Creation of a JTextField
     JLabel countdownTimerField ;
 
     private int finalCount;

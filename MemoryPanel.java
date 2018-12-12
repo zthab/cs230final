@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class MemoryPanel here.
+ * At some point, we will want to be able to change the backgound according to which
  *
  * @author (your name)
  * @version (a version number or a date)
@@ -9,19 +9,26 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.*;
+import javafoundations.*;
 
 public class MemoryPanel extends JPanel {
-
+   private ArrayQueue<String> memQueue; //holds the words given to player 
+   //The commands given in different situations
+   private final static String [][] wordList={{"Right", "Left", "Center",},{"Zahra","Giulia"}};
+   //references to the needed array memory words
+   private final static String [] circumstance = {"Tunnel","FYM"};
+   
    private JLabel inputLabel, outputLabel;
    private JTextField answer;
    private JTextArea path;
-   private int count,x,y;
+   private int count,x,y; //to resize the panel as word are added
 
    //-----------------------------------------------------------------
    //  Constructor: Sets up the main GUI components.
    //-----------------------------------------------------------------
-   public MemoryPanel()
-   {
+   public MemoryPanel(){
+   
       inputLabel = new JLabel ("Enter the words in the order in which they appeared:");
       outputLabel = new JLabel ("Your chosen tunnel path: ");
       path = new JTextArea ();
@@ -29,9 +36,9 @@ public class MemoryPanel extends JPanel {
       x=300;
       y=75;
 
-      answer = new JTextField (5);
+      answer = new JTextField (5); //box for the user input
       TempListener listener = new TempListener();
-      answer.addActionListener (listener);
+      answer.addActionListener (listener);//records user input
 
 
       add (inputLabel);
