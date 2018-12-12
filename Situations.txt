@@ -19,6 +19,8 @@ It's orientation week! There are a ton of events and you..., Go to all of them,0
 
 It's the Saturday before classes start and your friend told you about a party at MIT so you..., Hop on the Peter!,-3,0,3,Decide you need sleep instead, 3,0,0
 
+Today's the org fair and you're looking for the coolest org on campus. You..., join frisbee!, 0,3,3, don't join frisbee, 0,-3,-3
+
 FDOC! You..., Your up 3 hours before class to get ready,-2,0,0,You forgot to wake up...,2,-2,0
 
 Your FY Writing class has a 8 page paper due the second week of classes!! You..., start writing immediately, 0,3,0, don't stress! (Shadow grading duhh), 2,-1,1
@@ -45,6 +47,35 @@ Time to declare! You..., double declare as soon as you can, -3,3,-1, remain unde
 
 Uh oh... Where'd you leave your laptop?? You...find it under a pile of laundry,0,2,0, can't find it!! Where'd it go??, -1,-2,0
 	- we can add another game similar to the tunnel one if we have time
+<<<<<<< HEAD
+=======
+
+A new season of your favorite show just came out of netflix. You..., decided to treat yourself and finish your homework later, 2,-1,1, wait until winter break :(, -2,2,0
+
+You're walking back to class late at night when you see your arch enemy - - the geese... You..., RUN, -1,2,0, stare them down... you won't let them scare you, 1,1,0
+	- running game!
+
+You've been thinking about your career plans. You..., decide to be pre-med/pre-law, -2,3,-1, still have two more years to decide why choose now!, 1,1,0
+
+Spring finals round two! You...,spend finals week hiding in clapp,-2,3,-1, spend the entire period wishing you still had shadow grading, -1,-2,0
+
+
+
+Year 3 is starting and you already have parties planned for the next month. You..., get campus po called on you, -3,-1,3, you burn out after the first one and decide never to throw a party again, -1, 2,-2
+
+Your best friend decided to study abroad so you..., sit in your room and mope around because she's having fun in France without you, 1,1,-2, decide to go out and make some more friends, -1,0,2
+
+You told your professor about your awesome summer internship and they recommend you do a Tanner. You... think its a great idea and start planning immediately,-2,3,1, ask everyone you know if they think its a good idea,0,1,1
+
+You're alarm didn't go off and your tanner starts in 10 minutes! You... run to the quad as fast as you can in your pajamas, 2,-1,-1, call in sick...its better than nothing, 2,-3,0
+
+Flu shot season! You..., are the first one in line, 2,2,2, don't worry about it. Your immune system is great!-2,-2,-2
+
+Looks like you needed that flu shot after all! You... wait for three hours in health services and they give you three cough drops, -2,-1,-1, stick it out by sleeping for four days straight, 3,-2,-2
+
+You go into Boston on a Sunday but forget that the bus only runs every two hours and you have to be back on campus soon! You..., spend $80 dollars on an Uber so you can make it in time, 0,-1,0, cut your loses and wait for the next bus in Harvard square, 0,-1,1
+
+>>>>>>> 7c7cebc1e8b02fba562da35c8b226868c434aecf
 
 A new season of your favorite show just came out of netflix. You..., decided to treat yourself and finish your homework later, 2,-1,1, wait until winter break :(, -2,2,0
 
