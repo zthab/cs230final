@@ -21,8 +21,8 @@ import java.awt.event.*;
 
 public class MemoryGame 
 {
-   private JLabel contentPanel;
-   private JPanel bgPanel;
+   private JLabel contentPanel;//holds all the stuff, only thing added to frame
+   private JPanel bgPanel; //background image
    
    public static void main (String[] args){
       JFrame frame = new JFrame ("Tunnel Challenge");
@@ -33,6 +33,7 @@ public class MemoryGame
       JPanel bgPanel = new JPanel(); //background image
       
       //add image from file
+      //eventually we will want to change the image based on the senario
       try {
           bgPanel.add(new JLabel(new ImageIcon(ImageIO.read(new File("Tunnel.jpg")))));
       } catch (IOException e) {
@@ -43,7 +44,8 @@ public class MemoryGame
       frame.setPreferredSize(new Dimension(610, 455));
       frame.setLayout(new BorderLayout());
       frame.add(content, BorderLayout.CENTER);
-      content.setBounds(0, 0, 600, 400); //same as frame
+      content.setBounds(0, 0, 610, 455); //same as frame
+      //panel needs to rezise as words are given or we just take out the display, also would work
       panel.setBounds(160, 100, 300, 75);//((where the panel starts),(the panel size))
       bgPanel.setOpaque(true);
       bgPanel.setBounds(0, 0, 600, 400); 
