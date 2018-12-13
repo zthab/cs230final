@@ -40,9 +40,9 @@ public class InstructionsPanel extends JPanel
        l4.setBackground(Color.green);
        add(l4);
        
-       JButton next = new JButton("Next");
+       JButton next = new JButton("Choose your character -->");
        next.addActionListener(new ButtonListener());
-       
+       add(next);
     }
     
     private class ButtonListener implements ActionListener
