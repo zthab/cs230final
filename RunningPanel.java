@@ -4,6 +4,8 @@
  *
  * known bugs:
  * -sizing things. totally works fine, isn't priority to fix, just looks kinda wierd
+ * -will not currently go on to the death screen for whatever reason. It hates me. 
+ *  The mainGameDead button just doesn't work?
  * 
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.10.18)
@@ -37,7 +39,7 @@ public class  RunningPanel extends JPanel {
         deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
         cl = (CardLayout)(deck.getLayout());//manages the deck
         dying = new DeathPanel();//end game screen
-        dying.setVisible(true); //didn't change anything
+        //dying.setVisible(true); //didn't change anything
         
         deck.add(intro(), "instructions");
         //deck.add(game(), "play"); //can't add here bc it starts the timer
@@ -46,8 +48,8 @@ public class  RunningPanel extends JPanel {
         deck.add(dying, "dead");
         
         setPreferredSize (new Dimension(300, 40));
-        add(dying);
-        //add(deck);
+        //add(dying);
+        add(deck);
     }
 
     //*****************************************************************
@@ -60,7 +62,7 @@ public class  RunningPanel extends JPanel {
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
-                if(count>=100){//deterime if go to outroWin or outroLost and go there
+                if(count>=1){//deterime if go to outroWin or outroLost and go there; should be 100
                     refreshTimer.stop();
                     finalCount=count;
 
@@ -117,17 +119,15 @@ public class  RunningPanel extends JPanel {
 
                 if (r==0)
                     setBackground (Color.cyan);
-            }
-            if (event.getSource() == start){
+            }else if (event.getSource() == start){
                 //added here so the time starts on this screen
                 deck.add(game(), "play");
                 cl.last(deck);
-            }
-            if (event.getSource() == mainGameDead){
-                //exit and go to the Death Screen, sad sad sad               
+            }else if (event.getSource() == mainGameDead){
+                //exit and go to the Death Screen, sad sad sad   
+                System.out.println("in the death button");
                 cl.show(deck, "dead");
-            }
-            if (event.getSource() == mainGameAlive){
+            } else{ 
                 //back to the main game
             }
         }
