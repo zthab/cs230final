@@ -49,6 +49,7 @@ public class StartPanel extends JPanel
                         cardLayoutPanel.add(nextPanel,"Instructions");
                         System.out.println("here");
                         layout.show(cardLayoutPanel, "Instructions");
-                    }}
+                    }
+                }
 
 }

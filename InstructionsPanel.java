@@ -33,17 +33,29 @@ public class InstructionsPanel extends JPanel
                                     
        l1.setBackground(Color.green); //so that the JTextArea matches the panel background
        add (l1);
+       l2.setBackground(Color.green);
+       add (l2);
+       l3.setBackground(Color.green);
+       add(l3);
+       l4.setBackground(Color.green);
+       add(l4);
+       
+       JButton next = new JButton("Next");
+       next.addActionListener(new ButtonListener());
        
     }
     
-    public void actionPerformed (ActionEvent event){
-        JButton button = (JButton)event.getSource();
-        JPanel buttonPanel = (JPanel)button.getParent();
-        JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
-        //make new situation panel from source
-        CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
-        CharSelection nextPanel = new CharSelection(new Person(0)); 
-        cardLayoutPanel.add(nextPanel,"3");
-        layout.show(cardLayoutPanel, "3");
+    private class ButtonListener implements ActionListener
+    {
+        public void actionPerformed (ActionEvent event){
+            JButton button = (JButton)event.getSource();
+            JPanel buttonPanel = (JPanel)button.getParent();
+            JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
+            //make new situation panel from source
+            CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
+            CharSelection nextPanel = new CharSelection(new Person(0)); 
+            cardLayoutPanel.add(nextPanel,"3");
+            layout.show(cardLayoutPanel, "3");
+        }
     }
 }
