@@ -22,13 +22,13 @@ public class TrailGUI
         p=new Person(0);//initializes it
         JPanel start = new StartPanel();
 
-        JPanel card2 = new CharSelection(p);
+        JPanel card2 = new CharSelection();
         
         JPanel card3 = new SituationPanel(p, theTree, 0,0);
 
         //Create the panel that contains the "cards".
         trailGame = new JPanel(new CardLayout());
-        trailGame.add(start, "StartPanel");
+        trailGame.add(card2, "StartPanel");
         trailGame.setPreferredSize(new Dimension(600,400));
         pane.add(trailGame, BorderLayout.CENTER);
         

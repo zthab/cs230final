@@ -16,23 +16,15 @@ public class CharSelection extends JPanel
 {
     private JLabel quote;
     private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
-    private Person charac;
-    //private String comedyQuote, philosophyQuote, carpentryQuote;
-    public CharSelection(Person pers)
+    private Person player;
+    public CharSelection()
     {
-        Person charac = pers;
-        //comedyQuote = "Take my wife, please.";
-        //philosophyQuote = "I think, therefore I am.";
-        //carpentryQuote = "Measure twice. Cut once.";
-        //quote = new JLabel (comedyQuote);
-        //quote.setFont (new Font ("Helvetica", Font.BOLD, 24));
-        //was working right here need to figure out how to get tooltiptext to work for showing stats. 
-        //might add pic of avatar
+        player = new Person();
+        
         athletic = new JRadioButton ("Athletic Alex", true);
-        athletic.setToolTipText("Click this button to disable the middle button.");
         athletic .setBackground (Color.green);
 
-        hermit = new JRadioButton ("Hermit Harper");
+        hermit = new JRadioButton ("Hermit Harper\nhi");
         hermit.setBackground (Color.green);
 
         horse = new JRadioButton ("Horse Girl Grace");
@@ -55,7 +47,6 @@ public class CharSelection extends JPanel
         group.add(society);
         group.add(wendy);
         
-
         QuoteListener listener = new QuoteListener();
         athletic.addActionListener (listener);
         hermit.addActionListener (listener);
@@ -63,17 +54,19 @@ public class CharSelection extends JPanel
         offCampus.addActionListener (listener);
         society.addActionListener (listener);
         wendy.addActionListener (listener);
-        //add (quote);
+        
         try{
             BufferedImage AlexPic = ImageIO.read(new File("AthleticAlex.png"));
-            
             JLabel AlexPicLabel = new JLabel(new ImageIcon(AlexPic));
-            AlexPicLabel.setSize(50,100);
             add(AlexPicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        add (athletic);
+        JLabel a = new JLabel();
+        a.add(athletic);
+        a.add(new JLabel("hahah"));
+        add (a);
+        //add(new JLabel("hahah"));
         try{
             BufferedImage HarperPic = ImageIO.read(new File("HermitHarper.png"));
             JLabel HarperPicLabel = new JLabel(new ImageIcon(HarperPic));
@@ -130,18 +123,18 @@ public class CharSelection extends JPanel
         {
             Object source = event.getSource();
             if (source == athletic){
-                charac=new Person(0);
+                player=new Person(0);
             }else if (source == hermit){
-                charac = new Person(1);
+                player = new Person(1);
             }else if (source == horse){
-                charac = new Person(2);
+                player = new Person(2);
             }else if (source == offCampus){
-                charac=new Person(3);
+                player=new Person(3);
             }else if (source == society){
-                charac = new Person(4);
+                player = new Person(4);
             }else{
-                charac = new Person(5);
+                player = new Person(5);
             }
-
         }
-    }}//can use jlayered panel for selectio
+    }
+}//can use jlayered panel for selectio
