@@ -148,13 +148,15 @@ public class MemoryPanel extends JPanel {
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
                 life = false;
-        background.setOpaque(false);
-        dying.setBounds(0, 0, 610, 455);
-        deck.setOpaque(false);
-                content.add(dying, new Integer(1), 0);//sets to the foregound 
+                // background.setOpaque(false);
+                // dying.setBounds(0, 0, 610, 455);
+                // deck.setOpaque(false);
+                // content.add(dying, new Integer(1), 0);//sets to the foregound 
+                // revalidate();
+                //^This does't work either, yet
                 
-                revalidate();
-                //add(dying);//go to final screen
+                //cl.show(deck, "death");->this places the images in the small little box in the center, no good
+                
             }else{
                 //go back to main game
             }
