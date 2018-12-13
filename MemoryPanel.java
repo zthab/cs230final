@@ -44,7 +44,11 @@ public class MemoryPanel extends JPanel {
             "How embarassing, you messed up someone's name!" +
             "\nYou tried to hide in your room until you got over it, but missed too many meals and died.",
             "Oh dear, you couldn't out smart the squirrel." +
-            "\nYou got bitten and died."};                             
+            "\nYou got bitten and died."};  
+    protected final static String [] winningList = {"You successfully made it out of the tunnels, hurray!",
+            "Great job, you learned everyone's name, and earned a few new friends. Hurray!",
+            "In the nick of time, you made it into the nearest building and esccaped!" +
+            "\nThe squirrel moved on to it's next victim, and you are one day closer to graduation."};             
     protected final static String [] images = {"Tunnel.jpg", "Campus.jpg", "Squirrel.jpg"};                 
     protected Vector<String> answerKey; //could be taken out, I think
     protected String name;//the circumstance senario passed in the constructor;
@@ -54,8 +58,8 @@ public class MemoryPanel extends JPanel {
     protected JLabel inputLabel, outputLabel;
     protected JTextField answer;
     protected JTextArea path;
-    protected JPanel scenario, instructions, game, gameOver, win, deck, background,dying;
-    protected JButton next, start;
+    protected JPanel scenario, instructions, game, gameOver, win, deck, background, dying;
+    protected JButton next, start, dead, alive;
     protected int index,count,x,y; //to resize the panel as word are added, maybe
 
     //-----------------------------------------------------------------
@@ -78,6 +82,7 @@ public class MemoryPanel extends JPanel {
         background = new JPanel();//holds the scenario image
         deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
         cl = (CardLayout)(deck.getLayout());//manages the deck
+        dying = new DeathPanel();
 
         //add image to the background
         try {
@@ -98,7 +103,8 @@ public class MemoryPanel extends JPanel {
         deck.add(game(), "game");
         deck.add(gameOver(), "loser");
         deck.add(win(), "winner");
-
+        deck.add(dying, "death");
+        
         //setPreferredSize(new Dimension(610, 455));
         setLayout(new BorderLayout());
         content.setBounds(0, 0, 610, 455); //same as frame
@@ -124,20 +130,23 @@ public class MemoryPanel extends JPanel {
             count++;
             if (!input.equals(memQueue.dequeue())){
                 //switch panels to a game over panel
-                cl.next(deck);
+                cl.show(deck, "loser");
             }
             if (memQueue.size()==0)
-                cl.last(deck);
+                cl.show(deck, "winner");
         }
     }
 
     protected class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event){
             if (event.getSource() == next){
-                cl.next(deck);//changes to the game screen
-            }
-            if (event.getSource() == start){
-                cl.next(deck);//go to instructions
+                cl.show(deck,"game");//changes to the game screen
+            }else if (event.getSource() == start){
+                cl.show(deck,"rules");//go to instructions
+            }else if (event.getSource() == dead){
+                cl.show(deck,"death");//go to final screen
+            }else{
+                //go back to main game
             }
         }
     }
@@ -226,11 +235,13 @@ public class MemoryPanel extends JPanel {
     //gameOver panel
     protected JPanel gameOver(){
         gameOver = new JPanel();
-
-        JTextArea exit = new JTextArea(losingList[index]);
+        JTextArea exit = new JTextArea(losingList[index] + "\nPlease click 'Game Over' to move on");
+        dead = new JButton("Game Over");
         
+        dead.addActionListener(new ButtonListener());
         gameOver.setLayout(new FlowLayout());
         gameOver.add(exit);
+        gameOver.add(dead);
 
         return gameOver;    
     }
@@ -238,10 +249,12 @@ public class MemoryPanel extends JPanel {
     protected JPanel win(){
         win = new JPanel();
 
-        JLabel congrats = new JLabel ("You made it out! Hurray!");
+        JTextArea congrats = new JTextArea(winningList[index] + "\nPlease click 'Back to School' to move on");
+        alive = new JButton("Back to School");
         
         win.setLayout(new FlowLayout());
         win.add(congrats);
+        win.add(alive);
 
         return win;    
     }
