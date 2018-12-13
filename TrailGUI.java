@@ -75,7 +75,7 @@ public class TrailGUI
         public void actionPerformed(ActionEvent event){
             
             CardLayout cl = (CardLayout)(trailGame.getLayout());
-            cl.show(trailGame, "3");
+            cl.show(trailGame, TEXTPANEL);
             
             //if from one right in front of the situation panel, delete it 
             //shoudl also format the buttons in that to match
