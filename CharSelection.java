@@ -14,17 +14,17 @@ import java.io.*;
  */
 public class CharSelection extends JPanel
 {
-    private JLabel quote;
+    private JTextArea pers;
     private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
     private Person player;
     public CharSelection()
     {
         player = new Person();
         
-        athletic = new JRadioButton ("Athletic Alex", true);
+        athletic = new JRadioButton ("Athletic Alex");
         athletic .setBackground (Color.green);
 
-        hermit = new JRadioButton ("Hermit Harper\nhi");
+        hermit = new JRadioButton ("Hermit Harper");
         hermit.setBackground (Color.green);
 
         horse = new JRadioButton ("Horse Girl Grace");
@@ -38,6 +38,8 @@ public class CharSelection extends JPanel
 
         wendy = new JRadioButton ("Wendy Wellesley");
         wendy.setBackground (Color.green);
+        
+         pers = new JTextArea("");
 
         ButtonGroup group = new ButtonGroup();
         group.add (athletic);
@@ -62,11 +64,7 @@ public class CharSelection extends JPanel
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        JLabel a = new JLabel();
-        a.add(athletic);
-        a.add(new JLabel("hahah"));
-        add (a);
-        //add(new JLabel("hahah"));
+        add (athletic);
         try{
             BufferedImage HarperPic = ImageIO.read(new File("HermitHarper.png"));
             JLabel HarperPicLabel = new JLabel(new ImageIcon(HarperPic));
@@ -107,6 +105,7 @@ public class CharSelection extends JPanel
             System.out.println("Image not found in directory.");
         }
         add (wendy);
+        add (pers);
         setBackground (Color.green);
         setPreferredSize (new Dimension(300, 100));
     }
@@ -121,20 +120,10 @@ public class CharSelection extends JPanel
         //-----------------------------------------------------------------
         public void actionPerformed (ActionEvent event)
         {
-            Object source = event.getSource();
-            if (source == athletic){
-                player=new Person(0);
-            }else if (source == hermit){
-                player = new Person(1);
-            }else if (source == horse){
-                player = new Person(2);
-            }else if (source == offCampus){
-                player=new Person(3);
-            }else if (source == society){
-                player = new Person(4);
-            }else{
-                player = new Person(5);
-            }
+            JRadioButton source = (JRadioButton)event.getSource();
+            String chosenName = source.getText();
+            player = new Person(chosenName);
+            pers.setText(player.toString());
         }
     }
-}//can use jlayered panel for selectio
+}

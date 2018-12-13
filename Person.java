@@ -12,6 +12,7 @@ public class Person
     //instance variables
     private int sleepScore, smartScore, socialScore; // three scores that are based on choosen character
     private int[] character; //array holds all the points for the choosen character
+    private String name;
     
     //the six archetypes, each have a different array of sleep, smart, social points
     private final static int[] athletic = {2, 2, 4};
@@ -22,6 +23,7 @@ public class Person
     private final static int[] wendy = {2, 3, 3};
     
     //array of arrays, each index has an array of ints
+    private final static String[] names = {"Athletic Alex", "Hermit Harper", "Horse Girl Grace", "Off Campus Ollie", "Society Skylar", "Wendy Wellesley"};
     private final static int[][] allChars = {athletic,hermit,horse,offCampus,society,wendy};
     /**
      * Constructor for objects of class Person
@@ -32,7 +34,7 @@ public class Person
     {
         //based on arch picked, a number is inputted which is associated to a index in characters[]
         character = allChars[charInt];
-        
+        name = names[charInt];
         //sleep, smart and social in index 0,1,2 repectively
         sleepScore = character[0]+10;
         smartScore = character[1]+10;
@@ -48,7 +50,17 @@ public class Person
         sleepScore = 0;
         smartScore = 0;
         socialScore = 0;
-        
+        name = "";
+    }
+    
+    public Person(String n){
+         //based on arch picked, a number is inputted which is associated to a index in characters[]
+        character = allChars[getIndex(n)];
+        name = n;
+        //sleep, smart and social in index 0,1,2 repectively
+        sleepScore = character[0]+10;
+        smartScore = character[1]+10;
+        socialScore = character[2]+10;
     }
 
     /**
@@ -126,8 +138,20 @@ public class Person
         return sleepScore > 0 && smartScore > 0 && socialScore > 0;      
     }
     
+    public String getName(){
+        return name;
+    }
+    
+    private static int getIndex(String n){
+        for (int i =0; i<names.length;i++){
+            if (names[i].equals(n)){
+                return i;
+            }
+        }
+        return -1;
+    }
     public String toString(){
-        String ret = "Sleep Score: " + sleepScore + " Smart Score: " + smartScore + " social Score: "+socialScore;
+        String ret = name + "\nSleep Score: " + sleepScore + "\nSmart Score: " + smartScore + "\nSocial Score: "+socialScore;
         return ret;
     }
     
