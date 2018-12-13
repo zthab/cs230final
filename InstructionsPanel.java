@@ -21,7 +21,7 @@ public class InstructionsPanel extends JPanel
        JTextArea l1 = new JTextArea ("Welcome to The Wellesley Trail! The goal of this game is to" +
                                      " make it to graduation without getting lost in the tunnels," + 
                                      " attacked by geese, or dying from sleep deprivation.");
-                                     l1.setWrapStyleWord(true);
+                                     l1.setWrapStyleWord(false);
                                      
        JTextArea l2 = new JTextArea (" First you will pick from six different archtypes; each have" +
                                      " a different set of points for the sleep, smart and social" +
