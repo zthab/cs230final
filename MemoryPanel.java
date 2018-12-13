@@ -53,13 +53,13 @@ public class MemoryPanel extends JPanel {
     protected Vector<String> answerKey; //could be taken out, I think
     protected String name;//the circumstance senario passed in the constructor;
 
-    protected CardLayout cl;
+    protected CardLayout cl,clBig;
     protected JLayeredPane content;
     protected ImageIcon image;
     protected JLabel inputLabel, outputLabel,pic;
     protected JTextField answer;
     protected JTextArea path;
-    protected JPanel scenario, instructions, game, gameOver, win, deck, background, dying;
+    protected JPanel scenario, instructions, game, gameOver, win, deck, background, dying, deckBig;
     protected JButton next, start, dead, alive;
     protected int index,count,x,y; //to resize the panel as word are added, maybe
     protected boolean life;
@@ -85,7 +85,13 @@ public class MemoryPanel extends JPanel {
         background = new JPanel();//holds the scenario image
         deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
         cl = (CardLayout)(deck.getLayout());//manages the deck
+        
+        //holds all the pieces as one card and the death scene as the other
+        deckBig = new JPanel(new CardLayout());//this lets me switch panels and it's dope
+        clBig = (CardLayout)(deckBig.getLayout());//manages the big deck
+        
         dying = new DeathPanel();
+        dying.setBounds(0, 0, 610, 455); 
 
         //add image to the background
         try {
@@ -106,12 +112,13 @@ public class MemoryPanel extends JPanel {
         deck.add(game(), "game");
         deck.add(gameOver(), "loser");
         deck.add(win(), "winner");
-        deck.add(dying, "death");
+        
+        //the largest container
+        deckBig.add(content,"main");
+        deckBig.add(dying,"dead");
 
-        //setPreferredSize(new Dimension(610, 455));
         setLayout(new BorderLayout());
         content.setBounds(0, 0, 610, 455); //same as frame
-        //panel needs to rezise as words are given or we just make the display bigger
         deck.setBounds(85, 100, 450, 125);//((where the panel starts),(the panel size))
         background.setOpaque(true);
         background.setBounds(0, 0, 610, 455); 
@@ -119,7 +126,7 @@ public class MemoryPanel extends JPanel {
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(deck, new Integer(1), 0);//sets to the foregound      
 
-        add(content, BorderLayout.CENTER);       
+        add(deckBig, BorderLayout.CENTER);
     }
 
     protected class UserListener implements ActionListener {
@@ -147,16 +154,8 @@ public class MemoryPanel extends JPanel {
             }else if (event.getSource() == start){
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
-                life = false;
-                // background.setOpaque(false);
-                // dying.setBounds(0, 0, 610, 455);
-                // deck.setOpaque(false);
-                // content.add(dying, new Integer(1), 0);//sets to the foregound 
-                // revalidate();
-                //^This does't work either, yet
-                
-                //cl.show(deck, "death");->this places the images in the small little box in the center, no good
-                
+                life = false; //dunno if we need this but seems helpful
+                clBig.show(deckBig, "dead");
             }else{
                 //go back to main game
             }

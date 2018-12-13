@@ -20,10 +20,10 @@ import java.util.Random;
 public class  RunningPanel extends JPanel {
     private int count, time;
     private JButton push, start, mainGameDead, mainGameAlive;
-    private JLabel label, token;
+    private JLabel label;//, token;
     private Timer timeClock;
-    private JPanel intro, game, outroWin, outroLose, deck, dying;//panels for moving through the game
-    private CardLayout cl;//container for the panels
+    private JPanel intro, game, outroWin, outroLose, deck, dying, deckBig;//panels for moving through the game
+    private CardLayout cl, clBig;//container for the panels
 
     final int TOTAL_TIME = 5;//seconds to play the game, should be 20, set to 5 for testing
     int counter = TOTAL_TIME;
@@ -32,24 +32,31 @@ public class  RunningPanel extends JPanel {
 
     private int finalCount;
 
-    public RunningPanel (JLabel token){
-        this.token=token;
+    public RunningPanel (){//(JLabel token){
+        //this.token=token;
         count = 0; 
 
         deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
         cl = (CardLayout)(deck.getLayout());//manages the deck
-        dying = new DeathPanel();//end game screen
-        //dying.setVisible(true); //didn't change anything
+
+        //holds all the pieces as one card and the death scene as the other
+        deckBig = new JPanel(new CardLayout());//this lets me switch panels and it's dope
+        clBig = (CardLayout)(deckBig.getLayout());//manages the big deck
+        
+        dying = new DeathPanel();
+        dying.setBounds(0, 0, 610, 455);
         
         deck.add(intro(), "instructions");
-        //deck.add(game(), "play"); //can't add here bc it starts the timer
         deck.add(outroLose(), "lose");
         deck.add(outroWin(), "win"); 
-        deck.add(dying, "dead");
+        //deck.add(game(), "play"); //can't add here bc it starts the timer
         
-        setPreferredSize (new Dimension(300, 40));
-        //add(dying);
-        add(deck);
+        deckBig.add(deck,"main");
+        deckBig.add(dying,"dead");
+        
+        setPreferredSize (new Dimension(610, 455));
+
+        add(deckBig, BorderLayout.CENTER);
     }
 
     //*****************************************************************
@@ -62,6 +69,9 @@ public class  RunningPanel extends JPanel {
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
+                //remove(countdownTimerField);
+                //cl.removeLayoutComponent(game());//make the clock go away?
+                //^didn't work, just made the timer stop at 1?
                 if(count>=1){//deterime if go to outroWin or outroLost and go there; should be 100
                     refreshTimer.stop();
                     finalCount=count;
@@ -70,7 +80,7 @@ public class  RunningPanel extends JPanel {
                 }else{
                     refreshTimer.stop();
                     finalCount=count;
-                    
+                                       
                     cl.show(deck, "lose");                    
                 }
             }
@@ -125,8 +135,8 @@ public class  RunningPanel extends JPanel {
                 cl.last(deck);
             }else if (event.getSource() == mainGameDead){
                 //exit and go to the Death Screen, sad sad sad   
-                System.out.println("in the death button");
-                cl.show(deck, "dead");
+                clBig.show(deckBig, "dead");
+                //I just don't know why this is displaying so small instead of showing the whole image?
             } else{ 
                 //back to the main game
             }
@@ -135,20 +145,18 @@ public class  RunningPanel extends JPanel {
 
     private JPanel game(){
         game = new JPanel();
-
+        JLabel token = new JLabel();
         refreshTimer = new javax.swing.Timer(1000, new timeListener());
         countdownTimerField = token;
         refreshTimer.start();
 
-        push = new JButton ("Run!"); //probs can be local
+        push = new JButton ("Run!"); 
         push.addActionListener (new ButtonListener() );
 
         label = new JLabel ("Steps: " + count);
         add(countdownTimerField);
         game.add (push); 
         game.add (label);
-
-        //push.setVisible(true);
 
         setBackground (Color.cyan);
         return game;
@@ -178,14 +186,13 @@ public class  RunningPanel extends JPanel {
 
         outroWin.add(message);
         outroWin.add(mainGameAlive);
-        
-        
+                
         return outroWin;
     }
 
     private JPanel outroLose(){
         outroLose = new JPanel();
-        JButton mainGameDead = new JButton("Game Over");
+        mainGameDead = new JButton("Game Over");
         mainGameDead.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("Congrats, you ran " +count+ " steps. Wow!"+
                 "\nSadly, you didn't make it to the omlete line in Lulu before it got too long."+

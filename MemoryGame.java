@@ -35,7 +35,8 @@ public class MemoryGame extends javax.swing.JFrame {
         frame.setPreferredSize(new Dimension(610, 455));
         
         //DeathPanel die = new DeathPanel();
-
+        //frame.add(die);//so that we can check what die looks like->fully functioning
+        
         frame.add(panel);
         frame.pack();
         frame.setVisible(true);
