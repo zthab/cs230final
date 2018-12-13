@@ -17,8 +17,10 @@ public class CharSelection extends JPanel
     private JTextArea pers;
     private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
     private Person player;
+    private Icon curMouse;
     public CharSelection()
     {
+        //put in instructions 
         player = new Person();
         
         athletic = new JRadioButton ("Athletic Alex");
@@ -30,7 +32,7 @@ public class CharSelection extends JPanel
         horse = new JRadioButton ("Horse Girl Grace");
         horse.setBackground (Color.green);
 
-        offCampus = new JRadioButton ("Off-Campus Ollie");
+        offCampus = new JRadioButton ("Off Campus Ollie");
         offCampus.setBackground (Color.green);
 
         society = new JRadioButton ("Society Skylar");
@@ -49,7 +51,7 @@ public class CharSelection extends JPanel
         group.add(society);
         group.add(wendy);
         
-        QuoteListener listener = new QuoteListener();
+        ButtonListener listener = new ButtonListener();
         athletic.addActionListener (listener);
         hermit.addActionListener (listener);
         horse.addActionListener (listener);
@@ -68,6 +70,10 @@ public class CharSelection extends JPanel
         try{
             BufferedImage HarperPic = ImageIO.read(new File("HermitHarper.png"));
             JLabel HarperPicLabel = new JLabel(new ImageIcon(HarperPic));
+            HarperPicLabel.addMouseListener(new ScrollListener());
+            
+            HarperPicLabel.setSize(new Dimension(100000,10000));
+            System.out.println(HarperPicLabel.size());
             add(HarperPicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
@@ -112,7 +118,7 @@ public class CharSelection extends JPanel
     //*****************************************************************
     // Represents the listener for all radio buttons
     //*****************************************************************
-    private class QuoteListener implements ActionListener
+    private class ButtonListener implements ActionListener
     {
         //-----------------------------------------------------------------
         // Sets the text of the label depending on which radio
@@ -124,6 +130,29 @@ public class CharSelection extends JPanel
             String chosenName = source.getText();
             player = new Person(chosenName);
             pers.setText(player.toString());
+            
+            //add button 
+        }
+    }
+    private class ScrollListener extends MouseAdapter
+    {
+        //-----------------------------------------------------------------
+        // Sets the text of the label depending on which radio
+        // button was pressed.
+        //-----------------------------------------------------------------
+        public void mouseEntered (MouseEvent event)
+        {
+            JLabel source = (JLabel)event.getSource();
+            curMouse = source.getIcon();
+            source.setIcon(null);
+            
+            source.setText("hi");
+        }
+        
+        public void mouseExited(MouseEvent event){
+            JLabel source = (JLabel)event.getSource();
+            source.setIcon(curMouse);
+            source.setText("");
         }
     }
 }
