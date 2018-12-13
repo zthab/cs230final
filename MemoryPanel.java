@@ -10,6 +10,7 @@
  * Known bugs/details: 
  * -The font could be larger
  * -might be nice for the user input words to not be case sensitive if we have time
+ * -the user has to manually clear the TextField each time
  * 
  * @author (nbryant2, zthabet, gbronzi)
  * @version (a version number or a date)
