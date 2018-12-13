@@ -39,6 +39,17 @@ public class Person
         socialScore = character[2]+10;
         
     }
+    
+    public Person()
+    {
+        
+        
+        //sleep, smart and social in index 0,1,2 repectively
+        sleepScore = 0;
+        smartScore = 0;
+        socialScore = 0;
+        
+    }
 
     /**
      * Returns the sleep score

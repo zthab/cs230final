@@ -51,8 +51,6 @@ public class SituationPanel extends JPanel
         add (questionText);
         add (option1Button);
         add (option2Button);
-        //code for switching 
-
     }
 
     private class ButtonListener implements ActionListener
@@ -63,69 +61,54 @@ public class SituationPanel extends JPanel
         //-----------------------------------------------------------------
         public void actionPerformed (ActionEvent event)
         {
+            JButton button = (JButton)event.getSource();
+            JPanel buttonPanel = (JPanel)button.getParent();
+            JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
+            CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             if (event.getSource().equals(option1Button)){
                 System.out.println(player);
                 player.addAllScores(option1.getPoints());
                 if (player.isAboveZero()){
                     if (!((2*(sitIndex+1)-1)>=treeYears.get(vecIndex).size())){
-                        JButton button = (JButton)event.getSource();
-                        JPanel buttonPanel = (JPanel)button.getParent();
-                        JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
-                        //make new situation panel from source
-                        CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)-1); 
-                        cardLayoutPanel.add(nextPanel,"3");
-                        layout.show(cardLayoutPanel, "3");
-                    }else if (vecIndex+1<treeYears.size()){
-                        JButton button = (JButton)event.getSource();
-                        JPanel buttonPanel = (JPanel)button.getParent();
-                        JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
-                        //make new situation panel from source
-                        CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
+                        cardLayoutPanel.add(nextPanel,"left");
+                        layout.show(cardLayoutPanel, "left");
+                    }else if (vecIndex+1<treeYears.size()){ 
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex+1,0); 
-                        cardLayoutPanel.add(nextPanel,"3");
-                        layout.show(cardLayoutPanel, "3");
+                        cardLayoutPanel.add(nextPanel,"newVec");
+                        layout.show(cardLayoutPanel, "newVec");
                     }else{
+                        GraduationPanel win = new GraduationPanel(); 
+                        cardLayoutPanel.add(win,"winPanel");
+                        layout.show(cardLayoutPanel, "winPanel");
                     }
-
                 }else{
-                    //go to you died panel
+                    DeathPanel death = new DeathPanel(); 
+                    cardLayoutPanel.add(death,"loss");
+                    layout.show(cardLayoutPanel, "loss");
                 }
-
             }else if (event.getSource().equals(option2Button)){
                 player.addAllScores(option2.getPoints());
                 if (player.isAboveZero()){
                     if (!((2*(sitIndex+1))>=treeYears.get(vecIndex).size())){
-                        //System.out.println("here");
-                        JButton button = (JButton)event.getSource();
-                        JPanel buttonPanel = (JPanel)button.getParent();
-                        JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
-                        //make new situation panel from source
-                        CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)); 
-                        cardLayoutPanel.add(nextPanel,"3");
-                        layout.show(cardLayoutPanel, "3");
+                        cardLayoutPanel.add(nextPanel,"right");
+                        layout.show(cardLayoutPanel, "right");
                     }else if (vecIndex+1<treeYears.size()){ 
-                        //maybe instead of this we put games here 
-                        //or some way to make it do that rather than 
-                        JButton button = (JButton)event.getSource();
-                        JPanel buttonPanel = (JPanel)button.getParent();
-                        JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
-                        //make new situation panel from source
-                        CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex+1,0); 
-                        cardLayoutPanel.add(nextPanel,"3");
-                        layout.show(cardLayoutPanel, "3");
+                        cardLayoutPanel.add(nextPanel,"newVec");
+                        layout.show(cardLayoutPanel, "newVec");
                     }else{
-                        //you won panel
+                        GraduationPanel win = new GraduationPanel(); 
+                        cardLayoutPanel.add(win,"winPanel");
+                        layout.show(cardLayoutPanel, "winPanel");
                     }
-
                 }else{
-                    //go to you died panel
+                    DeathPanel death = new DeathPanel(); 
+                    cardLayoutPanel.add(death,"loss");
+                    layout.show(cardLayoutPanel, "loss");
                 }
             }
-
         }
-    }//can use jlayered panel for selection
-
+    }
 }
