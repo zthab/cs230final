@@ -115,4 +115,9 @@ public class Person
         return sleepScore > 0 && smartScore > 0 && socialScore > 0;      
     }
     
+    public String toString(){
+        String ret = "Sleep Score: " + sleepScore + " Smart Score: " + smartScore + " social Score: "+socialScore;
+        return ret;
+    }
+    
 }

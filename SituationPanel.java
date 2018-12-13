@@ -64,6 +64,7 @@ public class SituationPanel extends JPanel
         public void actionPerformed (ActionEvent event)
         {
             if (event.getSource().equals(option1Button)){
+                System.out.println(player);
                 player.addAllScores(option1.getPoints());
                 if (player.isAboveZero()){
                     if (!((2*(sitIndex+1)-1)>treeYears.get(vecIndex).size())){
@@ -87,6 +88,7 @@ public class SituationPanel extends JPanel
                 player.addAllScores(option2.getPoints());
                 if (player.isAboveZero()){
                     if (!((2*(sitIndex+1))>treeYears.get(vecIndex).size())){
+                        System.out.println("here");
                         JButton button = (JButton)event.getSource();
                         JPanel buttonPanel = (JPanel)button.getParent();
                         JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();

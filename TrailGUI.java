@@ -36,6 +36,7 @@ public class TrailGUI
         JPanel card1 = new StartPanel();
 
         JPanel card2 = new CharSelection(p);
+        p=new Person(0);
         JPanel card3 = new SituationPanel(p, theTree, 0,0);
 
         //Create the panel that contains the "cards".

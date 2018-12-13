@@ -79,7 +79,7 @@ public class TrailsBinaryTree
 
                             opts[i]=new Option(decs[i],decPoints[i]);
                         }else{
-                            throw new IllegalArgumentException("File formatted incorrectely.");
+                            throw new IllegalArgumentException("File formatted incorrectely at line: "+line);
                         }
                     }
                     System.out.println("size "+ years.size());
