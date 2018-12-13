@@ -1,12 +1,9 @@
 
 /**
- * Gui for the MemoryGame mini game.
+ * Gui for the MemoryGame mini game. Displays the memory game based on a scenario
  * 
- * @Known bugs-:
- * *The MemoryPanel does not resize as words are entered so after
- * 2 words you cannot see the chosen path display
- * *Right know there is no display occuring with expected instuctions and
- * also therefore no checking for if input was correct
+ * Known bugs:
+ * -eventually we will want this gui to take the scenario string in the constructor
  *
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.1.18)
@@ -18,33 +15,27 @@ import java.awt.event.*;
 
 public class MemoryGame 
 {
-   private static String scenario;//should this not be static? if not static, can't run in main
-   
-   public MemoryGame(String scenario){
-       this.scenario = scenario;
-   }    
-       
-   public String getScenario(){
-       return scenario;
+    private String scenario;//should this be static? if not static, can't run in main
+
+    public MemoryGame(String scenario){
+        this.scenario = scenario;
+    }    
+
+    public String getScenario(){
+        return scenario;
     }
-    
-   public static void main (String[] args){
-       //for Testing sake
-       // if(args!=null){
-        // MemoryGame test = new MemoryGame(args[0]);
-        // }
-       
-      JFrame frame = new JFrame ("Mini Game Challenge");
-      frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 
-      
-      //eventually we want to pass various senarios in the constructor
-      MemoryPanel panel = new MemoryPanel("FYM");//game text panel 
+    public static void main (String[] args){
+        JFrame frame = new JFrame ("Mini Game Challenge");
+        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 
-      frame.setPreferredSize(new Dimension(610, 455));
+        //eventually we want to pass various senarios in the constructor or some such
+        MemoryPanel panel = new MemoryPanel("Squirrel");//game text panel 
 
-      frame.add(panel);
-      frame.pack();
-      frame.setVisible(true);
-   }
+        frame.setPreferredSize(new Dimension(610, 455));
+
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+    }
 }

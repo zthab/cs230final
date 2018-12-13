@@ -1,33 +1,40 @@
-
 /**
- * Write a description of class ModMemoryGame here.
+ * Gui for the MemoryGame mini game. Displays the memory game based on a scenario
+ * 
+ * Known bugs:
+ * -eventually we will want this gui to take the scenario string in the constructor
  *
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.1.18)
  */
-public class ModMemoryGame
-{
-    // instance variables - replace the example below with your own
-    private int x;
 
-    /**
-     * Constructor for objects of class ModMemoryGame
-     */
-    public ModMemoryGame()
-    {
-        // initialise instance variables
-        x = 0;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ModMemoryGame 
+{
+    private String scenario;//should this be static? if not static, can't run in main
+
+    public ModMemoryGame(String scenario){
+        this.scenario = scenario;
+    }    
+
+    public String getScenario(){
+        return scenario;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public static void main (String[] args){
+        JFrame frame = new JFrame ("Mini Game Challenge");
+        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+
+        //eventually we want to pass various senarios in the constructor or some such
+        ModMemoryPanel panel = new ModMemoryPanel("Squirrel");//game text panel 
+
+        frame.setPreferredSize(new Dimension(610, 455));
+
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
