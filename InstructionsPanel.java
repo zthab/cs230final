@@ -60,7 +60,7 @@ public class InstructionsPanel extends JPanel
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
             //make new situation panel from source
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
-            CharSelection nextPanel = new CharSelection(new Person(0)); 
+            CharSelection nextPanel = new CharSelection(); 
             cardLayoutPanel.add(nextPanel,"3");
             layout.show(cardLayoutPanel, "3");
         }
