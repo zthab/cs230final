@@ -16,15 +16,14 @@ import java.awt.Color;
 import java.util.Random;
 
 public class  RunningPanel extends JPanel {
-
     private int count, time;
-    private JButton push, start, mainGame;
+    private JButton push, start, mainGameDead, mainGameAlive;
     private JLabel label, token;
     private Timer timeClock;
-    private JPanel intro, game, outroWin, outroLose, deck;
-    private CardLayout cl;
+    private JPanel intro, game, outroWin, outroLose, deck, dying;//panels for moving through the game
+    private CardLayout cl;//container for the panels
 
-    final int TOTAL_TIME = 20; //seconds to play the game
+    final int TOTAL_TIME = 5;//seconds to play the game, should be 20, set to 5 for testing
     int counter = TOTAL_TIME;
     javax.swing.Timer refreshTimer;
     JLabel countdownTimerField ;
@@ -37,14 +36,15 @@ public class  RunningPanel extends JPanel {
 
         deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
         cl = (CardLayout)(deck.getLayout());//manages the deck
-
+        dying = new DeathPanel();
+        
         deck.add(intro(), "instructions");
-        //deck.add(game(), "play");
+        //deck.add(game(), "play"); //When I had these, here, it was stacking weirdly so I moved it to the frame methods
         // deck.add(outroLose(), "lose");
-        // deck.add(outroWin(), "win");
+        // deck.add(outroWin(), "win");       
+        setPreferredSize (new Dimension(300, 40));
         add(deck);
 
-        setPreferredSize (new Dimension(300, 40));
     }
 
     //*****************************************************************
@@ -58,7 +58,7 @@ public class  RunningPanel extends JPanel {
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
-                if(count>=75){//deterime if go to outroWin or outroLost and go there
+                if(count>=100){//deterime if go to outroWin or outroLost and go there
                     refreshTimer.stop();
                     finalCount=count;
                     
@@ -69,9 +69,9 @@ public class  RunningPanel extends JPanel {
                     refreshTimer.stop();
                     finalCount=count;
                     
-                    //cl.removeLayoutComponent(game);
-                    deck.add(outroLose(), "win");
+                    deck.add(outroLose(), "lose");
                     cl.next(deck);
+                    
                 }
             }
         }
@@ -125,8 +125,11 @@ public class  RunningPanel extends JPanel {
                 deck.add(game(), "play");
                 cl.next(deck);
             }
-            if (event.getSource() == mainGame){
-                //exit and go back to main Game, somehow
+            if (event.getSource() == mainGameDead){
+                //exit and go to the Death Screen, sad sad sad
+                cl.removeLayoutComponent(outroLose);
+                deck.add(dying, "death");
+                cl.next(deck);
             }
         }
     }
@@ -168,14 +171,16 @@ public class  RunningPanel extends JPanel {
 
     private JPanel outroWin(){
         outroWin = new JPanel();
-        mainGame = new JButton("Back to the main game");
-        mainGame.addActionListener (new ButtonListener() );
+        mainGameDead = new JButton("Back to the main game");
+        mainGameDead.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("Congrats, you ran " +count+ " steps. Wow!"+
                 "\nBecause you ran so fast, you made it to the omlete line in Lulu before it got too long."+
                 "\nWith a full belly, you make it one day closer to graduation.");
 
         outroWin.add(message);
-        outroWin.add(mainGame);
+        outroWin.add(mainGameDead);
+        
+        
         return outroWin;
     }
 
