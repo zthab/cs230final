@@ -33,6 +33,8 @@ public class MemoryGame extends javax.swing.JFrame {
         //MemoryPanel panel = new MemoryPanel(scenario); like this
 
         frame.setPreferredSize(new Dimension(610, 455));
+        
+        //DeathPanel die = new DeathPanel();
 
         frame.add(panel);
         frame.pack();

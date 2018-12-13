@@ -55,18 +55,21 @@ public class MemoryPanel extends JPanel {
 
     protected CardLayout cl;
     protected JLayeredPane content;
-    protected JLabel inputLabel, outputLabel;
+    protected ImageIcon image;
+    protected JLabel inputLabel, outputLabel,pic;
     protected JTextField answer;
     protected JTextArea path;
     protected JPanel scenario, instructions, game, gameOver, win, deck, background, dying;
     protected JButton next, start, dead, alive;
     protected int index,count,x,y; //to resize the panel as word are added, maybe
+    protected boolean life;
 
     //-----------------------------------------------------------------
     //  Constructor: Sets up the main GUI components.
     //-----------------------------------------------------------------
     public MemoryPanel(String name){//call the senario, a string in circumstance
         this.name = name;
+        life = true;
         //check that name is in circumstance
         index = -1;//hold the index of the desired wordList array
         for (int i = 0; i<circumstance.length;i++)
@@ -75,7 +78,7 @@ public class MemoryPanel extends JPanel {
             System.out.println("Nonvalid circumstance passed in constructor");  
             return;
         }
-       
+
         randomize(); //initializes the random commands into memQueue
 
         content = new JLayeredPane();//can hold all the things
@@ -87,16 +90,16 @@ public class MemoryPanel extends JPanel {
         //add image to the background
         try {
             //scaling all input files to be the same size
-            ImageIcon image = new ImageIcon(ImageIO.read(new File(images[index])));
+            image = new ImageIcon(ImageIO.read(new File(images[index])));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(610, 455,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
             image = new ImageIcon(newimg);  // transform it back
-            
+
             background.add(new JLabel(image));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         //add all the panel to the deck so the can be flipped through
         deck.add(scenarioPanel(), "situation");
         deck.add(introPanel(), "rules");
@@ -104,7 +107,7 @@ public class MemoryPanel extends JPanel {
         deck.add(gameOver(), "loser");
         deck.add(win(), "winner");
         deck.add(dying, "death");
-        
+
         //setPreferredSize(new Dimension(610, 455));
         setLayout(new BorderLayout());
         content.setBounds(0, 0, 610, 455); //same as frame
@@ -115,7 +118,7 @@ public class MemoryPanel extends JPanel {
         deck.setOpaque(true);
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(deck, new Integer(1), 0);//sets to the foregound      
-        
+
         add(content, BorderLayout.CENTER);       
     }
 
@@ -144,7 +147,14 @@ public class MemoryPanel extends JPanel {
             }else if (event.getSource() == start){
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
-                cl.show(deck,"death");//go to final screen
+                life = false;
+        background.setOpaque(false);
+        dying.setBounds(0, 0, 610, 455);
+        deck.setOpaque(false);
+                content.add(dying, new Integer(1), 0);//sets to the foregound 
+                
+                revalidate();
+                //add(dying);//go to final screen
             }else{
                 //go back to main game
             }
@@ -178,12 +188,12 @@ public class MemoryPanel extends JPanel {
         JTextArea welcome = new JTextArea(welcomeList[index]);
         start = new JButton ("Start");
         start.addActionListener(new ButtonListener());
-        
+
         //scenario.setLayout(new BoxLayout(scenario, BoxLayout.Y_AXIS));  
         scenario.setLayout(new FlowLayout());
         scenario.add(welcome);
         scenario.add(start);
-        
+
         return scenario;
     }
 
@@ -208,7 +218,7 @@ public class MemoryPanel extends JPanel {
         instructions.add(segundo);
         instructions.add(commands);
         instructions.add(next);
- 
+
         return instructions;
     }
 
@@ -228,7 +238,7 @@ public class MemoryPanel extends JPanel {
         game.add (inputLabel);
         game.add(answer);
         game.add (path);
-        
+
         return game;
     }
 
@@ -237,7 +247,7 @@ public class MemoryPanel extends JPanel {
         gameOver = new JPanel();
         JTextArea exit = new JTextArea(losingList[index] + "\nPlease click 'Game Over' to move on");
         dead = new JButton("Game Over");
-        
+
         dead.addActionListener(new ButtonListener());
         gameOver.setLayout(new FlowLayout());
         gameOver.add(exit);
@@ -251,7 +261,7 @@ public class MemoryPanel extends JPanel {
 
         JTextArea congrats = new JTextArea(winningList[index] + "\nPlease click 'Back to School' to move on");
         alive = new JButton("Back to School");
-        
+
         win.setLayout(new FlowLayout());
         win.add(congrats);
         win.add(alive);
