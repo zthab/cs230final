@@ -15,9 +15,13 @@ public class InstructionsPanel extends JPanel
     public InstructionsPanel()
     {
        setBackground (Color.green);
+       
+       
+      
        JTextArea l1 = new JTextArea ("Welcome to The Wellesley Trail! The goal of this game is to" +
                                      " make it to graduation without getting lost in the tunnels," + 
                                      " attacked by geese, or dying from sleep deprivation.");
+                                     l1.setWrapStyleWord(true);
                                      
        JTextArea l2 = new JTextArea (" First you will pick from six different archtypes; each have" +
                                      " a different set of points for the sleep, smart and social" +
@@ -30,6 +34,9 @@ public class InstructionsPanel extends JPanel
                                       " based on the decisions you choose. If " +
                                       " any of these categories drop below zero, you loose, so " +
                                       " choose wisely and good luck!!");
+                                      
+       //JTextArea(l1, InstructionsPanel.getSize().getHeight(), InstructionsPanel.getSize().getWidth());
+       
                                     
        l1.setBackground(Color.green); //so that the JTextArea matches the panel background
        add (l1);
