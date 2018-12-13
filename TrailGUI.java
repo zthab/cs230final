@@ -36,6 +36,7 @@ public class TrailGUI
         JPanel card1 = new StartPanel();
 
         JPanel card2 = new CharSelection(p);
+        JPanel card3 = new SituationPanel(p, theTree, 0,0);
 
         //Create the panel that contains the "cards".
         trailGame = new JPanel(new CardLayout());
@@ -44,7 +45,8 @@ public class TrailGUI
         Option one = new Option ("left", new int[]{1,2,3});
         Option two = new Option ("right", new int[]{3,2,1});
         Situation a = new Situation("which way", one,two);
-        trailGame.add (new SituationPanel(a,p),"card");
+        trailGame.add (card3, "3");
+        
         //for (int i = 0 ; i < tree.size(); i ++){
          //   int j=0;
           //  while(j<tree.get(i).size()){
@@ -72,7 +74,7 @@ public class TrailGUI
         public void actionPerformed(ActionEvent event){
             //iff next button then remove //need a new frame here 
             CardLayout cl = (CardLayout)(trailGame.getLayout());
-            cl.show(trailGame, "card");
+            cl.show(trailGame, "3");
             //if first option is pressed, add right panel 
             //check to make sure it still has stuff 
         }
