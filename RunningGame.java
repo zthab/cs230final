@@ -8,12 +8,12 @@
 import javax.swing.* ;
 import java.awt.*;
 
-public class RunningMain extends javax.swing.JFrame {
+public class RunningGame extends javax.swing.JFrame {
     //private JSplitPane splitPanel;  // split the window in top and bottom
     private JPanel countPanel;
     private JPanel runPanel;
     
-    public RunningMain(){        
+    public RunningGame(){        
         JLabel timerField = new JLabel();
         
         add (new RunningPanel(timerField));
@@ -23,7 +23,7 @@ public class RunningMain extends javax.swing.JFrame {
     }
        
     public static void main (String[] args){
-        new RunningMain().setVisible(true);
+        new RunningGame().setVisible(true);
         
     }
 }
