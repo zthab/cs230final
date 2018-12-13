@@ -54,7 +54,7 @@ public class MemoryPanel extends JPanel {
     protected JLabel inputLabel, outputLabel;
     protected JTextField answer;
     protected JTextArea path;
-    protected JPanel scenario, instructions, game, gameOver, win, deck, background;
+    protected JPanel scenario, instructions, game, gameOver, win, deck, background,dying;
     protected JButton next, start;
     protected int index,count,x,y; //to resize the panel as word are added, maybe
 

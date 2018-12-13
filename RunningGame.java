@@ -18,7 +18,7 @@ public class RunningGame extends javax.swing.JFrame {
         
         add (new RunningPanel(timerField));
         
-        setPreferredSize(new Dimension(600, 200));
+        setPreferredSize(new Dimension(700, 250));
         pack();       
     }
        
