@@ -66,7 +66,9 @@ public class CharSelection extends JPanel
         //add (quote);
         try{
             BufferedImage AlexPic = ImageIO.read(new File("AthleticAlex.png"));
+            
             JLabel AlexPicLabel = new JLabel(new ImageIcon(AlexPic));
+            AlexPicLabel.setSize(50,100);
             add(AlexPicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
