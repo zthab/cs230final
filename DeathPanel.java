@@ -16,12 +16,13 @@ public class DeathPanel extends JPanel {
      */
     public DeathPanel()
     {     
-       deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
-       cl = (CardLayout)(deck.getLayout());//manages the deck 
-        
-       deck.add(death(), "dying");
-       
-       add(deck);
+       //deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
+       //cl = (CardLayout)(deck.getLayout());//manages the deck 
+              
+       //deck.add(death(), "dying");              //add(deck);
+       //^set up incase we want more panels.
+
+       add(death());
     }
     
     private JPanel death(){
