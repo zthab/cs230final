@@ -67,7 +67,7 @@ public class SituationPanel extends JPanel
                 System.out.println(player);
                 player.addAllScores(option1.getPoints());
                 if (player.isAboveZero()){
-                    if (!((2*(sitIndex+1)-1)>treeYears.get(vecIndex).size())){
+                    if (!((2*(sitIndex+1)-1)>=treeYears.get(vecIndex).size())){
                         JButton button = (JButton)event.getSource();
                         JPanel buttonPanel = (JPanel)button.getParent();
                         JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
@@ -76,8 +76,16 @@ public class SituationPanel extends JPanel
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)-1); 
                         cardLayoutPanel.add(nextPanel,"3");
                         layout.show(cardLayoutPanel, "3");
+                    }else if (vecIndex+1<treeYears.size()){
+                        JButton button = (JButton)event.getSource();
+                        JPanel buttonPanel = (JPanel)button.getParent();
+                        JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
+                        //make new situation panel from source
+                        CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
+                        SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex+1,0); 
+                        cardLayoutPanel.add(nextPanel,"3");
+                        layout.show(cardLayoutPanel, "3");
                     }else{
-                        //show first one of next vector, increase vec index 
                     }
 
                 }else{
@@ -87,8 +95,8 @@ public class SituationPanel extends JPanel
             }else if (event.getSource().equals(option2Button)){
                 player.addAllScores(option2.getPoints());
                 if (player.isAboveZero()){
-                    if (!((2*(sitIndex+1))>treeYears.get(vecIndex).size())){
-                        System.out.println("here");
+                    if (!((2*(sitIndex+1))>=treeYears.get(vecIndex).size())){
+                        //System.out.println("here");
                         JButton button = (JButton)event.getSource();
                         JPanel buttonPanel = (JPanel)button.getParent();
                         JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
@@ -97,8 +105,19 @@ public class SituationPanel extends JPanel
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)); 
                         cardLayoutPanel.add(nextPanel,"3");
                         layout.show(cardLayoutPanel, "3");
+                    }else if (vecIndex+1<treeYears.size()){ 
+                        //maybe instead of this we put games here 
+                        //or some way to make it do that rather than 
+                        JButton button = (JButton)event.getSource();
+                        JPanel buttonPanel = (JPanel)button.getParent();
+                        JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
+                        //make new situation panel from source
+                        CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
+                        SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex+1,0); 
+                        cardLayoutPanel.add(nextPanel,"3");
+                        layout.show(cardLayoutPanel, "3");
                     }else{
-                        //show first one of next vector, increase vec index 
+                        //you won panel
                     }
 
                 }else{

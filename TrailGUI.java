@@ -73,11 +73,13 @@ public class TrailGUI
          * @param Action the event of the button being clicked
          */
         public void actionPerformed(ActionEvent event){
-            //iff next button then remove //need a new frame here 
+            
             CardLayout cl = (CardLayout)(trailGame.getLayout());
             cl.show(trailGame, "3");
-            //if first option is pressed, add right panel 
-            //check to make sure it still has stuff 
+            
+            //if from one right in front of the situation panel, delete it 
+            //shoudl also format the buttons in that to match
+            //just make all the buttons match 
         }
     }
     public static void main (String[] args) 

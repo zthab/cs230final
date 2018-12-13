@@ -94,6 +94,7 @@ public class CharSelection extends JPanel
             }else{
                 charac = new Person(5);
             }
+            
         }
     }//can use jlayered panel for selection
 
