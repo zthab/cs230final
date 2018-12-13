@@ -36,15 +36,18 @@ public class  RunningPanel extends JPanel {
 
         deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
         cl = (CardLayout)(deck.getLayout());//manages the deck
-        dying = new DeathPanel();
+        dying = new DeathPanel();//end game screen
+        dying.setVisible(true); //didn't change anything
         
         deck.add(intro(), "instructions");
-        //deck.add(game(), "play"); //When I had these, here, it was stacking weirdly so I moved it to the frame methods
-        // deck.add(outroLose(), "lose");
-        // deck.add(outroWin(), "win");       
+        //deck.add(game(), "play"); //can't add here bc it starts the timer
+        deck.add(outroLose(), "lose");
+        deck.add(outroWin(), "win"); 
+        deck.add(dying, "dead");
+        
         setPreferredSize (new Dimension(300, 40));
-        add(deck);
-
+        add(dying);
+        //add(deck);
     }
 
     //*****************************************************************
@@ -54,24 +57,19 @@ public class  RunningPanel extends JPanel {
         public void actionPerformed(ActionEvent e) {
             counter--;
             if (counter >= 0){
-                //System.out.println(" ** " + counter);
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
                 if(count>=100){//deterime if go to outroWin or outroLost and go there
                     refreshTimer.stop();
                     finalCount=count;
-                    
-                    //cl.removeLayoutComponent(game);
-                    deck.add(outroWin(), "win");
-                    cl.next(deck);
+
+                    cl.show(deck, "win");
                 }else{
                     refreshTimer.stop();
                     finalCount=count;
                     
-                    deck.add(outroLose(), "lose");
-                    cl.next(deck);
-                    
+                    cl.show(deck, "lose");                    
                 }
             }
         }
@@ -121,15 +119,16 @@ public class  RunningPanel extends JPanel {
                     setBackground (Color.cyan);
             }
             if (event.getSource() == start){
-                cl.removeLayoutComponent(intro);
+                //added here so the time starts on this screen
                 deck.add(game(), "play");
-                cl.next(deck);
+                cl.last(deck);
             }
             if (event.getSource() == mainGameDead){
-                //exit and go to the Death Screen, sad sad sad
-                cl.removeLayoutComponent(outroLose);
-                deck.add(dying, "death");
-                cl.next(deck);
+                //exit and go to the Death Screen, sad sad sad               
+                cl.show(deck, "dead");
+            }
+            if (event.getSource() == mainGameAlive){
+                //back to the main game
             }
         }
     }
@@ -171,14 +170,14 @@ public class  RunningPanel extends JPanel {
 
     private JPanel outroWin(){
         outroWin = new JPanel();
-        mainGameDead = new JButton("Back to the main game");
-        mainGameDead.addActionListener (new ButtonListener() );
+        mainGameAlive = new JButton("Back to the main game");
+        mainGameAlive.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("Congrats, you ran " +count+ " steps. Wow!"+
                 "\nBecause you ran so fast, you made it to the omlete line in Lulu before it got too long."+
                 "\nWith a full belly, you make it one day closer to graduation.");
 
         outroWin.add(message);
-        outroWin.add(mainGameDead);
+        outroWin.add(mainGameAlive);
         
         
         return outroWin;
@@ -186,14 +185,15 @@ public class  RunningPanel extends JPanel {
 
     private JPanel outroLose(){
         outroLose = new JPanel();
-        JButton mainGame = new JButton("Back to the main game");
-        mainGame.addActionListener (new ButtonListener() );
+        JButton mainGameDead = new JButton("Game Over");
+        mainGameDead.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("Congrats, you ran " +count+ " steps. Wow!"+
                 "\nSadly, you didn't make it to the omlete line in Lulu before it got too long."+
-                "\nWhile waiting in line, you die.");
+                "\nWhile waiting in line, you die." +
+                "\nPlease click 'Game Over' to move on");
 
         outroLose.add(message);
-        outroLose.add(mainGame);
+        outroLose.add(mainGameDead);
         return outroLose;
     }
 }
