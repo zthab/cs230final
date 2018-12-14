@@ -32,13 +32,14 @@ public class SituationPanel extends JPanel
         setBackground (Color.green);
         tree=t;
         treeYears = tree.getYears(); 
+        //System.out.println(tree);
         vecIndex=v;
         sitIndex = s;
 
         sit = treeYears.get(vecIndex).get(sitIndex);
         question = sit.getQuestion();
-        option1=sit.getOption1();
-        option2 = sit .getOption2();
+        option1=sit.getOptionLeft();
+        option2 = sit.getOptionRight();
 
         questionText = new JTextArea (question);
         playerStatus = new JTextArea(player.toString());

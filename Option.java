@@ -1,9 +1,14 @@
 
 /**
- * Write a description of class Option here.
+ * Creates an Option object that stores a decision and its corresponding impact
+ * on a person's sleep, smart, and social scores. The decision is a string 
+ * answer to a question. The Option object was designed to be stored along with
+ * a corresponding question in a Situation object.
  *
- * @author (zthabet,nbryant2,gbronzi)
- * @version (12.1.18)
+ * @author gbronzi
+ * @author nbryant2
+ * @author zthabet 
+ * @version 12.17.18
  */
 public class Option
 {
@@ -11,14 +16,34 @@ public class Option
     private int[] points;
     
     /**
-     * Constructor for objects of class Option, option and point are inputted
+     * Constructor for objects of class Option that takes its points as a
+     * parameter of an array of points.
+     * 
+     * @param dec the decision text
+     * @param pts the points to be added
      */
     public Option(String dec, int[] pts)
     {
+        if(pts.length==3){
         decision = dec;
         points = pts;
+        }else{
+            throw new IllegalArgumentException("The length of the inputted "+
+                                               "array of points is not 3 "+
+                                               "which it must be for an Option"
+                                               +" object.");
+        }
     }
     
+    /**
+     * Constructor for objects of class Option. Allows for it's points to be
+     * entered as individual integers rather than an array of intergers.
+     * 
+     * @param dec    the decision text
+     * @param sleep  the sleep points of the Option object
+     * @param smart  the smart points of the Option object
+     * @param social the social points of the Option object
+     */
     public Option(String dec, int sleep, int smart, int social){
         decision=dec;
         points = new int[3];
@@ -27,34 +52,59 @@ public class Option
         points[2]=social;
     }
 
+    /**
+     * Gets the decision
+     * 
+     * @return decision
+     */
     public String getDecision(){
         return decision;
     }
     
+    /**
+     * Gets the Option object
+     * 
+     * @return the Option object
+     */
     public Option getOption(){
         return this;
     }
     
+    /**
+     * Gets an array of the points of the Option object.
+     * 
+     * @return an array of the points of the Option object.
+     */
     public int[] getPoints(){
         return points;
     }
     
-    public void setDecision(String o){
-        decision = o;
+    /**
+     * Sets the decision of the Option object.
+     * 
+     * @param d the new decision String
+     */
+    public void setDecision(String d){
+        decision = d;
     }
     
+    /**
+     * Sets the points
+     * 
+     * @param p an array of the points to be assigned
+     */
     public void setPoints(int[] p){
         points = p;
     }
     
-    public void setOption(Option op){
-        decision=op.getDecision();
-        points=op.getPoints();
-    }
-    
+    /**
+     * Gets a String representation of the Option object.
+     * 
+     * @return a String of the Option object
+     */
     public String toString(){
-        return "Decision: " + decision + "\nSleep: " + points[0] + "\nSmart: " + points[1] 
-                + "\nSocial: " + points[2]; 
+        return "Decision: " + decision + "Sleep: " + points[0] + " Smart: "+
+                points[1] + " Social: " + points[2]; 
     }
 
 }

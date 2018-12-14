@@ -1,34 +1,40 @@
 
 /**
- * The situation class creates an object that holds a situational question and the two options that
- * go with the question (which are the three instance variables). The class contains getter and 
- * setter methods for the all instance variables, as well as a toString. 
+ * The Situation class creates an object that holds a situational question and 
+ * the two options that go with the question. The class allows for manipulation
+ * of the question and options. A situation object was designed specfically for
+ * implementation in a binary tree of Situation objects in that the selection
+ * of an Option object will lead to one of two other Situation objects.
  *
- * @author (zthabet,nbryant2,gbronzi)
- * @version (12.10.18)
+ * @author  gbronzi
+ * @author  nbryant2
+ * @author  zthabet 
+ * @version 12.17.18
  */
 public class Situation
 {
-    //instance variable
     String question; //question that user is prompted with 
-    Option option1; //first option that goes with question
-    Option option2; //second option that goes with question
+    //Option in response to the question that leads to left in a binary tree
+    Option optionLeft; 
+    //Option in response to the question that leads to right in a binary tree.
+    Option optionRight; 
 
     /**
-     * Constructor for objects of class Situation, has three parameters that are used to set
-     * the question and two option instance variables
+     * Constructor for objects of class Situation.
      * 
-     * @param q,o1,o2 
+     * @param q  
+     * @param oL
+     * @param oR
      */
-    public Situation(String q, Option o1, Option o2)
+    public Situation(String q, Option oL, Option oR)
     {
         question = q;
-        option1 = o1;
-        option2 = o2;
+        optionLeft = oL;
+        optionRight = oR;
     }
     
     /**
-     * Returns the question
+     * Gets the question
      * 
      * @return question
      */
@@ -37,59 +43,58 @@ public class Situation
     }
     
     /**
-     * Returns the first option 
+     * Gets the left-pointing option 
      * 
-     * @return option1
+     * @return optionLeft
      */
-    public Option getOption1(){
-        return option1;
+    public Option getOptionLeft(){
+        return optionLeft;
     }
     
     /**
-     * Returns the second option
+     * Gets the right-pointing option
      * 
-     * @return option2
+     * @return optionRight
      */
-    public Option getOption2(){
-        return option2;
+    public Option getOptionRight(){
+        return optionRight;
     }
     
     /**
      * Sets the question to the inputted string
      * 
-     * @param str
+     * @param str new question text
      */
     public void setQuestion(String str){
         question = str;
     }
     
     /**
-     * Sets the first option to the inputted string
+     * Sets the left-pointing option to the inputted string
      * 
-     * @param opt
+     * @param opt option to be assigned
      */
-    public void setOption1(Option opt){
-        option1 = opt;
+    public void setoptionLeft(Option opt){
+        optionLeft = opt;
     }
     
     /**
-     * Sets the second option to the inputted string
+     * Sets the right-pointing option to the inputted string
      * 
-     * @param opt
+     * @param opt option to be assigned
      */
-    public void setOption2(Option opt){
-        option2 = opt;
+    public void setoptionRight(Option opt){
+        optionRight = opt;
     }
     
-    public void setSituation(Situation s){
-        question = s.getQuestion();
-        option1 = s.getOption1();
-        option2 = s.getOption2();
-    }
-    
-    
+    /**
+     * Gets a String representation of the Situation object
+     * 
+     * @return String of the Situation object
+     */
     public String toString(){
-        return question + "/nChoice 1: " + option1 + "/nChoice 2: " + option2;
+        return question + " Choice 1: " + optionLeft + " Choice 2: " + 
+               optionRight;
     }
     
 }

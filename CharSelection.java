@@ -33,7 +33,7 @@ public class CharSelection extends JPanel
         hasSelectedBefore=false;
         JPanel nea = new JPanel();
         nea.setLayout(new BorderLayout());
-        player = new Person();
+        //player = new Person();
          instruct1 = new JLabel("Select an archetype and their sleep, smart and social points will display.");
         instruct2= new JLabel("When satsified with your choice, press the next button.");
         add(nea);
