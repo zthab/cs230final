@@ -1,24 +1,100 @@
+
 Time to pick a roommate! Will you go.../ Random/-2/0/2/Not random/2/0/1
 It's orientation week! There are a ton of events and you.../Go to all of them/0/2/4/Skip them/0/-2/-2
+Class registration is tomorrow. You.../wake up two minutes before registration starts/1/-1/0/planned out your schedule two days after getting in to Wellesley/-1/1/0
+It's 90 degrees outside and can't deal with the heat. You.../jump in the lake/0/0/2/make a makeshift AC/1/2/1
+You decide to go to the org fair. You.../put your email down at every single table/0/-1/1/join frisbee, obviously!!!/0/1/3
 It's the Saturday before classes start and your friend told you about a party at MIT so you.../Hop on the Peter!/-3/0/3/Decide you need sleep instead/3/0/0
+You decide to go to the org fair. You.../put your email down at every single table/0/-1/1/join frisbee, obviously!!!/0/1/3
+FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+Your makeshift AC has attracted a lot of attention. You.../decide to throw a party so everyone can enjoy it/-2/1/3/pretend it broke, you don't want to share its cool, cool air/2/0/-1
+FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+You go to the first open frisbee practice and you are.../1000% joining/0/1/3/not sure sports are your thing/1/0/0
+You got lost in some building in MIT. You.../ask someone for help/1/2/1/walk in circles until you see something familiar/-1/-1/-1
+FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+Uh oh... You signed up for too many orgs. You.../decide just to go to the cultural org/0/1/2/decide to tryout for one of the acapella groups/-1/0/2
 FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
 Your FY Writing class has a 8 page paper due the second week of classes!! You.../start writing immediately/0/3/0/don't stress! (Shadow grading duhh)/2/-1/1
-A new season of your favorite show just came out of netflix. You.../decided to treat yourself and finish your homework later/2/-1/1/wait until winter break :(/-2/2/0
 First midterm!! You.../Pull an all nighter in sci/-4/1/0/Started studying at a reasonable time/2/3/0
+Looks like your AC attracted too much attention...campus po just showed up so you.../HIDE/0/1/1/hope that if you start crying they'll go away/1/1/0
+First midterm!! You.../Pull an all nighter in sci/-4/1/0/Started studying at a reasonable time/2/3/0
+Your FY Writing class has a 8 page paper due the second week of classes!! You.../start writing immediately/0/3/0/don't stress! (Shadow grading duhh)/2/-1/1
+Its only the first week of class but you're already home sick :( You.../call home/2/1/0/stick it out, you don't want your parents to worry/-2/-1/0
+A new season of your favorite show just came out of netflix. You.../decided to treat yourself and finish your homework later/2/-1/1/wait until winter break :(/-2/2/0
 You finally find an entrance to the tunnels!You.../Bring a flashlight, a friend, and nothing else/-2/-2/3/would never enter the asbestos ridden caverns below Wellesley/0/2/0
 It's the weekend and you have no plan so you decide to.../go support a varsity Blue team/0/1/1/sit on green beach and enjoy the weather!/0/1/-1
-FINALS!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+How is it already winter break?? What are you planning on doing?/Working/-1/2/1/Netflix and sleep/2/-1/-1
+How is it already winter break?? What are you planning on doing?/Working/-1/2/1/Netflix and sleep/2/-1/-1
+How is it already second semester?? Last FDOC you woke up late but this time you're.../skipping class/2/-2/0/sleeping in because you're never taking an 8:30 ever again/2/1/0
+The year has really flown by and its already time to pick your dorm for next year. You.../choose east side/2/2/-2/choose west side/-2/-1/2
+You're so glad you decided to join acapella, you've found your best friends and its almost sophomore year. You.../join eboard/-2/1/1/decide to join aboard a different year/1/0/0
+The year has really flown by and its already time to pick your dorm for next year. You.../choose east side/2/2/-2/choose west side/-2/-1/2
+Whose your roommate for next year?/You decided to go random this time./-1/0/1/One of your friends/1/0/-1
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
+
 
 Move-in day round two! You.../start unpacking with your new roomie/2/0/1/find your friends as quickly as you can/-2/0/2
-To go-abroad or to not go-abroad---that is the question/Staying in the comfort of the dorm you've already lived in for two years/0/2/-1/You're picking between Oxford and Edinburgh and Spain and France and .../-2/-1/3
-Quick! Find a major advisor! You.../ask the first person you find/0/0/0/make a powerpoint presentation explaining why they should be your advisor/-1/2/0
-Time to declare! You.../double declare as soon as you can/-3/3/-1/remain undeclared until senior fall/1/-1/2
+To go-abroad or to not go-abroad---that is the question/No way you're leaving the comfort of Wellesley/0/2/-1/You're picking between Oxford and Edinburgh and Spain and France and .../-2/-1/3
+Quick! Find a major advisor! You.../ask the first professor you find/0/0/0/make a powerpoint presentation explaining why they should be your advisor/-1/2/0
 Uh oh... Where'd you leave your laptop?? You.../find it under a pile of laundry/0/2/0/can't find it!! Where'd it go??/-1/-2/0
-Today's the day to register for classes! You.../register for four/1/1/0/decided that you NEED to take five as well as a winter-session class/-2/2/0
-A new season of your favorite show just came out of netflix. You.../decided to treat yourself and finish your homework later/2/-1/1/wait until winter break :(/-2/2/0
-You're walking back to class late at night when you see your arch enemy - - the geese... You.../RUN/-1/2/0/stare them down... you won't let them scare you/1/1/0
+If you're going abroad you have to declare your major! You.../double declare as soon as you can/-3/3/-1/remain undeclared until senior fall/1/-1/2
+Winter break is quickly approaching!! How are you prepping for finals?/Netflix/2/-2/0/You've already made 257 flashcards/-2/2/-1
+You really like your major advisor and they ask if you want to do research with them. You.../say yes! It's been your dream to do research/-1/2/1/already have a job that you prefer/1/-1/0
+Thank god you found your laptop in time to register for classes. You.../register for four/1/1/0/decided that you NEED to take five as well as a winter-session class/-2/2/0
+You can't find your laptop anywhere!!! You.../decide to buy a new one :(/1/-1/0/guess you'll just have to use someone else until you find it/-2/-1/-1
+You're walking back from Clapp late at night when you see your arch enemy - - the geese... You.../RUN/-1/2/0/stare them down... you won't let them scare you/1/1/0
 You've been thinking about your career plans. You.../decide to be pre-med or pre-law/-2/3/-1/still have two more years to decide why choose now!/1/1/0
-Spring finals round two! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+You didn't do great on finals because you watched too much netflix :( so you.../take a wintersession class to make up for it/-1/2/1/take five classes second semester/-2/2/-1
+You've been thinking about your career plans. You.../decide to be pre-med or pre-law/-2/3/-1/still have two more years to decide why choose now!/1/1/0
+Because of your research you have a lot of credits. You.../decide to take three classes junior year/2/0/0/take a random class for fun/0/2/1
+You're walking back from Clapp late at night when you see your arch enemy - - the geese... You.../RUN/-1/2/0/stare them down... you won't let them scare you/1/1/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
+What?? Sophomore year already done?? Guess that means time for Spring finals! You.../spend finals week hiding in clapp/-2/3/-1/spend the entire period wishing you still had shadow grading/-1/-2/0
 
 Year 3 is starting and you already have parties planned for the next month. You.../get campus po called on you/-3/-1/3/you burn out after the first one and decide never to throw a party again/-1/2/-2
 Your best friend decided to study abroad so you.../sit in your room and mope around because she's having fun in France without you/1/1/-2/decide to go out and make some more friends/-1/0/2
