@@ -3,40 +3,46 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.Vector;
 /**
- * Write a description of class SituationGUI here.
+ * Creates a panel for a Situation object to be displayed with. Buttons
+ * selected in this panel have the capability to lead to other panels.
+ * Buttons pressed in this panel also affect a Person object whose sleep,
+ * smart, and social scores are displayed.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author  gbronzi
+ * @author  nbryant2
+ * @author  zthabet
+ * @version 12.17.18
  */
-public class SituationPanel extends JPanel
+public class SituationPanel extends JPanel{
 
-{
-    // instance variables - replace the example below with your own
-    private Situation sit;
-    private String question;
-    private Option option1, option2;
+    private Situation sit; //the situation to be displayed
+    private String question; //the question to be displayed
+    private Option option1, option2; //options of the corresponding Situation
+    private Person player; //the Person object to be affected by the Situation
+
+    //text areas to be displayed in the Panel
     private JTextArea questionText, playerStatus;
+    //buttons corresponding to the options of the Situation
     private JButton option1Button, option2Button;
-    private Person player;
+
+    //the TrailsBinaryTree that the Situation displayed in this Panel is in
     private TrailsBinaryTree tree;
-    private Vector<Vector<Situation>> treeYears;
-    private int vecIndex, sitIndex;
 
     /**
-     * Constructor for objects of class SituationGUI
+     * Constructor for objects of class SituationPanel. Creates a Situation
+     * panel that displays a Situation.
+     * 
+     * @param p Person to be affected by decisions
+     * @param t TrailsBinaryTree containing the tree of relevant Situations
      */
-    public SituationPanel(Person p,TrailsBinaryTree t, int v, int s)
+    public SituationPanel(Person p,TrailsBinaryTree t)
     {
         player = p;
 
         setBackground (Color.green);
-        tree=t;
-        treeYears = tree.getYears(); 
-        //System.out.println(tree);
-        vecIndex=v;
-        sitIndex = s;
+        tree=t; 
 
-        sit = treeYears.get(vecIndex).get(sitIndex);
+        sit = tree.getCurrent();
         question = sit.getQuestion();
         option1=sit.getOptionLeft();
         option2 = sit.getOptionRight();
@@ -68,51 +74,43 @@ public class SituationPanel extends JPanel
             JPanel buttonPanel = (JPanel)button.getParent();
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
-            if (event.getSource().equals(option1Button)){
-                
-                player.addAllScores(option1.getPoints());
-                System.out.println(player);
-                if (player.isAboveZero()){
-                    if (!((2*(sitIndex+1)-1)>=treeYears.get(vecIndex).size())){
-                        SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)-1); 
+            try{
+                if (event.getSource().equals(option1Button)){
+                    int[] test = sit.getOptionLeft().getPoints();
+                    System.out.println("hereAFEAFE");
+                    for (int i : test){
+                        System.out.println(i);
+                    }
+                    player.addAllScores(option1.getPoints());
+                    System.out.println(player);
+                    if (player.isAboveZero()){
+                        tree.nextLeft();
+                        SituationPanel nextPanel = new SituationPanel(player, tree); 
                         cardLayoutPanel.add(nextPanel,"left");
                         layout.show(cardLayoutPanel, "left");
-                    }else if (vecIndex+1<treeYears.size()){ 
-                        SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex+1,0); 
-                        cardLayoutPanel.add(nextPanel,"newVec");
-                        layout.show(cardLayoutPanel, "newVec");
                     }else{
-                        GraduationPanel win = new GraduationPanel(); 
-                        cardLayoutPanel.add(win,"winPanel");
-                        layout.show(cardLayoutPanel, "winPanel");
+                        DeathPanel death = new DeathPanel(); 
+                        cardLayoutPanel.add(death,"loss");
+                        layout.show(cardLayoutPanel, "loss");
                     }
-                }else{
-                    DeathPanel death = new DeathPanel(); 
-                    cardLayoutPanel.add(death,"loss");
-                    layout.show(cardLayoutPanel, "loss");
-                }
-            }else if (event.getSource().equals(option2Button)){
-                player.addAllScores(option2.getPoints());
-                System.out.println(player);
-                if (player.isAboveZero()){
-                    if (!((2*(sitIndex+1))>=treeYears.get(vecIndex).size())){
-                        SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)); 
+                }else if (event.getSource().equals(option2Button)){
+                    player.addAllScores(option2.getPoints());
+                    System.out.println(player);
+                    if (player.isAboveZero()){
+                        tree.nextRight();
+                        SituationPanel nextPanel = new SituationPanel(player, tree); 
                         cardLayoutPanel.add(nextPanel,"right");
                         layout.show(cardLayoutPanel, "right");
-                    }else if (vecIndex+1<treeYears.size()){ 
-                        SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex+1,0); 
-                        cardLayoutPanel.add(nextPanel,"newVec");
-                        layout.show(cardLayoutPanel, "newVec");
                     }else{
-                        GraduationPanel win = new GraduationPanel(); 
-                        cardLayoutPanel.add(win,"winPanel");
-                        layout.show(cardLayoutPanel, "winPanel");
+                        DeathPanel death = new DeathPanel(); 
+                        cardLayoutPanel.add(death,"loss");
+                        layout.show(cardLayoutPanel, "loss");
                     }
-                }else{
-                    DeathPanel death = new DeathPanel(); 
-                    cardLayoutPanel.add(death,"loss");
-                    layout.show(cardLayoutPanel, "loss");
                 }
+            }catch(ArrayIndexOutOfBoundsException e){
+                GraduationPanel win = new GraduationPanel(); 
+                cardLayoutPanel.add(win,"winPanel");
+                layout.show(cardLayoutPanel, "winPanel");
             }
         }
     }

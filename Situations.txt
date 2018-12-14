@@ -1,4 +1,3 @@
-
 Time to pick a roommate! Will you go.../ Random/-2/0/2/Not random/2/0/1
 It's orientation week! There are a ton of events and you.../Go to all of them/0/2/4/Skip them/0/-2/-2
 Class registration is tomorrow. You.../wake up two minutes before registration starts/1/-1/0/planned out your schedule two days after getting in to Wellesley/-1/1/0
@@ -62,7 +61,6 @@ FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../
 FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
 FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
 FINALS ALREADY!! You're finally done with your first year at Wellesley!! You.../Leave as soon as you can/3/0/-1/Stay until the last possible moment to spend time with friends/-2/0/3
-
 
 Move-in day round two! You.../start unpacking with your new roomie/2/0/1/find your friends as quickly as you can/-2/0/2
 To go-abroad or to not go-abroad---that is the question/No way you're leaving the comfort of Wellesley/0/2/-1/You're picking between Oxford and Edinburgh and Spain and France and .../-2/-1/3

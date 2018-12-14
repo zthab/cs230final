@@ -16,6 +16,8 @@ public class TrailsBinaryTree
 {
 
     private Vector<Vector<Situation>> years;
+    private int vecIndex;//the current vectorIndex
+    private int sitIndex; //the current situationIndex
 
     /**
      * Constructor for objects of class TrailsBinaryTree. Instantiates the 
@@ -23,6 +25,9 @@ public class TrailsBinaryTree
      */
     public TrailsBinaryTree(){
         years = new Vector<Vector<Situation>>();
+        vecIndex=-1;
+        sitIndex=-1;
+
     }
 
     /**
@@ -36,12 +41,14 @@ public class TrailsBinaryTree
      *                One blank line expected between the different vectors. 
      */
     public TrailsBinaryTree(String txtFile){
+        vecIndex = -1;//if a tree exists in the text file, will later get 0
+        sitIndex=-1;
         //sets the initial amount of vectors in years to 1
         years=new Vector<Vector<Situation>>();
         years.add(new Vector<Situation>());
         int count =0;
 
-        String line=""; //
+        String line=""; //line of textfile
 
         String question; //stores question of a specific Situation in
         //array to store options of a specific Situation text in 
@@ -87,13 +94,13 @@ public class TrailsBinaryTree
                                         //assigns option points to the index
                                         //of its corresponding decision in
                                         //decPoints
-                                        System.out.println("here in ints");
-                                        decPoints[i][j]=Integer.parseInt(
-                                                        scanLine.next());
+                                        int p = Integer.parseInt(
+                                                scanLine.next());
+                                        decPoints[i][j]=p;
                                     }else{
                                         throw new IllegalArgumentException(
-                                        "File formatted incorrectely at line: "
-                                        + line);
+                                            "File formatted incorrectely at line: "
+                                            + line);
                                     }
                                 }
                                 //after a decision and its options are assigned
@@ -103,20 +110,23 @@ public class TrailsBinaryTree
                                 opts[i]=new Option(decs[i],decPoints[i]);
                             }else{
                                 throw new IllegalArgumentException("File "+
-                                  "formatted incorrectely at line: "+line);
+                                    "formatted incorrectely at line: "+line);
                             }
                         }
                         //after a Situation is created, assigns it to the end
                         //of the last Vector in years 
                         years.get(count).add(new Situation(question,opts[0],
-                                                                  opts[1]));
-                        //closes line scanner once a Situation is created
-                        scanLine.close();
+                                opts[1]));
+                        System.out.println(years.get(count).get(years.get(count).size()-1));
+                        //when a situation is entered, situation index is no longer -1
+                        sitIndex=0;
                     }else{
                         throw new IllegalArgumentException("File formatted "+
-                                            "incorrectely at line: " + line);
+                            "incorrectely at line: " + line);
                     }
                 }
+                //when a vector is created vector index becomes 0
+                vecIndex=0;
             }
             //Once the textFile runs out of lines, closes the scanner.
             sc.close();
@@ -132,6 +142,43 @@ public class TrailsBinaryTree
      */
     public Vector<Vector<Situation>> getYears(){
         return years;
+    }
+
+    public void nextLeft(){
+        int tempVec =vecIndex;
+        int tempSit = sitIndex;
+
+        if (!((2*(sitIndex+1)-1)>=years.get(vecIndex).size())){
+            sitIndex=2*(sitIndex+1)-1;
+        }else if (vecIndex+1<years.size()){
+            vecIndex++;
+            sitIndex=0;
+        }else{
+            throw(new ArrayIndexOutOfBoundsException("graduated"));
+        }
+    }
+
+    public void nextRight(){
+        int tempVec =vecIndex;
+        int tempSit = sitIndex;
+
+        if (!((2*(sitIndex+1))>=years.get(vecIndex).size())){
+            sitIndex=2*(sitIndex+1);
+        }else if (vecIndex+1<years.size()){
+            vecIndex++;
+            sitIndex=0;
+        }else{
+            throw(new ArrayIndexOutOfBoundsException("graduated"));
+        }
+    }
+
+    public Situation getCurrent(){
+        try{
+            return years.get(vecIndex).get(sitIndex);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Valid vector and situation indices weren't entered.");
+        }
+        return null;
     }
 
     /**

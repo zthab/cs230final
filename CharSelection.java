@@ -174,7 +174,7 @@ public class CharSelection extends JPanel
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             
              TrailsBinaryTree tree = new TrailsBinaryTree("Situations.txt");
-            SituationPanel nextPanel = new SituationPanel(player, tree, 0,0); 
+            SituationPanel nextPanel = new SituationPanel(player, tree); 
                         cardLayoutPanel.add(nextPanel,"startSit");
                         layout.show(cardLayoutPanel, "startSit");
         }
