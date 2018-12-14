@@ -15,7 +15,7 @@ public class SituationPanel extends JPanel
     private Situation sit;
     private String question;
     private Option option1, option2;
-    private JTextArea questionText;
+    private JTextArea questionText, playerStatus;
     private JButton option1Button, option2Button;
     private Person player;
     private TrailsBinaryTree tree;
@@ -41,6 +41,7 @@ public class SituationPanel extends JPanel
         option2 = sit .getOption2();
 
         questionText = new JTextArea (question);
+        playerStatus = new JTextArea(player.toString());
         option1Button = new JButton(option1.getDecision());
         option2Button = new JButton(option2.getDecision());
 
@@ -51,6 +52,7 @@ public class SituationPanel extends JPanel
         add (questionText);
         add (option1Button);
         add (option2Button);
+        add(playerStatus);
     }
 
     private class ButtonListener implements ActionListener
@@ -66,8 +68,9 @@ public class SituationPanel extends JPanel
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             if (event.getSource().equals(option1Button)){
-                System.out.println(player);
+                
                 player.addAllScores(option1.getPoints());
+                System.out.println(player);
                 if (player.isAboveZero()){
                     if (!((2*(sitIndex+1)-1)>=treeYears.get(vecIndex).size())){
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)-1); 
@@ -89,6 +92,7 @@ public class SituationPanel extends JPanel
                 }
             }else if (event.getSource().equals(option2Button)){
                 player.addAllScores(option2.getPoints());
+                System.out.println(player);
                 if (player.isAboveZero()){
                     if (!((2*(sitIndex+1))>=treeYears.get(vecIndex).size())){
                         SituationPanel nextPanel = new SituationPanel(player, tree, vecIndex,2*(sitIndex+1)); 

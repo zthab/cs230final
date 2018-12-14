@@ -11,7 +11,7 @@ public class Person
 {
     //instance variables
     private int sleepScore, smartScore, socialScore; // three scores that are based on choosen character
-    private int[] character; //array holds all the points for the choosen character
+    //private int[] character; //array holds all the points for the choosen character
     private String name;
     
     //the six archetypes, each have a different array of sleep, smart, social points
@@ -33,12 +33,12 @@ public class Person
     public Person(int charInt)
     {
         //based on arch picked, a number is inputted which is associated to a index in characters[]
-        character = allChars[charInt];
+        int[] character = allChars[charInt];
         name = names[charInt];
         //sleep, smart and social in index 0,1,2 repectively
-        sleepScore = character[0]+10;
-        smartScore = character[1]+10;
-        socialScore = character[2]+10;
+        sleepScore = character[0]+5;
+        smartScore = character[1]+5;
+        socialScore = character[2]+5;
         
     }
     
@@ -55,12 +55,12 @@ public class Person
     
     public Person(String n){
          //based on arch picked, a number is inputted which is associated to a index in characters[]
-        character = allChars[getIndex(n)];
+        int[] character = allChars[getIndex(n)];
         name = n;
         //sleep, smart and social in index 0,1,2 repectively
-        sleepScore = character[0]+10;
-        smartScore = character[1]+10;
-        socialScore = character[2]+10;
+        sleepScore = character[0]+5;
+        smartScore = character[1]+5;
+        socialScore = character[2]+5;
     }
 
     /**
@@ -117,16 +117,13 @@ public class Person
         socialScore = score;
     }
     
-    public void detractAllScores(int[] scores){
-        for (int i =0 ; i <character.length; i ++){
-            character[i]-=scores[i];
-        }
-    }
-    
     public void addAllScores(int[] scores){
-        for (int i =0 ; i <character.length; i ++){
-            character[i]+=scores[i];
-        }
+        
+        sleepScore += scores[0];
+        //System.out.println(scores[1]);
+        smartScore += scores[1];
+       // System.out.println(smartScore);
+        socialScore += scores[2];
     }
     
     /**
