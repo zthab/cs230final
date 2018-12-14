@@ -14,17 +14,42 @@ import java.io.*;
  */
 public class CharSelection extends JPanel
 {
+    private JPanel midPanel, botPanel;
+    private JLabel instruct1, instruct2;
     private JTextArea pers;
     private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
+    private JButton next; 
     private Person player;
     private Icon curMouse;
+    private Boolean hasSelectedBefore;
+    private JPanel topRow, midRow, botRow;
+    //private JButton next;
     public CharSelection()
     {
         //put in instructions 
+        
+        //setLayout(new CardLayout());
+        
+        hasSelectedBefore=false;
+        JPanel nea = new JPanel();
+        nea.setLayout(new BorderLayout());
         player = new Person();
+         instruct1 = new JLabel("Select an archetype and their sleep, smart and social points will display.");
+        instruct2= new JLabel("When satsified with your choice, press the next button.");
+        add(nea);
+        nea.add(instruct1,BorderLayout.NORTH);
+        nea.add(instruct2,BorderLayout.CENTER);
+         
+         topRow = new JPanel ();
+         midRow = new JPanel();
+         botRow = new JPanel();
+        //midPanel.setLayout(new BorderLayout());
+        add(topRow);
+        add(midRow);
+        add(botRow);
         
         athletic = new JRadioButton ("Athletic Alex");
-        athletic .setBackground (Color.green);
+        athletic.setBackground (Color.green);
 
         hermit = new JRadioButton ("Hermit Harper");
         hermit.setBackground (Color.green);
@@ -42,6 +67,7 @@ public class CharSelection extends JPanel
         wendy.setBackground (Color.green);
         
          pers = new JTextArea("");
+         pers.setBackground(Color.green);
 
         ButtonGroup group = new ButtonGroup();
         group.add (athletic);
@@ -62,56 +88,57 @@ public class CharSelection extends JPanel
         try{
             BufferedImage AlexPic = ImageIO.read(new File("AthleticAlex.png"));
             JLabel AlexPicLabel = new JLabel(new ImageIcon(AlexPic));
-            add(AlexPicLabel);
+            topRow.add(AlexPicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        add (athletic);
+        topRow.add (athletic);
         try{
             BufferedImage HarperPic = ImageIO.read(new File("HermitHarper.png"));
             JLabel HarperPicLabel = new JLabel(new ImageIcon(HarperPic));
-            HarperPicLabel.addMouseListener(new ScrollListener());
+            //HarperPicLabel.addMouseListener(new ScrollListener());
             
-            HarperPicLabel.setSize(new Dimension(100000,10000));
-            System.out.println(HarperPicLabel.size());
-            add(HarperPicLabel);
+            //HarperPicLabel.setSize(new Dimension(100000,10000));
+            //System.out.println(HarperPicLabel.size());
+            topRow.add(HarperPicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        add (hermit);
+        topRow.add (hermit);
         try{
             BufferedImage GracePic = ImageIO.read(new File("HorseGirlGrace.png"));
             JLabel GracePicLabel = new JLabel(new ImageIcon(GracePic));
-            add(GracePicLabel);
+            topRow.add(GracePicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        add (horse);
+        topRow.add (horse);
         try{
             BufferedImage OlliePic = ImageIO.read(new File("OffCampusOllie.png"));
             JLabel OlliePicLabel = new JLabel(new ImageIcon(OlliePic));
-            add(OlliePicLabel);
+            midRow.add(OlliePicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        add (offCampus);
+        midRow.add (offCampus);
         try{
             BufferedImage SkylarPic = ImageIO.read(new File("SocietySkylar.png"));
             JLabel SkylarPicLabel = new JLabel(new ImageIcon(SkylarPic));
-            add(SkylarPicLabel);
+            midRow.add(SkylarPicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        add (society);
+        midRow.add (society);
         try{
             BufferedImage WendyPic = ImageIO.read(new File("WendyWellesley.png"));
             JLabel WendyPicLabel = new JLabel(new ImageIcon(WendyPic));
-            add(WendyPicLabel);
+            midRow.add(WendyPicLabel);
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
-        add (wendy);
-        add (pers);
+        midRow.add (wendy);
+        botRow.add (pers);
+        
         setBackground (Color.green);
         setPreferredSize (new Dimension(300, 100));
     }
@@ -126,11 +153,31 @@ public class CharSelection extends JPanel
         //-----------------------------------------------------------------
         public void actionPerformed (ActionEvent event)
         {
+            if(!(event.getSource()==next)){
+            if (!hasSelectedBefore){
+                System.out.println("hasn't");
+                 next = new JButton("next");
+                next.addActionListener(new ButtonListener());
+                botRow.add(next);
+            }
+            
             JRadioButton source = (JRadioButton)event.getSource();
             String chosenName = source.getText();
             player = new Person(chosenName);
             pers.setText(player.toString());
+            hasSelectedBefore = true;
+        }else{
+            JButton button = (JButton)event.getSource();
+            JPanel buttonPanel = (JPanel)button.getParent();
+            JPanel test = (JPanel)buttonPanel.getParent();
+            JPanel cardLayoutPanel = (JPanel)test.getParent();
+            CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             
+             TrailsBinaryTree tree = new TrailsBinaryTree("Situations.txt");
+            SituationPanel nextPanel = new SituationPanel(player, tree, 0,0); 
+                        cardLayoutPanel.add(nextPanel,"startSit");
+                        layout.show(cardLayoutPanel, "startSit");
+        }
             //add button 
         }
     }

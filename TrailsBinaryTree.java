@@ -64,6 +64,7 @@ public class TrailsBinaryTree
                 scanLine.useDelimiter("/");
                 if(scanLine.hasNext()){
                     question= scanLine.next();
+                    //System.out.println("question " + question);
                     for (int i = 0; i <decs.length;i++){
                         if (scanLine.hasNext()){
                             decs[i]=scanLine.next();
@@ -72,17 +73,23 @@ public class TrailsBinaryTree
                                 if(scanLine.hasNextInt()){
                                     //System.out.println(i+" "+j);
                                     decPoints[i][j]=Integer.parseInt(scanLine.next());
+                                    //System.out.println(decPoints[i][j]);
                                 }else{
                                     throw new IllegalArgumentException("File formatted incorrectely at line:" + line);
                                 }
                             }
-
                             opts[i]=new Option(decs[i],decPoints[i]);
+                            //System.out.println("options "+ opts[i]);
                         }else{
                             throw new IllegalArgumentException("File formatted incorrectely at line: "+line);
                         }
                     }
-                    System.out.println("size "+ years.size());
+                    //System.out.println("size "+ years.size());
+                    //System.out.println("options length" + opts.length);
+                    //System.out.println("question: " + question);
+                    //System.out.println(opts[0]);
+                    //System.out.println(opts[1]+"\n");
+                    
                     years.get(count).add(new Situation(question,opts[0],opts[1]));
                     scanLine.close();
                 }

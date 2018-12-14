@@ -21,8 +21,10 @@ public class Option
     
     public Option(String dec, int sleep, int smart, int social){
         decision=dec;
-        int[] temp = new int[3];
-        temp[0]=sleep;temp[1]=smart;temp[2]=social;
+        points = new int[3];
+        points[0]=sleep;
+        points[1]=smart;
+        points[2]=social;
     }
 
     public String getDecision(){
@@ -51,8 +53,8 @@ public class Option
     }
     
     public String toString(){
-        return "Decision: " + decision + "/nSleep: " + points[0] + "/nSmart: " + points[1] 
-                + "/nSocial: " + points[2]; 
+        return "Decision: " + decision + "\nSleep: " + points[0] + "\nSmart: " + points[1] 
+                + "\nSocial: " + points[2]; 
     }
 
 }
