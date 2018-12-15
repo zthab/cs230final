@@ -33,27 +33,34 @@ public class  RunningPanel extends JPanel {
     JLabel countdownTimerField ;
 
     private int finalCount;
+    private Person player;
+    private TrailsBinaryTree tree;
+    private Boolean isLeft;
 
-    public RunningPanel (){
+
+    public RunningPanel (Person p, TrailsBinaryTree t, Boolean direct){
+        player = p; 
+        tree=t;
+        isLeft = direct;
+
         count = 0; 
-
         deck = new JPanel(new CardLayout());//this holds the panels and switches between them
         cl = (CardLayout)(deck.getLayout());//manages the deck
 
         //holds all the pieces as one card and the death scene as the other
         deckBig = new JPanel(new CardLayout());//holds the 'smaller' deck and the death panel
         clBig = (CardLayout)(deckBig.getLayout());//manages the big deck
-        
+
         dying = new DeathPanel();//the final game over screen
         dying.setBounds(0, 0, 610, 455);
-        
+
         //all the screens that the user sees
         deck.add(intro(), "instructions");
 
         //created for ease of going from the game into the final screen
         deckBig.add(deck,"main");
         deckBig.add(dying,"dead");
-        
+
         add(deckBig, BorderLayout.CENTER);
     }
 
@@ -71,23 +78,23 @@ public class  RunningPanel extends JPanel {
                 //remove(countdownTimerField);
                 //cl.removeLayoutComponent(game());//make the clock go away?
                 //^didn't work, just made the timer stop at 1?, not critical tho
-                if(count>=100){//deterime if go to outroWin or outroLost and go there; should be 100
+                if(count>=1){//deterime if go to outroWin or outroLost and go there; should be 100
                     refreshTimer.stop();
                     finalCount=count;
-                    
+
                     deck.add(outroWin(), "win"); 
                     cl.show(deck, "win");
                 }else{
                     refreshTimer.stop();
                     finalCount=count;
-                    
+
                     deck.add(outroLose(), "lose");                  
                     cl.show(deck, "lose");                    
                 }
             }
         }
     }
-    
+
     /**
      * Button actions. The game is centered around the push button and the rest are transitions from panel to panel for the user
      */
@@ -135,11 +142,47 @@ public class  RunningPanel extends JPanel {
                 deck.add(game(), "play");
                 cl.last(deck);
             }else if (event.getSource() == mainGameDead){
+                JPanel pare = (JPanel) deckBig.getParent();
+                JPanel cardLayoutPanel = (JPanel) pare.getParent();
+                CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
+                
                 //exit and go to the Death Screen, sad sad sad 
-                clBig.show(deckBig, "dead");
+                cardLayoutPanel.add(dying, "dead");
+                layout.show(cardLayoutPanel,"dead");
+                //clBig.show(deckBig, "dead");
                 //I just don't know why this is displaying so small instead of showing the whole image?
                 //this exact thing works in memory. The only difference is the timer as far as I can tell
             } else{ 
+                JButton button = (JButton)event.getSource();
+                JPanel buttonPanel = (JPanel)button.getParent();
+                JPanel charPanel = (JPanel)buttonPanel.getParent();
+                JPanel cardLayoutPanel = (JPanel)charPanel.getParent();
+                JPanel test = (JPanel)cardLayoutPanel.getParent();
+                JPanel ree = (JPanel) test.getParent();
+                CardLayout layout = (CardLayout)ree.getLayout();
+                try{
+                    if (isLeft){
+                        //incremements the tree so that the current Situation
+                        //is the left child of the current Situation
+                        tree.nextLeft();
+                        //shows a SituationPanel of the new current Situation
+                        SituationPanel nextPanel = new SituationPanel(player, tree); 
+                        ree.add(nextPanel,"left");
+                        layout.show(ree, "left");
+                    }else{
+                        //incremements the tree so that the current Situation
+                        //is the left child of the current Situation
+                        tree.nextRight();
+                        //shows a SituationPanel of the new current Situation
+                        SituationPanel nextPanel = new SituationPanel(player, tree); 
+                        cardLayoutPanel.add(nextPanel,"right");
+                        layout.show(cardLayoutPanel, "right");
+                    }
+                }catch(ArrayIndexOutOfBoundsException e){
+                    GraduationPanel win = new GraduationPanel(); 
+                    ree.add(win,"winPanel");
+                    layout.show(ree, "winPanel");
+                }
                 //back to the main game
             }
         }
@@ -159,8 +202,7 @@ public class  RunningPanel extends JPanel {
 
         push = new JButton ("Run!"); 
         push.addActionListener (new ButtonListener() );
-        
-        
+
         label = new JLabel ("Steps: " + count);
         add(countdownTimerField);
         game.add (push); 
@@ -169,7 +211,7 @@ public class  RunningPanel extends JPanel {
         setBackground(Color.cyan);
         return game;
     }
-    
+
     /**
      * The first screen the user sees. It provides the instructions
      * 
@@ -183,7 +225,7 @@ public class  RunningPanel extends JPanel {
                 "\nOn the next screen, you will click the button as many times as you can in 20 seconds."+
                 "\nEach click is a step in your run, and if you don't run far enough, there are consequnces!" +
                 "\nGood luck, and click the Start button when ready");
-                
+
         intro.add(instructions);
         intro.add(start);
         return intro;
@@ -204,7 +246,7 @@ public class  RunningPanel extends JPanel {
 
         outroWin.add(message);
         outroWin.add(mainGameAlive);
-                
+
         return outroWin;
     }
 

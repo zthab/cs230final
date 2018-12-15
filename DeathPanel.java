@@ -21,10 +21,10 @@ public class DeathPanel extends JPanel {
      */
     public DeathPanel()
     {     
-        deck = new JPanel(new CardLayout());//this lets me switch panels and it's dope
-        cl = (CardLayout)(deck.getLayout());//manages the deck 
+        deck = death();//this lets me switch panels and it's dope
+        //cl = (CardLayout)(deck.getLayout());//manages the deck 
 
-        deck.add(death(), "dying");            
+        //deck.add(death(), "dying");            
         //^set up incase we want more panels.
 
         JLayeredPane content = new JLayeredPane();//can hold all the things
@@ -45,10 +45,11 @@ public class DeathPanel extends JPanel {
         //setPreferredSize(new Dimension(610, 455));
         setLayout(new BorderLayout());
         content.setBounds(0, 0, 610, 455); //same as frame
-        deck.setBounds(150, 150, 200, 50);//((where the panel starts),(the panel size))
+        deck.setBounds(150, 150, 200, 100);//((where the panel starts),(the panel size))
         background.setOpaque(true);
         background.setBounds(0, 0, 610, 455); 
         deck.setOpaque(true);
+        deck.setBackground(new Color(0,0,0,0));
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(deck, new Integer(1), 0);//sets to the foregound    
 
@@ -58,9 +59,29 @@ public class DeathPanel extends JPanel {
     protected class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent event){
             if (event.getSource() == cont){
-                //start over
+                JFrame frame = new JFrame("Wellesley Trails");
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                TrailGUI newGame = new TrailGUI();
+                newGame.addComponents(frame.getContentPane());
+                frame.pack();
+                frame.setVisible(true);
             }else{
-                //close the whole thing
+                JButton button = (JButton)event.getSource();
+                JPanel buttonPanel = (JPanel)button.getParent();
+                JPanel charPanel = (JPanel)buttonPanel.getParent();
+                JLayeredPane cardLayoutPanel = (JLayeredPane)charPanel.getParent();
+                JPanel test = (JPanel)cardLayoutPanel.getParent();
+                
+                JPanel aa = (JPanel)test.getParent();
+                
+                JPanel bb = (JPanel)aa.getParent();
+                JLayeredPane cc = (JLayeredPane)bb.getParent();
+                JRootPane dd = (JRootPane)cc.getParent();
+                JFrame ee = (JFrame) dd.getParent();
+                ee.dispose();
+                //JPanel ree = (JPanel) test.getParent();
+                
+                //dispose();
             }
         }   
     }
@@ -68,10 +89,14 @@ public class DeathPanel extends JPanel {
         death = new JPanel();
         cont = new JButton("Try Again");
         quit = new JButton("Quit Game");
+
+        cont.addActionListener(new ButtonListener());
+        quit.addActionListener(new ButtonListener());
+        //death.prefferedSize(
         
         death.add(cont);
         death.add(quit);
-        
+
         return death;
     }
 }

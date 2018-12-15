@@ -192,6 +192,14 @@ public class TrailsBinaryTree
         }
         return null;
     }
+    
+    /**
+     * Resets the index and vector values to 0
+     */
+    public void reset(){
+        vecIndex = 0;
+        sitIndex = 0;
+    }
 
     /**
      * Gets a String representation of the TrailsBinaryTree. Displays levels in
