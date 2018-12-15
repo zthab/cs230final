@@ -15,27 +15,23 @@ import java.awt.event.*;
 
 public class MemoryGame extends javax.swing.JFrame {
     private String scenario;//should this be static? if not static, can't run in main
-
+    
+    /**
+     * Constructor the the MemoryGame Gui which runs the mini game challenge
+     * 
+     * @param String scenario one of the possible scenarios for MemoryPanel
+     */
     public MemoryGame(String scenario){
         this.scenario = scenario;
     }    
-
-    // public String getScenario(){
-        // return scenario;
-    // }
 
     public static void main (String[] args){
         JFrame frame = new JFrame ("Mini Game Challenge");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 
-        MemoryPanel panel = new MemoryPanel("Squirrel");//game text panel 
-        //eventually we want to pass various senarios in the constructor or some such
-        //MemoryPanel panel = new MemoryPanel(scenario); like this
+        MemoryPanel panel = new MemoryPanel("Squirrel");//game text panel, for now 
 
         frame.setPreferredSize(new Dimension(610, 455));
-        
-        //DeathPanel die = new DeathPanel();
-        //frame.add(die);//so that we can check what die looks like->fully functioning
         
         frame.add(panel);
         frame.pack();

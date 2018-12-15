@@ -1,19 +1,16 @@
 
 /**
+ * GUI which launches the running game created in RunningPanel
  *
  * @author (nbryant2, zthabet, gbronzi)
- * @version (12.10.18)
+ * @version (12.14.18)
  */
 
 import javax.swing.* ;
 import java.awt.*;
 
 public class RunningGame extends javax.swing.JFrame {
-    //private JSplitPane splitPanel;  // split the window in top and bottom
-    private JPanel countPanel;
-    private JPanel runPanel;
-    
-    public RunningGame(){        
+    public RunningGame(){ 
         add (new RunningPanel());
         
         setPreferredSize(new Dimension(610, 455));
@@ -21,7 +18,7 @@ public class RunningGame extends javax.swing.JFrame {
     }
        
     public static void main (String[] args){
-        new RunningGame().setVisible(true);
+        new RunningGame().setVisible(true);//launches the game
         
     }
 }

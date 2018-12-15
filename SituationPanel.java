@@ -27,6 +27,8 @@ public class SituationPanel extends JPanel{
 
     //the TrailsBinaryTree that the Situation displayed in this Panel is in
     private TrailsBinaryTree tree;
+    
+    
 
     /**
      * Constructor for objects of class SituationPanel. Creates a Situation

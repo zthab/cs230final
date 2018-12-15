@@ -1,5 +1,5 @@
 /**
- * Gui for the MemoryGame mini game. Displays the memory game based on a scenario
+ * Gui for the Modified-MemoryGame mini game. Displays the ModMemoryGame based on a given scenario
  * 
  * Known bugs:
  * -eventually we will want this gui to take the scenario string in the constructor
@@ -29,7 +29,7 @@ public class ModMemoryGame
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 
         //eventually we want to pass various senarios in the constructor or some such
-        ModMemoryPanel panel = new ModMemoryPanel("Squirrel");//game text panel 
+        ModMemoryPanel panel = new ModMemoryPanel("Tunnel");//game text panel 
 
         frame.setPreferredSize(new Dimension(610, 455));
 

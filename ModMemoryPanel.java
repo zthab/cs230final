@@ -1,11 +1,10 @@
 
 /**
- * Write a description of class ModMemoryGame here.
+ * ModMemoryGame is identical to MemoryGame exxcept the user plays the game by selecting from button options instead of inputing
+ * the answers.
+ * <br>Overridded methods from MemoryGame are game() which constructs the game panel and both private classes of action listeners
+ * are overridded to accomedate the buttons version.
  * 
- * known bugs:
- * - it limits the commands in MemoryPanel to 5. That could be changed if we thing that is a big deal
- * - there are spaces in one of the JLabels in game() to force the buttons to be on a new row and look better
- *   but this isn't the ideal solution
  *
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.1.18)
@@ -31,9 +30,11 @@ public class ModMemoryPanel extends MemoryPanel  {
         super(name);
     }
 
-    //game panel
     /**
+     * The screen where the user plays the game by selecting the buttons in the correct order
+     * 
      * @override
+     * @return JPanel game which contains the modified game mechanisms
      */
     protected JPanel game(){
         game = new JPanel();
@@ -87,6 +88,11 @@ public class ModMemoryPanel extends MemoryPanel  {
         }
     }
 
+    /**
+     * Instead of a JTextField, this recieves the words from the buttons and displays the user choices based which button was clicked
+     * 
+     * @Override
+     */
     public void push(JButton click){
         String input = click.getText();
         if (count==0){
