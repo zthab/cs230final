@@ -6,14 +6,16 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 /**
- * Write a description of class DeathPanel here.
+ * Creates a death panel for when a player dies in The Wellesley Trail. 
+ * Provides the user with options of restarting or quitting the game.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author nbryant2
+ * @author gbronzi
+ * @author zthabet
+ * @version 12.17.18
  */
 public class DeathPanel extends JPanel {
     private JPanel death, deck, background;
-    private CardLayout cl;//container for the panels
     private JButton cont, quit;
 
     /**
@@ -21,11 +23,7 @@ public class DeathPanel extends JPanel {
      */
     public DeathPanel()
     {     
-        deck = death();//this lets me switch panels and it's dope
-        //cl = (CardLayout)(deck.getLayout());//manages the deck 
-
-        //deck.add(death(), "dying");            
-        //^set up incase we want more panels.
+        deck = death();
 
         JLayeredPane content = new JLayeredPane();//can hold all the things
         background = new JPanel();//holds the scenario image
@@ -50,10 +48,10 @@ public class DeathPanel extends JPanel {
         background.setBounds(0, 0, 610, 455); 
         deck.setOpaque(true);
         deck.setBackground(new Color(0,0,0,0));
-        content.add(background, new Integer(0), 0); //sets to the background
-        content.add(deck, new Integer(1), 0);//sets to the foregound    
+        add(background, new Integer(0), 0); //sets to the background
+        add(deck, new Integer(1), 0);//sets to the foregound    
 
-        add(content);
+       // add(content);
     }
 
     protected class ButtonListener implements ActionListener {

@@ -89,7 +89,7 @@ public class SituationPanel extends JPanel{
             try{
                 //if the source is the option 1 button
                 if (event.getSource().equals(option1Button)){
-                    if(option1.getDecision().equals("RUN")){
+                    if(option1.getDecision().toLowerCase().contains("run")){
                         RunningPanel run = new RunningPanel(player, tree, true); 
                         cardLayoutPanel.add(run,"runningGame");
                         layout.show(cardLayoutPanel, "runningGame");
@@ -117,6 +117,12 @@ public class SituationPanel extends JPanel{
                 }
                 //if the source is the option 1 button
                 }else{
+                    if(option2.getDecision().toLowerCase().contains("run")){
+                        RunningPanel run = new RunningPanel(player, tree, false); 
+                        cardLayoutPanel.add(run,"runningGame");
+                        layout.show(cardLayoutPanel, "runningGame");
+                    }//else if (is mem){}
+                    else{
                     //add the associated points to the player's points
                     player.addAllScores(option2.getPoints());
                     //if the players points are still above zero, continue to
@@ -136,6 +142,7 @@ public class SituationPanel extends JPanel{
                         cardLayoutPanel.add(death,"loss");
                         layout.show(cardLayoutPanel, "loss");
                     }
+                }
                 }
             //if there is no child Situation, proceeds to the graduation panel
             }catch(ArrayIndexOutOfBoundsException e){
