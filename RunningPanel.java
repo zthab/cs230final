@@ -47,21 +47,23 @@ public class  RunningPanel extends JPanel {
         deck = new JPanel(new CardLayout());//this holds the panels and switches between them
         cl = (CardLayout)(deck.getLayout());//manages the deck
 
-        //holds all the pieces as one card and the death scene as the other
-        deckBig = new JPanel(new CardLayout());//holds the 'smaller' deck and the death panel
-        clBig = (CardLayout)(deckBig.getLayout());//manages the big deck
+        // //holds all the pieces as one card and the death scene as the other
+        // deckBig = new JPanel(new CardLayout());//holds the 'smaller' deck and the death panel
+        // clBig = (CardLayout)(deckBig.getLayout());//manages the big deck
 
         dying = new DeathPanel();//the final game over screen
-        dying.setBounds(0, 0, 610, 455);
+        //dying.setBounds(0, 0, 1200, 800);
+        //deck.setBounds(0,0,1200,800);
+        //deckBig.setBounds(0,0,1200,800);
 
         //all the screens that the user sees
         deck.add(intro(), "instructions");
 
         //created for ease of going from the game into the final screen
-        deckBig.add(deck,"main");
-        deckBig.add(dying,"dead");
-
-        add(deckBig, BorderLayout.CENTER);
+        deck.add(game(),"main");
+        deck.add(dying,"dead");
+        //setLayout(new BorderLayout());
+        add(deck, BorderLayout.CENTER);
     }
 
     /**
@@ -109,40 +111,40 @@ public class  RunningPanel extends JPanel {
 
                 //flashed through different colors at random, just for fun
                 if (r==1)
-                    setBackground (Color.green);
+                    deck.setBackground (Color.green);
 
                 if (r==2)
-                    setBackground (Color.magenta);
+                    deck.setBackground (Color.magenta);
 
                 if (r==3)
-                    setBackground (Color.yellow);
+                    deck.setBackground (Color.yellow);
 
                 if (r==4)
-                    setBackground (Color.blue);   
+                    deck.setBackground (Color.blue);   
 
                 if (r==5)
-                    setBackground (Color.pink);
+                    deck.setBackground (Color.pink);
 
                 if (r==6)
-                    setBackground (Color.yellow);
+                    deck.setBackground (Color.yellow);
 
                 if (r==7)
-                    setBackground (Color.lightGray);
+                    deck.setBackground (Color.lightGray);
 
                 if (r==8)
-                    setBackground (Color.blue);
+                    deck.setBackground (Color.blue);
 
                 if (r==9)
-                    setBackground (Color.orange);
+                    deck.setBackground (Color.orange);
 
                 if (r==0)
-                    setBackground (Color.cyan);
+                    deck.setBackground (Color.cyan);
             }else if (event.getSource() == start){
                 //added here so the time starts on this screen
                 deck.add(game(), "play");
                 cl.last(deck);
             }else if (event.getSource() == mainGameDead){
-                JPanel pare = (JPanel) deckBig.getParent();
+                JPanel pare = (JPanel) deck.getParent();
                 JPanel cardLayoutPanel = (JPanel) pare.getParent();
                 CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
                 
@@ -153,13 +155,9 @@ public class  RunningPanel extends JPanel {
                 //I just don't know why this is displaying so small instead of showing the whole image?
                 //this exact thing works in memory. The only difference is the timer as far as I can tell
             } else{ 
-                JButton button = (JButton)event.getSource();
-                JPanel buttonPanel = (JPanel)button.getParent();
-                JPanel charPanel = (JPanel)buttonPanel.getParent();
-                JPanel cardLayoutPanel = (JPanel)charPanel.getParent();
-                JPanel test = (JPanel)cardLayoutPanel.getParent();
-                JPanel ree = (JPanel) test.getParent();
-                CardLayout layout = (CardLayout)ree.getLayout();
+                JPanel pare = (JPanel) deck.getParent();
+                JPanel cardLayoutPanel = (JPanel) pare.getParent();
+                CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
                 try{
                     if (isLeft){
                         //incremements the tree so that the current Situation
@@ -167,8 +165,8 @@ public class  RunningPanel extends JPanel {
                         tree.nextLeft();
                         //shows a SituationPanel of the new current Situation
                         SituationPanel nextPanel = new SituationPanel(player, tree); 
-                        ree.add(nextPanel,"left");
-                        layout.show(ree, "left");
+                        cardLayoutPanel.add(nextPanel,"left");
+                        layout.show(cardLayoutPanel, "left");
                     }else{
                         //incremements the tree so that the current Situation
                         //is the left child of the current Situation
@@ -180,8 +178,8 @@ public class  RunningPanel extends JPanel {
                     }
                 }catch(ArrayIndexOutOfBoundsException e){
                     GraduationPanel win = new GraduationPanel(); 
-                    ree.add(win,"winPanel");
-                    layout.show(ree, "winPanel");
+                    cardLayoutPanel.add(win,"winPanel");
+                    layout.show(cardLayoutPanel, "winPanel");
                 }
                 //back to the main game
             }
@@ -202,13 +200,21 @@ public class  RunningPanel extends JPanel {
 
         push = new JButton ("Run!"); 
         push.addActionListener (new ButtonListener() );
-
+        //JPanel a = new JPanel();
+        game.setLayout(new BoxLayout(game, BoxLayout.Y_AXIS));
+        //BoxLayout a = new BoxLayout(game,BoxLayout.Y_AXIS);
+        //BoxLayout a = (BoxLayout)game.getLayout();
+        //a.setVgap(30);
+        JPanel a = new JPanel();
         label = new JLabel ("Steps: " + count);
-        add(countdownTimerField);
-        game.add (push); 
-        game.add(label);
+        //game.setLayout(new BorderLayout());
+        a.add (push); 
+        a.add(label);
+        a.setPreferredSize(new Dimension(100,100));
+        game.add(a,Component.CENTER_ALIGNMENT);
+        game.add(countdownTimerField,Component.CENTER_ALIGNMENT);
 
-        setBackground(Color.cyan);
+        game.setBackground(Color.cyan);
         return game;
     }
 
