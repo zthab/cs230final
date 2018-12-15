@@ -3,8 +3,12 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.*;
+
+import java.awt.Font;
+
+import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.io.*;
 
 /**
  * The character selection screen of The Wellesley Trail. Allows for a user to
@@ -21,67 +25,98 @@ public class CharSelection extends JPanel
 {
     //creates panels to distinguish between the different parts of the 
     //character selection panel
-    private JPanel instructRow, topRow, midRow, botRow;
-    private JLabel instruct1, instruct2;
+    private JPanel instructRow, topRow, midRow, botRow, foreground, background;
+    private JLabel instruct1, instruct2, instruct3;
     private JTextArea persStats; //displays the selected archetype's points
     private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
     private JButton next; 
     private Person player; //Person object to be modified
     private Boolean hasSelectedBefore; //tracks if next button should appear
-    
+    private JLayeredPane content;//holds the background image and foreground displays
+
     public CharSelection()
     {
+        background = new JPanel();
+        background.setLayout(new BorderLayout());
+
+        foreground = new JPanel();
+        foreground.setLayout(new BorderLayout());
+        
+        Font font = new Font("Verdana", Font.BOLD, 20);
+
         hasSelectedBefore=false;
 
-        
         instructRow = new JPanel();
-        instructRow.setBackground(Color.green);
+        instructRow.setBackground(new Color(0,0,0,0));
         topRow = new JPanel ();
-        topRow.setBackground(Color.green);
+        topRow.setBackground(new Color(0,0,0,0));
+        topRow.setOpaque(false);
         midRow = new JPanel();
-        midRow.setBackground(Color.green);
+        midRow.setBackground(new Color(0,0,0,0));
+        midRow.setOpaque(false);
         botRow = new JPanel();
-        botRow.setBackground(Color.green);
-        setLayout(new BorderLayout());
-JPanel a = new JPanel();
-a.add(topRow);
-a.add(midRow);
-        //adds panels to the character selection panel
-        add(instructRow, BorderLayout.NORTH);
-        add(a, BorderLayout.CENTER);
-        add(botRow,BorderLayout.SOUTH);
+        botRow.setBackground(new Color(0,0,0,0));
+        botRow.setOpaque(false);
         
+        JPanel a = new JPanel();
+        a.setBackground(new Color(0,0,0,0));
+        a.setOpaque(false);
+        a.add(topRow);
+        a.add(midRow);
+
+        //adds panels to the character selection panel in the foreground of image
+        foreground.add(instructRow, BorderLayout.NORTH);
+        foreground.add(a, BorderLayout.CENTER);
+        foreground.add(botRow,BorderLayout.SOUTH);
 
         instructRow.setLayout(new BorderLayout());
-        instruct1 = new JLabel("Select an archetype and their sleep, smart and"
-                               + " social points will display.");
-        instruct2= new JLabel("When satsified with your choice, press the next"+
-                              " button.");
+        instruct1 = new JLabel("Select an archetype. Their sleep, smart and"
+            + " social points will display below.");
+        instruct1.setFont(font);    
+        instruct2 = new JLabel("Each archetype comes with specialized points based on personality.");
+        instruct2.setFont(font);    
+        instruct3= new JLabel("When satsified with your choice, press the next"+
+            " button.");
+        instruct3.setFont(font);    
         instructRow.add(instruct1,BorderLayout.NORTH);
         instructRow.add(instruct2,BorderLayout.CENTER);
+        instructRow.add(instruct3,BorderLayout.SOUTH);
 
-        
         //creates archetype radio buttons
         athletic = new JRadioButton ("Athletic Alex");
-        athletic.setBackground (Color.green);
+        athletic.setBackground (new Color(0,0,0,0));
+        athletic.setFont(font);
+        athletic.setOpaque(false);
 
         hermit = new JRadioButton ("Hermit Harper");
-        hermit.setBackground (Color.green);
+        hermit.setBackground (new Color(0,0,0,0));
+        hermit.setFont(font);
+        hermit.setOpaque(false);
 
         horse = new JRadioButton ("Horse Girl Grace");
-        horse.setBackground (Color.green);
+        horse.setBackground (new Color(0,0,0,0));
+        horse.setFont(font);
+        horse.setOpaque(false);
 
         offCampus = new JRadioButton ("Off Campus Ollie");
-        offCampus.setBackground (Color.green);
+        offCampus.setBackground (new Color(0,0,0,0));
+        offCampus.setFont(font);
+        offCampus.setOpaque(false);
 
         society = new JRadioButton ("Society Skylar");
-        society.setBackground (Color.green);
+        society.setBackground (new Color(0,0,0,0));
+        society.setFont(font);
+        society.setOpaque(false);
 
         wendy = new JRadioButton ("Wendy Wellesley");
-        wendy.setBackground (Color.green);
+        wendy.setBackground (new Color(0,0,0,0));
+        wendy.setFont(font);
+        wendy.setOpaque(false);
 
         persStats = new JTextArea("");
-        persStats.setBackground(Color.green);
+        persStats.setBackground(new Color(0,0,0,0));
+        persStats.setFont(font);
+        persStats.setOpaque(false);
 
         ButtonGroup group = new ButtonGroup();
         group.add (athletic);
@@ -101,29 +136,36 @@ a.add(midRow);
 
         //adds half of the archetype images and radio buttons to the top panel
         try{
-            BufferedImage AlexPic = ImageIO.read(new File("AthleticAlex.png"));
-            JLabel AlexPicLabel = new JLabel(new ImageIcon(AlexPic));
-            topRow.add(AlexPicLabel);
+            ImageIcon image = new ImageIcon(ImageIO.read(new File("AthleticAlex.png")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
+            
+            topRow.add(new JLabel(image));
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
         topRow.add (athletic);
 
         try{
-            BufferedImage HarperPic = ImageIO.read(new File(
-                                                          "HermitHarper.png"));
-            JLabel HarperPicLabel = new JLabel(new ImageIcon(HarperPic));
-            topRow.add(HarperPicLabel);
+            ImageIcon image = new ImageIcon(ImageIO.read(new File( "HermitHarper.png")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
+            
+            topRow.add(new JLabel(image));
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
         topRow.add (hermit);
 
         try{
-            BufferedImage GracePic = ImageIO.read(new File(
-                                                        "HorseGirlGrace.png"));
-            JLabel GracePicLabel = new JLabel(new ImageIcon(GracePic));
-            topRow.add(GracePicLabel);
+            ImageIcon image = new ImageIcon(ImageIO.read(new File( "HorseGirlGrace.png")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
+            
+            topRow.add(new JLabel(image));
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
@@ -132,38 +174,73 @@ a.add(midRow);
         //adds the second half the arhcetypes' images and radio buttons to the 
         //midRow
         try{
-            BufferedImage OlliePic = ImageIO.read(new File(
-                                                        "OffCampusOllie.png"));
-            JLabel OlliePicLabel = new JLabel(new ImageIcon(OlliePic));
-            midRow.add(OlliePicLabel);
+            ImageIcon image = new ImageIcon(ImageIO.read(new File("OffCampusOllie.png")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
+            
+            midRow.add(new JLabel(image));
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
         midRow.add (offCampus);
 
         try{
-            BufferedImage SkylarPic = ImageIO.read(new File(
-                                                         "SocietySkylar.png"));
-            JLabel SkylarPicLabel = new JLabel(new ImageIcon(SkylarPic));
-            midRow.add(SkylarPicLabel);
+            ImageIcon image = new ImageIcon(ImageIO.read(new File("SocietySkylar.png")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
+            
+            midRow.add(new JLabel(image));
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
         midRow.add (society);
 
+        
         try{
-            BufferedImage WendyPic = ImageIO.read(new File(
-                                                        "WendyWellesley.png"));
-            JLabel WendyPicLabel = new JLabel(new ImageIcon(WendyPic));
-            midRow.add(WendyPicLabel);
+            ImageIcon image = new ImageIcon(ImageIO.read(new File("WendyWellesley.png")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
+            
+            midRow.add(new JLabel(image));
         }   catch(IOException e){
             System.out.println("Image not found in directory.");
         }
         midRow.add (wendy);
 
-        botRow.add (persStats);//adds the person's scores to the bottom row
+        //importing background image
+        try {
+            //scaling all input files to be the same size
+            ImageIcon image = new ImageIcon(ImageIO.read(new File("CharScreen.jpg")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
 
-        setBackground (Color.green);
+            background.add(new JLabel(image), BorderLayout.CENTER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //holds a background images and a panel on top 
+        content = new JLayeredPane();
+
+        //add both back and foreground to the container
+        content.setBounds(0, 0, 1200, 800); //same as frame
+        foreground.setBounds(0, 00, 1200, 800);//((where the panel starts),(the panel size))
+        background.setOpaque(true);
+        background.setBounds(0, 00, 1200, 800); 
+        foreground.setOpaque(false);
+        foreground.setBackground(new Color(0,0,0,0)); //transparent
+        content.add(background, new Integer(0), 0); //sets to the background
+        content.add(foreground, new Integer(1), 0);//sets to the foregound 
+
+        setLayout(new BorderLayout());
+        botRow.add (persStats);//adds the person's scores to the bottom row
+        add(content, BorderLayout.CENTER);
+        add(botRow,BorderLayout.SOUTH);
+
     }
     /**
      * Represents the listener for all buttons
@@ -195,7 +272,7 @@ a.add(midRow);
 
                 //signals that the next button doesn't need to be xreated again
                 hasSelectedBefore = true; 
-            //if the action is caused by the next button, go to first situation
+                //if the action is caused by the next button, go to first situation
             }else{ 
                 //feteches the CardLayout
                 JButton button = (JButton)event.getSource();
