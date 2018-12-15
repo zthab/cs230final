@@ -129,8 +129,9 @@ public class SituationPanel extends JPanel{
                         RunningPanel run = new RunningPanel(player, tree, true); 
                         cardLayoutPanel.add(run,"runningGame");
                         layout.show(cardLayoutPanel, "runningGame");
-                    }//else if (is mem){}
-                    else{
+                    }else if(option1.getDecision().toLowerCase().contains("vocab")){
+                        
+                    }else if(option1.getDecision().toLowerCase().contains("equations")){
                     //add the associated points to the player's points
                     player.addAllScores(option1.getPoints());
                     //if the players points are still above zero, continue to
@@ -186,6 +187,8 @@ public class SituationPanel extends JPanel{
                 cardLayoutPanel.add(win,"winPanel");
                 layout.show(cardLayoutPanel, "winPanel");
             }
+            
+            
         }
     }
 }
