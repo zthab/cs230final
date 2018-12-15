@@ -76,13 +76,8 @@ public class SituationPanel extends JPanel{
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             try{
                 if (event.getSource().equals(option1Button)){
-                    int[] test = sit.getOptionLeft().getPoints();
-                    System.out.println("hereAFEAFE");
-                    for (int i : test){
-                        System.out.println(i);
-                    }
-                    player.addAllScores(option1.getPoints());
-                    System.out.println(player);
+                    player.setSleepScore(player.getSleepScore()+option1.getPoints()[0]);
+                    //player.addAllScores(option1.getPoints());
                     if (player.isAboveZero()){
                         tree.nextLeft();
                         SituationPanel nextPanel = new SituationPanel(player, tree); 
@@ -95,7 +90,6 @@ public class SituationPanel extends JPanel{
                     }
                 }else if (event.getSource().equals(option2Button)){
                     player.addAllScores(option2.getPoints());
-                    System.out.println(player);
                     if (player.isAboveZero()){
                         tree.nextRight();
                         SituationPanel nextPanel = new SituationPanel(player, tree); 

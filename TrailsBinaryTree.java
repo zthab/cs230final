@@ -7,9 +7,10 @@ import java.util.Vector;
  *represent choices made in the four years of the Wellesley Trail. Each Vector
  *represents a different year or period of time in the Wellesley experience.
  *
+ * @author  zthabet
  * @author  gbronzi
  * @author  nbryant2
- * @author  zthabet
+ * 
  * @version 12.17.18
  */
 public class TrailsBinaryTree
@@ -117,7 +118,6 @@ public class TrailsBinaryTree
                         //of the last Vector in years 
                         years.get(count).add(new Situation(question,opts[0],
                                 opts[1]));
-                        System.out.println(years.get(count).get(years.get(count).size()-1));
                         //when a situation is entered, situation index is no longer -1
                         sitIndex=0;
                     }else{
@@ -144,6 +144,10 @@ public class TrailsBinaryTree
         return years;
     }
 
+    /**
+     * Sets the current vector and situation indices to the left child of the 
+     * current situation.
+     */
     public void nextLeft(){
         int tempVec =vecIndex;
         int tempSit = sitIndex;
@@ -158,6 +162,10 @@ public class TrailsBinaryTree
         }
     }
 
+    /**
+     * Sets the current vector and situation indices to the right child of the
+     * current situation.
+     * */
     public void nextRight(){
         int tempVec =vecIndex;
         int tempSit = sitIndex;
@@ -172,6 +180,11 @@ public class TrailsBinaryTree
         }
     }
 
+    /**
+     * Gets the current Situation according to the vector and situation indices
+     * 
+     * @return the current Situation object
+     */
     public Situation getCurrent(){
         try{
             return years.get(vecIndex).get(sitIndex);
