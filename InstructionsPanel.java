@@ -1,6 +1,12 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.Font;
+
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 /**
  * Instructions panel for The Wellesley Trail
  *
@@ -17,31 +23,19 @@ public class InstructionsPanel extends JPanel
      * Constructs up a JPanel with two labels.
      */
     public InstructionsPanel(){
-        // setBackground (Color.green);
-
-        // JTextArea l1 = new JTextArea ("Welcome to The Wellesley Trail!\n The "+
-        // "goal of this game is to make it to graduation without "+
-        // "getting lost in the tunnels, attacked by geese, or "+
-        // "dying from sleep deprivation.\nFirst you will pick "+
-        // "from six different archtypes; each have a different set"
-        // +" of points for the sleep, smart and social categories."+
-        // "\nYou will then be prompted with questions and will "+
-        // "have two options to pick from.\nBased on some "+
-        // "decisions, you will have to play a mini-game. If you "+
-        // "lose this mini-game, you lose everything.\nYou will "+
-        // "also gain or loose points in the three categories based"
-        // +" on the decisions you choose.\nIf any of these "+
-        // "categories drop below zero, you lose, so choose wisely "
-        // +"and good luck!!");
-
-        // l1.setBackground(Color.green); 
-        // add (l1);
-
+        JPanel deck = new JPanel(new CardLayout());//container for the panels, switches between them like playingcards
+        CardLayout cl = (CardLayout)(deck.getLayout());//manages the deck
+        
+        JPanel background = new JPanel();
+        background.setLayout(new BorderLayout());
+        
+        JPanel foreground = new JPanel();
+        foreground.setLayout(new BorderLayout());
+        
         JButton next = new JButton("Choose your character -->");
         next.addActionListener(new ButtonListener());
-        // add(next);
 
-        JTextArea top = new JTextArea("Welcome to the Wellesley Trail!");
+        JTextArea top = new JTextArea("          Welcome to the Wellesley Trail!");
         JTextArea left = new JTextArea("Goals:\nMake it to graduation without being:\n   Attacked by geese" +
                  "\n   Lost in the tunnels\n   Dying of sleep deprivation\n   Or any of the other perils of Wellesley College");
         JTextArea right = new JTextArea("Instructions:          \n" + "Most importantly, you must keep all three of your stats" + 
@@ -49,17 +43,47 @@ public class InstructionsPanel extends JPanel
                          " The decisions you make in this game will impact\nthose stats. If any drop below zero, you lose!" +
                          "\nAdditionally, some decisions will lead you to mini games.\nIf you lose any of those, you lose it all!");
         JTextArea center = new JTextArea("");
+        
+        //importing background image
+         try {
+            //scaling all input files to be the same size
+            ImageIcon image = new ImageIcon(ImageIO.read(new File("OregonTrail.jpg")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
 
-        //top.setFont(JTextArea.getFont().deriveFont(16f));
-        //editingArea(top.getFontName(), top.getStyle(), top.getSize()+5);
+            background.add(new JLabel(image), BorderLayout.CENTER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //setting the font sizes
+        
+        Font font = new Font("Verdana", Font.BOLD, 20);
+        Font fontBig = new Font("Verdana", Font.BOLD, 48);
+        top.setFont(fontBig);
+        top.setForeground(Color.BLUE);
+        left.setFont(font);
+        right.setFont(font);
+        next.setFont(font);
+        
+        JLayeredPane content = new JLayeredPane();//olds a background images and a panel on top
+        
         top.setPreferredSize(new Dimension(1200, 100));
 
         setLayout(new BorderLayout());
-        add(next,BorderLayout.SOUTH);
-        add(top, BorderLayout.NORTH);
-        add(center, BorderLayout.CENTER);
-        add(left, BorderLayout.LINE_START);
-        add(right, BorderLayout.LINE_END);  
+        foreground.add(next,BorderLayout.SOUTH);
+        foreground.add(top, BorderLayout.NORTH);
+        foreground.add(center, BorderLayout.CENTER);
+        foreground.add(left, BorderLayout.LINE_START);
+        foreground.add(right, BorderLayout.LINE_END);  
+        
+        content.setBounds(0, 0, 1200, 800); //same as frame
+        foreground.setBounds(0, 00, 1200, 800);//((where the panel starts),(the panel size))
+        background.setOpaque(true);
+        background.setBounds(0, 00, 1200, 800); 
+        foreground.setOpaque(true);
+        content.add(background, new Integer(0), 0); //sets to the background
+        content.add(foreground, new Integer(1), 0);//sets to the foregound 
     }
 
     /**
