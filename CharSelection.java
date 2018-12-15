@@ -42,13 +42,15 @@ public class CharSelection extends JPanel
         midRow.setBackground(Color.green);
         botRow = new JPanel();
         botRow.setBackground(Color.green);
-
+        setLayout(new BorderLayout());
+JPanel a = new JPanel();
+a.add(topRow);
+a.add(midRow);
         //adds panels to the character selection panel
-        add(instructRow);
-        add(topRow);
-        add(midRow);
-        add(botRow);
-
+        add(instructRow, BorderLayout.NORTH);
+        add(a, BorderLayout.CENTER);
+        add(botRow,BorderLayout.SOUTH);
+        
 
         instructRow.setLayout(new BorderLayout());
         instruct1 = new JLabel("Select an archetype and their sleep, smart and"
