@@ -67,8 +67,9 @@ public class CharSelection extends JPanel
         //adds panels to the character selection panel in the foreground of image
         foreground.add(instructRow, BorderLayout.NORTH);
         foreground.add(a, BorderLayout.CENTER);
-        foreground.add(botRow,BorderLayout.SOUTH);
+        foreground.add(botRow,BorderLayout.SOUTH);        
 
+        //text which displays at top of gui 
         instructRow.setLayout(new BorderLayout());
         instruct1 = new JLabel("Select an archetype. Their sleep, smart and"
             + " social points will display below.");
@@ -81,6 +82,7 @@ public class CharSelection extends JPanel
         instructRow.add(instruct1,BorderLayout.NORTH);
         instructRow.add(instruct2,BorderLayout.CENTER);
         instructRow.add(instruct3,BorderLayout.SOUTH);
+        instructRow.setPreferredSize(new Dimension(1100,125));
 
         //creates archetype radio buttons
         athletic = new JRadioButton ("Athletic Alex");
@@ -238,6 +240,7 @@ public class CharSelection extends JPanel
 
         setLayout(new BorderLayout());
         botRow.add (persStats);//adds the person's scores to the bottom row
+        
         add(content, BorderLayout.CENTER);
         add(botRow,BorderLayout.SOUTH);
 
