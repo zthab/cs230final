@@ -26,16 +26,18 @@ public class StartPanel extends JPanel
         
         JPanel background = new JPanel();
         background.setLayout(new BorderLayout());
-        
+                
+        Font font = new Font("Verdana", Font.BOLD, 20);
         JButton next = new JButton("Begin Your Wellesly Experience");
         next.addActionListener(new ButtonListener());
+        next.setFont(font);
        
         //adding an exciting welcome screen to the background
         try {
             //scaling all input files to be the same size
             ImageIcon image = new ImageIcon(ImageIO.read(new File("StartImage.jpg")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(1200, 770,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(1200, 760,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image), BorderLayout.CENTER);

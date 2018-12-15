@@ -153,9 +153,6 @@ public class  RunningPanel extends JPanel {
                 //exit and go to the Death Screen, sad sad sad 
                 cardLayoutPanel.add(dying, "dead");
                 layout.show(cardLayoutPanel,"dead");
-                //clBig.show(deckBig, "dead");
-                //I just don't know why this is displaying so small instead of showing the whole image?
-                //this exact thing works in memory. The only difference is the timer as far as I can tell
             } else{ 
                 JPanel pare = (JPanel) deck.getParent();
                 JPanel cardLayoutPanel = (JPanel) pare.getParent();
@@ -183,7 +180,6 @@ public class  RunningPanel extends JPanel {
                     cardLayoutPanel.add(win,"winPanel");
                     layout.show(cardLayoutPanel, "winPanel");
                 }
-                //back to the main game
             }
         }
     }
@@ -209,28 +205,18 @@ public class  RunningPanel extends JPanel {
         push.setFont(gameFont);
         push.addActionListener (new ButtonListener() );        
         push.setPreferredSize(new Dimension(1200, 100));
-        //push.setLayout(new GridLayout());
-        
-        //JPanel a = new JPanel();
-        //game.setLayout(new BoxLayout(game, BoxLayout.Y_AXIS));
-        //BoxLayout a = new BoxLayout(game,BoxLayout.Y_AXIS);
-        //BoxLayout a = (BoxLayout)game.getLayout();
-        //a.setVgap(30);
-        //game.setLayout(new BorderLayout());
-        
+       
         game.setLayout(new GridLayout(3,1,30,30));
-        JPanel a = new JPanel();
         label = new JLabel ("Steps: " + count);
         label.setFont(gameFont);        
         countdownTimerField.setAlignmentX(Component.CENTER_ALIGNMENT);
         push.setAlignmentX(Component.CENTER_ALIGNMENT);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        game.add(countdownTimerField);
         
+        game.add(countdownTimerField);       
         game.add(push);
         game.add(label);
-        
-        //game.setBackground(Color.cyan);
+
         return game;
     }
 
@@ -241,6 +227,7 @@ public class  RunningPanel extends JPanel {
      */
     private JPanel intro(){
         intro = new JPanel();
+        
         start = new JButton("Start");
         start.addActionListener (new ButtonListener() );
         JTextArea instructions = new JTextArea("Welcome to the running mini game! Here is how you play:" +
@@ -248,8 +235,16 @@ public class  RunningPanel extends JPanel {
                 "\nEach click is a step in your run, and if you don't run far enough, there are consequnces!" +
                 "\nGood luck, and click the Start button when ready");
 
+        start.setFont(font);
+        instructions.setFont(font);
+        start.setAlignmentX(Component.CENTER_ALIGNMENT);
+        instructions.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        intro.setLayout(new GridLayout(3,1,30,30));
         intro.add(instructions);
         intro.add(start);
+        intro.setBackground(new Color(0,39,118));
+        
         return intro;
     }
 
@@ -259,15 +254,30 @@ public class  RunningPanel extends JPanel {
      * @return JPanel winner scenario
      */
     private JPanel outroWin(){
+        Font winFont = new Font("Verdana", Font.BOLD, 150);        
         outroWin = new JPanel();
+        
         mainGameAlive = new JButton("Back to the main game");
         mainGameAlive.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("Congrats, you ran " +finalCount+ " steps. Wow!"+
                 "\nBecause you ran so fast, you made it to the omlete line in Lulu before it got too long."+
                 "\nWith a full belly, you make it one day closer to graduation.");
-
-        outroWin.add(message);
+        JTextArea space = new JTextArea("TIME'S UP");
+        JPanel panel = new JPanel();   
+        panel.add(space, BorderLayout.CENTER);
+        
+        mainGameAlive.setFont(font);
+        message.setFont(font);   
+        space.setFont(winFont);
+        mainGameAlive.setAlignmentX(Component.CENTER_ALIGNMENT);
+        message.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        outroWin.setLayout(new GridLayout(3,1,30,30));
+        outroWin.add(panel);
+        outroWin.add(message);       
         outroWin.add(mainGameAlive);
+        outroWin.setBackground(new Color(0,39,118));
 
         return outroWin;
     }
@@ -279,15 +289,31 @@ public class  RunningPanel extends JPanel {
      */
     private JPanel outroLose(){
         outroLose = new JPanel();
+        Font loseFont = new Font("Verdana", Font.BOLD, 150);  
+        
         mainGameDead = new JButton("Game Over");
         mainGameDead.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("You ran " +count+ " steps."+
                 "\nSadly, you didn't make it to the omlete line in Lulu before it got too long."+
                 "\nWhile waiting in line, you die." +
                 "\nPlease click 'Game Over' to move on");
+        JTextArea space = new JTextArea("TIME'S UP");
+        JPanel panel = new JPanel();   
+        panel.add(space, BorderLayout.CENTER);
+        
+        mainGameDead.setFont(font);
+        message.setFont(font);
+        space.setFont(loseFont);
+        mainGameDead.setAlignmentX(Component.CENTER_ALIGNMENT);
+        message.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+        outroLose.setLayout(new GridLayout(3,1,30,30));
+        outroLose.add(panel);
         outroLose.add(message);
         outroLose.add(mainGameDead);
+        outroLose.setBackground(new Color(0,39,118));
+        
         return outroLose;
     }
 }
