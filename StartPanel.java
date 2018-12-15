@@ -6,25 +6,42 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 /**
- * Write a description of class StartPanel here.
+ * Creates a start panel for The Wellesley Trail
  *
- * @author Zahra Thabet
- * @version 12.7.18
+ * @author zthabet
+ * @author gbronzi
+ * @author nbryant2
+ * @version 12.17.18
  */
 public class StartPanel extends JPanel
 {
+<<<<<<< HEAD
     private JLayeredPane content;//holds two panels one of which is the background image
     private ImageIcon image;
     private JPanel background, foreground;
 
     /**
      * Constructs up a JPanel with two labels.
+=======
+    /**
+     * Constructs up a start panel as a JPanel
+>>>>>>> 6853d8941fbb421c2caf61e8099a40a26870f14e
      */
+<<<<<<< HEAD
     public StartPanel() {
         content = new JLayeredPane();//holds a background images and a panel on top
         background = new JPanel();//holds the scenario image
         foreground = foreground();
+=======
+    public StartPanel()
+    {
+        setBackground (Color.green);
+        setLayout(new BorderLayout());
+        JLabel l1 = new JLabel ("Welcome to Wellesley Trails!");
+        l1.setHorizontalAlignment(SwingConstants.CENTER);
+>>>>>>> 6853d8941fbb421c2caf61e8099a40a26870f14e
 
+<<<<<<< HEAD
         //add image to the background
         try {
             //scaling all input files to be the same size
@@ -47,7 +64,19 @@ public class StartPanel extends JPanel
         content.add(foreground, new Integer(1), 0);//sets to the foregound
 
         add(content, BorderLayout.CENTER);
+=======
+        JButton next = new JButton("Next");
+        next.addActionListener(new ButtonListener());
+
+        l1.setBackground(Color.green); //so that the JTextArea matches the panel background
+        add(next,BorderLayout.SOUTH);
+        add (l1, BorderLayout.CENTER);
+
+>>>>>>> 6853d8941fbb421c2caf61e8099a40a26870f14e
     }
+    /**
+     * 
+     */
     private class ButtonListener implements ActionListener
     {
         //-----------------------------------------------------------------
@@ -59,7 +88,10 @@ public class StartPanel extends JPanel
             JButton button = (JButton)event.getSource();
             JPanel buttonPanel = (JPanel)button.getParent();
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
+<<<<<<< HEAD
             
+=======
+>>>>>>> 6853d8941fbb421c2caf61e8099a40a26870f14e
             //make new situation panel from source
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             InstructionsPanel nextPanel = new InstructionsPanel(); 

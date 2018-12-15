@@ -40,36 +40,46 @@ public class SituationPanel extends JPanel{
     public SituationPanel(Person p,TrailsBinaryTree t)
     {
         player = p;
-
-        setBackground (Color.green);
+        
         tree=t; 
-
+        //accesses all the relevant Situation object components 
         sit = tree.getCurrent();
         question = sit.getQuestion();
         option1=sit.getOptionLeft();
+        System.out.println("here");
+        System.out.println(option1);
         option2 = sit.getOptionRight();
 
+        //displays the Situation's question
         questionText = new JTextArea (question);
+        //displays the players current point totals
         playerStatus = new JTextArea(player.toString());
+        //displays the Situation's two Options' decisions as buttons
         option1Button = new JButton(option1.getDecision());
         option2Button = new JButton(option2.getDecision());
 
         option1Button.addActionListener(new ButtonListener());
         option2Button.addActionListener(new ButtonListener());
 
-        questionText.setBackground(Color.green); //so that the JTextArea matches the panel background
+        setBackground (Color.green);
+        questionText.setBackground(Color.green); 
+
         add (questionText);
         add (option1Button);
         add (option2Button);
         add(playerStatus);
     }
-
+    /**
+     * Represents the listeners for all buttons 
+     */
     private class ButtonListener implements ActionListener
     {
-        //-----------------------------------------------------------------
-        // Sets the text of the label depending on which radio
-        // button was pressed.
-        //-----------------------------------------------------------------
+        /**
+         * Sets the card to the correct panel based on which button is pressed
+         * and where the current situation in the TrailsBinaryTree is
+         * 
+         * @param event action event that triggers the action 
+         */
         public void actionPerformed (ActionEvent event)
         {
             JButton button = (JButton)event.getSource();
@@ -77,38 +87,50 @@ public class SituationPanel extends JPanel{
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             try{
+                //if the source is the option 1 button
                 if (event.getSource().equals(option1Button)){
-                    int[] test = sit.getOptionLeft().getPoints();
-                    System.out.println("hereAFEAFE");
-                    for (int i : test){
-                        System.out.println(i);
-                    }
+                    //add the associated points to the player's points
                     player.addAllScores(option1.getPoints());
-                    System.out.println(player);
+                    //if the players points are still above zero, continue to
+                    //the left child SituationPanel
                     if (player.isAboveZero()){
+                        //incremements the tree so that the current Situation
+                        //is the left child of the current Situation
                         tree.nextLeft();
+                        //shows a SituationPanel of the new current Situation
                         SituationPanel nextPanel = new SituationPanel(player, tree); 
                         cardLayoutPanel.add(nextPanel,"left");
                         layout.show(cardLayoutPanel, "left");
+                    //if the player's points are not above zero after pressing
+                    //the button, shows the death panel
                     }else{
                         DeathPanel death = new DeathPanel(); 
                         cardLayoutPanel.add(death,"loss");
                         layout.show(cardLayoutPanel, "loss");
                     }
-                }else if (event.getSource().equals(option2Button)){
+                //if the source is the option 1 button
+                }else{
+                    //add the associated points to the player's points
                     player.addAllScores(option2.getPoints());
-                    System.out.println(player);
+                    //if the players points are still above zero, continue to
+                    //the right child SituationPanel
                     if (player.isAboveZero()){
+                        //incremements the tree so that the current Situation
+                        //is the right child of the current Situation
                         tree.nextRight();
+                        //shows a SituationPanel of the new current Situation
                         SituationPanel nextPanel = new SituationPanel(player, tree); 
                         cardLayoutPanel.add(nextPanel,"right");
                         layout.show(cardLayoutPanel, "right");
+                    //if the player's points are not above zero after pressing
+                    //the button, shows the death panel
                     }else{
                         DeathPanel death = new DeathPanel(); 
                         cardLayoutPanel.add(death,"loss");
                         layout.show(cardLayoutPanel, "loss");
                     }
                 }
+            //if there is no child Situation, proceeds to the graduation panel
             }catch(ArrayIndexOutOfBoundsException e){
                 GraduationPanel win = new GraduationPanel(); 
                 cardLayoutPanel.add(win,"winPanel");

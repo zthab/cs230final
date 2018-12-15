@@ -1,4 +1,5 @@
-Time to pick a roommate! Will you go.../ Random/-2/0/2/Not random/2/0/1
+
+Time to pick a roommate! Will you go.../Random/-2/0/2/Not random/2/0/1
 It's orientation week! There are a ton of events and you.../Go to all of them/0/2/4/Skip them/0/-2/-2
 Class registration is tomorrow. You.../wake up two minutes before registration starts/1/-1/0/planned out your schedule two days after getting in to Wellesley/-1/1/0
 It's 90 degrees outside and can't deal with the heat. You.../jump in the lake/0/0/2/make a makeshift AC/1/2/1

@@ -17,21 +17,13 @@ public class TrailGUI
     int counter; 
     
     public void addComponents(Container pane){
-        TrailsBinaryTree theTree = new TrailsBinaryTree("Situations.txt");
-        tree = theTree.getYears();
-        p=new Person(0);//initializes it
         JPanel start = new StartPanel();
-
-        JPanel card2 = new CharSelection();
-        
-        JPanel card3 = new SituationPanel(p, theTree);
 
         //Create the panel that contains the "cards".
         trailGame = new JPanel(new CardLayout());
         trailGame.add(start, "StartPanel");
         trailGame.setPreferredSize(new Dimension(600,400));
         pane.add(trailGame, BorderLayout.CENTER);
-        
     }
     
     public static void main (String[] args) 
@@ -41,12 +33,11 @@ public class TrailGUI
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //Create and set up the content pane.
-        TrailGUI demo = new TrailGUI();
-        demo.addComponents(frame.getContentPane());
+        TrailGUI game = new TrailGUI();
+        game.addComponents(frame.getContentPane());
 
         //Display the window.
         frame.pack();
         frame.setVisible(true);
-
     } 
 }
