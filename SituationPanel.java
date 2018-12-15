@@ -118,7 +118,9 @@ public class SituationPanel extends JPanel{
         {
             JButton button = (JButton)event.getSource();
             JPanel buttonPanel = (JPanel)button.getParent();
-            JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
+            JPanel buttonPanContainer = (JPanel) buttonPanel.getParent();
+            JPanel borderPanel = (JPanel) buttonPanContainer.getParent();
+            JPanel cardLayoutPanel = (JPanel)borderPanel.getParent();
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             try{
                 //if the source is the option 1 button
