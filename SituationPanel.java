@@ -2,6 +2,12 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.Vector;
+
+import java.awt.Font;
+
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 /**
  * Creates a panel for a Situation object to be displayed with. Buttons
  * selected in this panel have the capability to lead to other panels.
@@ -14,7 +20,6 @@ import java.util.Vector;
  * @version 12.17.18
  */
 public class SituationPanel extends JPanel{
-
     private Situation sit; //the situation to be displayed
     private String question; //the question to be displayed
     private Option option1, option2; //options of the corresponding Situation
@@ -26,9 +31,10 @@ public class SituationPanel extends JPanel{
     private JButton option1Button, option2Button;
 
     //the TrailsBinaryTree that the Situation displayed in this Panel is in
-    private TrailsBinaryTree tree;
+    private TrailsBinaryTree tree;    
     
-    
+    private JLayeredPane content;//holds the background and foreground
+    private JPanel topRow, midRow; //holds the buttons
 
     /**
      * Constructor for objects of class SituationPanel. Creates a Situation
@@ -39,36 +45,64 @@ public class SituationPanel extends JPanel{
      */
     public SituationPanel(Person p,TrailsBinaryTree t)
     {
-        player = p;
-        
+        player = p;       
         tree=t; 
+        
+        topRow = new JPanel ();
+        topRow.setBackground(new Color(0,39,118));
+        topRow.setOpaque(false);
+        midRow = new JPanel();
+        midRow.setBackground(new Color(0,39,118));
+        midRow.setOpaque(false);
+        
+        JPanel a = new JPanel();
+        a.setBackground(new Color(0,39,118));
+        a.setOpaque(false);
+        a.add(topRow);
+        a.add(midRow);
+        //r236,g222,b187
+        
+        Font font = new Font("Verdana", Font.BOLD, 28);
+        
         //accesses all the relevant Situation object components 
         sit = tree.getCurrent();
         question = sit.getQuestion();
         option1=sit.getOptionLeft();
-        System.out.println("here");
-        System.out.println(option1);
         option2 = sit.getOptionRight();
 
         //displays the Situation's question
         questionText = new JTextArea (question);
+        questionText.setFont(font);
+        questionText.setBackground(new Color(0,39,118));
+        questionText.setForeground(new Color(0,39,118));
+        
         //displays the players current point totals
         playerStatus = new JTextArea(player.toString());
+        playerStatus.setBackground(new Color(236,222,187));
+        playerStatus.setFont(font);
+        
         //displays the Situation's two Options' decisions as buttons
         option1Button = new JButton(option1.getDecision());
+        option1Button.setFont(font);
         option2Button = new JButton(option2.getDecision());
-
+        option2Button.setFont(font);
+        
+        topRow.add(option1Button);
+        midRow.add(option2Button);
+        
         option1Button.addActionListener(new ButtonListener());
         option2Button.addActionListener(new ButtonListener());
-
-        setBackground (Color.green);
-        questionText.setBackground(Color.green); 
-
-        add (questionText);
-        add (option1Button);
-        add (option2Button);
-        add(playerStatus);
+             
+        
+        setBounds(0, 00, 1200, 800); 
+        setBackground(new Color(0,39,118));
+        
+        setLayout(new BorderLayout());
+        add(questionText, BorderLayout.NORTH);
+        add(a, BorderLayout.CENTER);
+        add(playerStatus,BorderLayout.SOUTH);
     }
+    
     /**
      * Represents the listeners for all buttons 
      */
