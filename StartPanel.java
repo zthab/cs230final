@@ -1,6 +1,11 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
 /**
  * Creates a start panel for The Wellesley Trail
  *
@@ -15,32 +20,55 @@ public class StartPanel extends JPanel
     /**
      * Constructs up a start panel as a JPanel
      */
-    public StartPanel()
-    {
-        setBackground (Color.green);
-        setLayout(new BorderLayout());
-        JLabel l1 = new JLabel ("Welcome to Wellesley Trails!");
-        l1.setHorizontalAlignment(SwingConstants.CENTER);
+    public StartPanel(){
+        //old code which I'm vamping
+        // setBackground (Color.green);
+        // setLayout(new BorderLayout());
+        // JLabel l1 = new JLabel ("Welcome to Wellesley Trails!");
+        // l1.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JButton next = new JButton("Next");
+        // JButton next = new JButton("Begin Your Wellesly Experience");
+        // next.addActionListener(new ButtonListener());
+
+        // l1.setBackground(Color.green); //so that the JTextArea matches the panel background
+        // add(next,BorderLayout.SOUTH);
+        // add (l1, BorderLayout.CENTER);
+        
+        JPanel deck = new JPanel(new CardLayout());//container for the panels, switches between them like playingcards
+        CardLayout cl = (CardLayout)(deck.getLayout());//manages the deck
+        
+        JPanel background = new JPanel();
+        background.setLayout(new BorderLayout());
+        
+        JButton next = new JButton("Begin Your Wellesly Experience");
         next.addActionListener(new ButtonListener());
+       
+        //adding an exciting welcome screen to the background
+        try {
+            //scaling all input files to be the same size
+            ImageIcon image = new ImageIcon(ImageIO.read(new File("StartImage.jpg")));
+            Image pic = image.getImage(); // transform it 
+            Image newimg = pic.getScaledInstance(610, 455,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            image = new ImageIcon(newimg);  // transform it back
 
-        l1.setBackground(Color.green); //so that the JTextArea matches the panel background
-        add(next,BorderLayout.SOUTH);
-        add (l1, BorderLayout.CENTER);
+            background.add(new JLabel(image), BorderLayout.CENTER);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        background.add(next, BorderLayout.SOUTH);
+        deck.add(background, "screen");
+        
+        add(deck, BorderLayout.CENTER);
     }
     /**
-     * 
+     * Sets the listener for the action which will occure when the user clicks the button
      */
-    private class ButtonListener implements ActionListener
-    {
-        //-----------------------------------------------------------------
-        // Sets the text of the label depending on which radio
-        // button was pressed.
-        //-----------------------------------------------------------------
-        public void actionPerformed (ActionEvent event)
-        {
+    private class ButtonListener implements ActionListener{
+        /**
+         * When the button is selected, create an instructions panel and go to it
+         */
+        public void actionPerformed (ActionEvent event){
             JButton button = (JButton)event.getSource();
             JPanel buttonPanel = (JPanel)button.getParent();
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
