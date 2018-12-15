@@ -27,7 +27,7 @@ public class  RunningPanel extends JPanel {
     private JPanel intro, game, outroWin, outroLose, deck, dying, deckBig;//panels for moving through the game
     private CardLayout cl, clBig;//container for the panels
 
-    final int TOTAL_TIME = 2;//seconds to play the game, should be 20, set to 5 for testing
+    final int TOTAL_TIME = 10;//seconds to play the game, should be 20, set to 5 for testing
     int counter = TOTAL_TIME;
     javax.swing.Timer refreshTimer;
     JLabel countdownTimerField ;
@@ -50,7 +50,7 @@ public class  RunningPanel extends JPanel {
         // //holds all the pieces as one card and the death scene as the other
         // deckBig = new JPanel(new CardLayout());//holds the 'smaller' deck and the death panel
         // clBig = (CardLayout)(deckBig.getLayout());//manages the big deck
-
+        JPanel game = game();
         dying = new DeathPanel();//the final game over screen
         //dying.setBounds(0, 0, 1200, 800);
         //deck.setBounds(0,0,1200,800);
@@ -60,7 +60,7 @@ public class  RunningPanel extends JPanel {
         deck.add(intro(), "instructions");
 
         //created for ease of going from the game into the final screen
-        deck.add(game(),"main");
+        deck.add(game,"main");
         deck.add(dying,"dead");
         //setLayout(new BorderLayout());
         add(deck, BorderLayout.CENTER);
@@ -111,34 +111,34 @@ public class  RunningPanel extends JPanel {
 
                 //flashed through different colors at random, just for fun
                 if (r==1)
-                    deck.setBackground (Color.green);
+                    game.setBackground (Color.green);
 
                 if (r==2)
-                    deck.setBackground (Color.magenta);
+                    game.setBackground (Color.magenta);
 
                 if (r==3)
-                    deck.setBackground (Color.yellow);
+                    game.setBackground (Color.yellow);
 
                 if (r==4)
-                    deck.setBackground (Color.blue);   
+                    game.setBackground (Color.blue);   
 
                 if (r==5)
-                    deck.setBackground (Color.pink);
+                    game.setBackground (Color.pink);
 
                 if (r==6)
-                    deck.setBackground (Color.yellow);
+                    game.setBackground (Color.yellow);
 
                 if (r==7)
-                    deck.setBackground (Color.lightGray);
+                    game.setBackground (Color.lightGray);
 
                 if (r==8)
-                    deck.setBackground (Color.blue);
+                    game.setBackground (Color.blue);
 
                 if (r==9)
-                    deck.setBackground (Color.orange);
+                    game.setBackground (Color.orange);
 
                 if (r==0)
-                    deck.setBackground (Color.cyan);
+                    game.setBackground (Color.cyan);
             }else if (event.getSource() == start){
                 //added here so the time starts on this screen
                 deck.add(game(), "play");
@@ -194,25 +194,32 @@ public class  RunningPanel extends JPanel {
     private JPanel game(){
         game = new JPanel();
         JLabel token = new JLabel();
-        refreshTimer = new javax.swing.Timer(10000, new timeListener());
+        refreshTimer = new javax.swing.Timer(1000, new timeListener());
         countdownTimerField = token;
+       
+        refreshTimer.start();
         
-
+        game.setPreferredSize(new Dimension(1200,800));
         push = new JButton ("Run!"); 
         push.addActionListener (new ButtonListener() );
+        //push.setLayout(new GridLayout());
+        push.setPreferredSize(new Dimension(1000, 100));
         //JPanel a = new JPanel();
-        game.setLayout(new BoxLayout(game, BoxLayout.Y_AXIS));
+        //game.setLayout(new BoxLayout(game, BoxLayout.Y_AXIS));
+        game.setLayout(new GridLayout(3,1,30,30));
         //BoxLayout a = new BoxLayout(game,BoxLayout.Y_AXIS);
         //BoxLayout a = (BoxLayout)game.getLayout();
         //a.setVgap(30);
         JPanel a = new JPanel();
         label = new JLabel ("Steps: " + count);
         //game.setLayout(new BorderLayout());
-        refreshTimer.start();
-        game.add(countdownTimerField,Component.CENTER_ALIGNMENT);
+         countdownTimerField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        push.setAlignmentX(Component.CENTER_ALIGNMENT);
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        game.add(countdownTimerField);
         
-        game.add(push,Component.CENTER_ALIGNMENT);
-        game.add(label,Component.CENTER_ALIGNMENT);
+        game.add(push);
+        game.add(label);
         
 
         //game.setBackground(Color.cyan);
