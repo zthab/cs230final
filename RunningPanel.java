@@ -194,9 +194,9 @@ public class  RunningPanel extends JPanel {
     private JPanel game(){
         game = new JPanel();
         JLabel token = new JLabel();
-        refreshTimer = new javax.swing.Timer(1000, new timeListener());
+        refreshTimer = new javax.swing.Timer(10000, new timeListener());
         countdownTimerField = token;
-        refreshTimer.start();
+        
 
         push = new JButton ("Run!"); 
         push.addActionListener (new ButtonListener() );
@@ -208,13 +208,14 @@ public class  RunningPanel extends JPanel {
         JPanel a = new JPanel();
         label = new JLabel ("Steps: " + count);
         //game.setLayout(new BorderLayout());
-        a.add (push); 
-        a.add(label);
-        a.setPreferredSize(new Dimension(100,100));
-        game.add(a,Component.CENTER_ALIGNMENT);
+        refreshTimer.start();
         game.add(countdownTimerField,Component.CENTER_ALIGNMENT);
+        
+        game.add(push,Component.CENTER_ALIGNMENT);
+        game.add(label,Component.CENTER_ALIGNMENT);
+        
 
-        game.setBackground(Color.cyan);
+        //game.setBackground(Color.cyan);
         return game;
     }
 
