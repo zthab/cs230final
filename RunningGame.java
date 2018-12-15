@@ -11,7 +11,7 @@ import java.awt.*;
 
 public class RunningGame extends javax.swing.JFrame {
     public RunningGame(){ 
-        add (new RunningPanel());
+       // add (new RunningPanel());
         
         setPreferredSize(new Dimension(610, 455));
         pack();       
