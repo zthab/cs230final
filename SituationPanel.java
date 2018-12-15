@@ -74,7 +74,7 @@ public class SituationPanel extends JPanel{
         questionText = new JTextArea (question);
         questionText.setFont(font);
         questionText.setBackground(new Color(0,39,118));
-        questionText.setForeground(new Color(0,39,118));
+        questionText.setForeground(new Color(236,222,187));
         
         //displays the players current point totals
         playerStatus = new JTextArea(player.toString());
