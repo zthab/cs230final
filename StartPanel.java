@@ -52,4 +52,5 @@ public class StartPanel extends JPanel
             layout.show(cardLayoutPanel, "Instructions");
         }
     }
+
 }
