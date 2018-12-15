@@ -36,7 +36,7 @@ public class  RunningPanel extends JPanel {
     private Person player;
     private TrailsBinaryTree tree;
     private Boolean isLeft;
-
+    private Font font;
 
     public RunningPanel (Person p, TrailsBinaryTree t, Boolean direct){
         player = p; 
@@ -46,6 +46,8 @@ public class  RunningPanel extends JPanel {
         count = 0; 
         deck = new JPanel(new CardLayout());//this holds the panels and switches between them
         cl = (CardLayout)(deck.getLayout());//manages the deck
+        
+        font = new Font("Verdana", Font.BOLD, 20);
 
         // //holds all the pieces as one card and the death scene as the other
         // deckBig = new JPanel(new CardLayout());//holds the 'smaller' deck and the death panel
@@ -192,28 +194,35 @@ public class  RunningPanel extends JPanel {
      * @return JPanel game contains game mechanisms
      */
     private JPanel game(){
+        Font gameFont = new Font("Verdana", Font.BOLD, 32);
+        
         game = new JPanel();
         JLabel token = new JLabel();
         refreshTimer = new javax.swing.Timer(1000, new timeListener());
         countdownTimerField = token;
+        token.setFont(gameFont);
        
         refreshTimer.start();
         
         game.setPreferredSize(new Dimension(1200,800));
         push = new JButton ("Run!"); 
-        push.addActionListener (new ButtonListener() );
+        push.setFont(gameFont);
+        push.addActionListener (new ButtonListener() );        
+        push.setPreferredSize(new Dimension(1200, 100));
         //push.setLayout(new GridLayout());
-        push.setPreferredSize(new Dimension(1000, 100));
+        
         //JPanel a = new JPanel();
         //game.setLayout(new BoxLayout(game, BoxLayout.Y_AXIS));
-        game.setLayout(new GridLayout(3,1,30,30));
         //BoxLayout a = new BoxLayout(game,BoxLayout.Y_AXIS);
         //BoxLayout a = (BoxLayout)game.getLayout();
         //a.setVgap(30);
+        //game.setLayout(new BorderLayout());
+        
+        game.setLayout(new GridLayout(3,1,30,30));
         JPanel a = new JPanel();
         label = new JLabel ("Steps: " + count);
-        //game.setLayout(new BorderLayout());
-         countdownTimerField.setAlignmentX(Component.CENTER_ALIGNMENT);
+        label.setFont(gameFont);        
+        countdownTimerField.setAlignmentX(Component.CENTER_ALIGNMENT);
         push.setAlignmentX(Component.CENTER_ALIGNMENT);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         game.add(countdownTimerField);
@@ -221,7 +230,6 @@ public class  RunningPanel extends JPanel {
         game.add(push);
         game.add(label);
         
-
         //game.setBackground(Color.cyan);
         return game;
     }
