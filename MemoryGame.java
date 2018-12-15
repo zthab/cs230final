@@ -6,7 +6,7 @@
  * -eventually we will want this gui to take the scenario string in the constructor
  *
  * @author (nbryant2, zthabet, gbronzi)
- * @version (12.1.18)
+ * @version (12.15.18)
  */
 
 import javax.swing.*;

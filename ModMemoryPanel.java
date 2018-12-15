@@ -3,11 +3,11 @@
  * ModMemoryGame is identical to MemoryGame exxcept the user plays the game by selecting from button options instead of inputing
  * the answers.
  * <br>Overridded methods from MemoryGame are game() which constructs the game panel and both private classes of action listeners
- * are overridded to accomedate the buttons version.
+ * are overridded to accomedate the buttons version.  
  * 
  *
  * @author (nbryant2, zthabet, gbronzi)
- * @version (12.1.18)
+ * @version (12.15.18)
  */
 import java.io.File;
 import java.io.IOException;

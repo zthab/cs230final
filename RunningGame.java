@@ -3,7 +3,7 @@
  * GUI which launches the running game created in RunningPanel
  *
  * @author (nbryant2, zthabet, gbronzi)
- * @version (12.14.18)
+ * @version (12.15.18)
  */
 
 import javax.swing.* ;

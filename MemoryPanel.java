@@ -15,7 +15,7 @@
  * -the user has to manually clear the TextField each time, adds unnecessary user error
  * 
  * @author (nbryant2, zthabet, gbronzi)
- * @version (12.14.18)
+ * @version (12.15.18)
  */
 import java.io.File;
 import java.io.IOException;
