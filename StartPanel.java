@@ -29,7 +29,6 @@ public class StartPanel extends JPanel
         add(next,BorderLayout.SOUTH);
         add (l1, BorderLayout.CENTER);
     }
-
     /**
      * 
      */
