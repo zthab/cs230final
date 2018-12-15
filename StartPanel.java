@@ -16,7 +16,6 @@ public class StartPanel extends JPanel
     private JLayeredPane content;//holds two panels one of which is the background image
     private ImageIcon image;
     private JPanel background, foreground;
-    private CardLayout layout;
 
     /**
      * Constructs up a JPanel with two labels.
@@ -38,12 +37,7 @@ public class StartPanel extends JPanel
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-
-        layout = (CardLayout)cardLayoutPanel.getLayout();
-        InstructionsPanel nextPanel = new InstructionsPanel(); 
-        cardLayoutPanel.add(nextPanel,"Instructions");
-        
+     
         content.setBounds(0, 0, 610, 455); //same as frame
         foreground.setBounds(260, 370, 100, 40);//((where the panel starts),(the panel size))
         background.setOpaque(true);
@@ -80,8 +74,7 @@ public class StartPanel extends JPanel
 
         JButton next = new JButton("Start Game");
         next.addActionListener(new ButtonListener());
-        
-        //setbackground(transparent);
+
         foreground.add(next,BorderLayout.SOUTH);
         
         return foreground;
