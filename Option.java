@@ -26,7 +26,14 @@ public class Option
     {
         if(pts.length==3){
         decision = dec;
+       // for (int i: pts){
+       // System.out.println(i);
+       // }
         points = pts;
+       // for (int i = 0 ; i <points.length; i ++){
+       // System.out.println(points[i]);
+       // }
+        //System.out.println("lalala");
         }else{
             throw new IllegalArgumentException("The length of the inputted "+
                                                "array of points is not 3 "+
@@ -60,15 +67,7 @@ public class Option
     public String getDecision(){
         return decision;
     }
-    
-    /**
-     * Gets the Option object
-     * 
-     * @return the Option object
-     */
-    public Option getOption(){
-        return this;
-    }
+
     
     /**
      * Gets an array of the points of the Option object.
@@ -76,7 +75,11 @@ public class Option
      * @return an array of the points of the Option object.
      */
     public int[] getPoints(){
+        //for (int i : points){
+        //System.out.println("AAA" + points[i]);
+        //}
         return points;
+        
     }
     
     /**

@@ -30,6 +30,9 @@ public class StartPanel extends JPanel
         add (l1, BorderLayout.CENTER);
 
     }
+    /**
+     * 
+     */
     private class ButtonListener implements ActionListener
     {
         //-----------------------------------------------------------------

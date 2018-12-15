@@ -164,7 +164,7 @@ public class CharSelection extends JPanel
         setBackground (Color.green);
     }
     /**
-     * Represents the listener for all radio buttons
+     * Represents the listener for all buttons
      */
     private class ButtonListener implements ActionListener
     {

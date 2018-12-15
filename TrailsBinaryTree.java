@@ -1,7 +1,9 @@
 import java.io.*;
 import javafoundations.*;
 import java.util.Scanner;
-import java.util.Vector; 
+import java.util.Vector;
+
+import com.sun.accessibility.internal.resources.accessibility_pt_BR; 
 /**
  *Creates a vector of binary trees of situations. Created specifically to 
  *represent choices made in the four years of the Wellesley Trail. Each Vector
@@ -51,33 +53,35 @@ public class TrailsBinaryTree
 
         String line=""; //line of textfile
 
-        String question; //stores question of a specific Situation in
+        String question=""; //stores question of a specific Situation in
         //array to store options of a specific Situation text in 
         Option[] opts =new Option[2];
         //array to store the decisions of the specific options in
         String[] decs = new String[2];
         //array to store the options' points of a specific Situation text in
-        int[][] decPoints = new int[2][3];
+        
 
         try{
             File file = new File(txtFile); 
             Scanner sc = new Scanner(file); 
 
             while (sc.hasNextLine()){
-
                 line=sc.nextLine(); //String of Situation object
-
                 //if an empty line is detected, number of vectors is increased
                 if (line.equals("")){
+                    Vector<Situation> ab = years.get(count);
+                    //for (int i = 0 ; i < ab.size();i++){
+                        //System.out.println(ab.get(i));
+                    //}
                     count++;
                     years.add(new Vector<Situation>());
                 }else{
-
                     //parses Situation from line
                     Scanner scanLine = new Scanner(line);
-                    scanLine.useDelimiter("/"); 
+                    scanLine.useDelimiter("`"); 
                     //checks to make sure that line at least has a question
                     if(scanLine.hasNext()){
+                        int[][] decPoints = new int[2][3];
                         question= scanLine.next();
                         //loops through two options of the line
                         for (int i = 0; i <decs.length;i++){
@@ -95,13 +99,16 @@ public class TrailsBinaryTree
                                         //assigns option points to the index
                                         //of its corresponding decision in
                                         //decPoints
+                                        String a = scanLine.next();
+                                        //System.out.println(a);
                                         int p = Integer.parseInt(
-                                                scanLine.next());
+                                                a);
+                                                //System.out.println(p);
                                         decPoints[i][j]=p;
                                     }else{
                                         throw new IllegalArgumentException(
-                                            "File formatted incorrectely at line: "
-                                            + line);
+                                            "File formatted incorrectely at "+
+                                            "line: "+ line);
                                     }
                                 }
                                 //after a decision and its options are assigned
@@ -116,18 +123,29 @@ public class TrailsBinaryTree
                         }
                         //after a Situation is created, assigns it to the end
                         //of the last Vector in years 
-                        years.get(count).add(new Situation(question,opts[0],
-                                opts[1]));
+                        // Option a = new Option(decs[0],decPoints[0]);
+                        //System.out.println(a);
+
+                        //Vector<Situation> ab = years.get(count);
+                        // for (int i = 0; i < ab.size();i++){
+                        //System.out.println(ab.get(i));
+                        // }
                         //when a situation is entered, situation index is no longer -1
                         sitIndex=0;
                     }else{
                         throw new IllegalArgumentException("File formatted "+
                             "incorrectely at line: " + line);
                     }
+                    years.get(count).add(new Situation(question,opts[0],opts[1]));
+                    if(years.get(0).size()==2){
+                        System.out.println(years.get(0).get(1));
+                    }
                 }
                 //when a vector is created vector index becomes 0
                 vecIndex=0;
+                
             }
+            System.out.println(years.get(0).get(0));
             //Once the textFile runs out of lines, closes the scanner.
             sc.close();
         }catch(FileNotFoundException e){
