@@ -30,38 +30,22 @@ The year has really flown by and its already time to pick your dorm for next yea
 You're so glad you decided to join acapella, you've found your best friends and its almost sophomore year. You.../Join eboard/-2/1/1/Decide to join aboard a different year/1/0/0
 The year has really flown by and its already time to pick your dorm for next year. You.../Choose east side/2/2/-2/Choose west side/-2/-1/2
 Whose your roommate for next year?/You decided to go random this time./-1/0/1/One of your friends/1/0/-1
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
-FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! You.../run left!/0/0/0/run right!/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
+FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid squirrel is blocking you from leaving for the airport!!! What do you do first?/Freeze/0/0/0/Scamper/0/0/0
 
 Move-in day round two! You.../Start unpacking with your new roomie/2/0/1/Find your friends as quickly as you can/-2/0/2
 To go-abroad or to not go-abroad---that is the question/No way you're leaving the comfort of Wellesley/0/2/-1/You're picking between Oxford and Edinburgh and Spain and France and .../-2/-1/3
@@ -94,7 +78,6 @@ What?? Sophomore year already done?? Guess that means time for Spring finals! Wh
 What?? Sophomore year already done?? Guess that means time for Spring finals! What do you study first?/Memorizing vocab for your language class/-2/3/-1/Memorizing equations for math/-2/3/-1
 What?? Sophomore year already done?? Guess that means time for Spring finals! What do you study first?/Memorizing vocab for your language class/-2/3/-1/Memorizing equations for math/-2/3/-1
 What?? Sophomore year already done?? Guess that means time for Spring finals! What do you study first?/Memorizing vocab for your language class/-2/3/-1/Memorizing equations for math/-2/3/-1
-
 
 Year 3 is starting and you've already committed to going to parties for the next month. You.../Go to every single one because you said you would/-3/-1/3/Burn out after the first one and decide never to leave your room ever again/-1/2/-2
 Your best friend decided to study abroad so you.../Sit in your room and mope around because she's having fun in France without you/1/1/-2/Decide to go out and make some more friends/-1/0/2
@@ -143,7 +126,6 @@ Have you finished the Wellesley 50??/There's no way you're swimming in lake Waba
 Only a couple more weeks at least... Have you met PJ yet?/You're best friends/0/2/2/Does trick or treating at her house count?/-1/0/1
 There's a GRE this weekend. You.../Spent all summer studying for it and you're ready/-2/2/-1/Are going to wait a couple years before you start thinking about grad school/2/0/1
 For you're last spring break you're.../Going to the beach with friends/-2/-2/2/Spending as much time with your family as possible before you graduate/2/1/0
-
 Oh my god!! Graduation is in an hour and you forgot to wake up on time! What's the quickest way to get to Sev Green?/Run through the academic quad/2/-1/0/Run around the academic quad/2/-1/0
 Oh my god!! Graduation is in an hour and you forgot to wake up on time! What's the quickest way to get to Sev Green?/Run through the academic quad/2/-1/0/Run around the academic quad/2/-1/0
 Oh my god!! Graduation is in an hour and you forgot to wake up on time! What's the quickest way to get to Sev Green?/Run through the academic quad/2/-1/0/Run around the academic quad/2/-1/0
