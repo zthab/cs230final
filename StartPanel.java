@@ -21,19 +21,6 @@ public class StartPanel extends JPanel
      * Constructs up a start panel as a JPanel
      */
     public StartPanel(){
-        //old code which I'm vamping
-        // setBackground (Color.green);
-        // setLayout(new BorderLayout());
-        // JLabel l1 = new JLabel ("Welcome to Wellesley Trails!");
-        // l1.setHorizontalAlignment(SwingConstants.CENTER);
-
-        // JButton next = new JButton("Begin Your Wellesly Experience");
-        // next.addActionListener(new ButtonListener());
-
-        // l1.setBackground(Color.green); //so that the JTextArea matches the panel background
-        // add(next,BorderLayout.SOUTH);
-        // add (l1, BorderLayout.CENTER);
-        
         JPanel deck = new JPanel(new CardLayout());//container for the panels, switches between them like playingcards
         CardLayout cl = (CardLayout)(deck.getLayout());//manages the deck
         
@@ -48,7 +35,7 @@ public class StartPanel extends JPanel
             //scaling all input files to be the same size
             ImageIcon image = new ImageIcon(ImageIO.read(new File("StartImage.jpg")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(610, 455,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(1200, 770,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image), BorderLayout.CENTER);
@@ -61,6 +48,7 @@ public class StartPanel extends JPanel
         
         add(deck, BorderLayout.CENTER);
     }
+    
     /**
      * Sets the listener for the action which will occure when the user clicks the button
      */
@@ -76,7 +64,7 @@ public class StartPanel extends JPanel
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             InstructionsPanel nextPanel = new InstructionsPanel(); 
             cardLayoutPanel.add(nextPanel,"Instructions");
-            System.out.println("here");
+            //System.out.println("here in start button"); testing code
             layout.show(cardLayoutPanel, "Instructions");
         }
     }

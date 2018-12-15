@@ -22,7 +22,7 @@ public class TrailGUI
         //Create the panel that contains the "cards".
         trailGame = new JPanel(new CardLayout());
         trailGame.add(start, "StartPanel");
-        trailGame.setPreferredSize(new Dimension(600,485));
+        trailGame.setPreferredSize(new Dimension(1200,800));
         pane.add(trailGame, BorderLayout.CENTER);
     }
     
