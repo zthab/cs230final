@@ -66,16 +66,23 @@ public class DeathPanel extends JPanel {
             }else{
                 JButton button = (JButton)event.getSource();
                 JPanel buttonPanel = (JPanel)button.getParent();
+                System.out.println(buttonPanel);
                 JPanel charPanel = (JPanel)buttonPanel.getParent();
+                System.out.println(charPanel);
                 JLayeredPane cardLayoutPanel = (JLayeredPane)charPanel.getParent();
+                System.out.println(cardLayoutPanel);
                 JPanel test = (JPanel)cardLayoutPanel.getParent();
-                
+                System.out.println(test);
                 JPanel aa = (JPanel)test.getParent();
-                
+                System.out.println(aa);
                 JPanel bb = (JPanel)aa.getParent();
+                System.out.println(bb);
                 JLayeredPane cc = (JLayeredPane)bb.getParent();
+                System.out.println(cc);
                 JRootPane dd = (JRootPane)cc.getParent();
+                System.out.println(dd);
                 JFrame ee = (JFrame) dd.getParent();
+                System.out.println(ee);
                 ee.dispose();
                 //JPanel ree = (JPanel) test.getParent();
                 
