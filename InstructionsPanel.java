@@ -66,12 +66,13 @@ public class InstructionsPanel extends JPanel
         right.setFont(font);
         next.setFont(font);
         
-        JLayeredPane content = new JLayeredPane();//olds a background images and a panel on top
+        top.setBackground(new Color(0,0,0,0));
+        left.setBackground(new Color(0,0,0,0));
+        right.setBackground(new Color(0,0,0,0));       
         
-        top.setPreferredSize(new Dimension(1200, 100));
+        JLayeredPane content = new JLayeredPane();//olds a background images and a panel on top       
 
         setLayout(new BorderLayout());
-        foreground.add(next,BorderLayout.SOUTH);
         foreground.add(top, BorderLayout.NORTH);
         foreground.add(center, BorderLayout.CENTER);
         foreground.add(left, BorderLayout.LINE_START);
@@ -84,11 +85,12 @@ public class InstructionsPanel extends JPanel
         foreground.setOpaque(true);
         foreground.setBackground(new Color(0,0,0,0)); //transparent
         content.add(background, new Integer(0), 0); //sets to the background
-        content.add(foreground, new Integer(1), 0);//sets to the foregound 
+        //content.add(foreground, new Integer(1), 0);//sets to the foregound 
         
         deck.add(content, "screen");
         
         add(deck, BorderLayout.CENTER);
+        add(next,BorderLayout.SOUTH);
     }
 
     /**
