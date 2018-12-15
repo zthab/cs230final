@@ -33,8 +33,8 @@ public class InstructionsPanel extends JPanel
         next.addActionListener(new ButtonListener());
 
         JTextArea top = new JTextArea("          Welcome to the Wellesley Trail!");
-        JTextArea left = new JTextArea("Goals:\nMake it to graduation without being:\n   Attacked by geese" +
-                 "\n   Lost in the tunnels\n   Dying of sleep deprivation\n   Or any of the other perils of Wellesley College");
+        JTextArea left = new JTextArea("Goals:\nMake it to graduation without:\n   Being attacked by geese" +
+                 "\n   Getting lost in the tunnels\n   Dying of sleep deprivation\n   Or any of the other perils of Wellesley College");
         JTextArea right = new JTextArea("Instructions:          \n" + "Most importantly, you must keep all three of your stats" + 
                          "\nabove zero. These stats are sleep, smart, and social \npoints." + 
                          " The decisions you make in this game will impact\nthose stats. If any drop below zero, you lose!" +

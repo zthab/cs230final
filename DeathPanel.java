@@ -27,12 +27,11 @@ public class DeathPanel extends JPanel {
 
         JLayeredPane content = new JLayeredPane();//can hold all the things
         background = new JPanel();//holds the scenario image
-
         try {
             //scaling all input files to be the same size
             ImageIcon image = new ImageIcon(ImageIO.read(new File("deathScreen.jpg")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(610, 455,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image));
@@ -40,18 +39,18 @@ public class DeathPanel extends JPanel {
             e.printStackTrace();
         }
 
-        //setPreferredSize(new Dimension(610, 455));
+        setPreferredSize(new Dimension(1200, 800));
         setLayout(new BorderLayout());
-        content.setBounds(0, 0, 610, 455); //same as frame
+        content.setBounds(0, 0, 1200, 800); //same as frame
         deck.setBounds(150, 150, 200, 100);//((where the panel starts),(the panel size))
         background.setOpaque(true);
-        background.setBounds(0, 0, 610, 455); 
+        background.setBounds(0, 0, 1200, 800); 
         deck.setOpaque(true);
         deck.setBackground(new Color(0,0,0,0));
-        add(background, new Integer(0), 0); //sets to the background
-        add(deck, new Integer(1), 0);//sets to the foregound    
-
-       // add(content);
+        content.add(background, new Integer(0), 0); //sets to the background
+        content.add(deck, new Integer(1),0);//sets to the foregound    
+        //this.getParent();
+        add(content);
     }
 
     protected class ButtonListener implements ActionListener {
@@ -65,28 +64,12 @@ public class DeathPanel extends JPanel {
                 frame.setVisible(true);
             }else{
                 JButton button = (JButton)event.getSource();
-                JPanel buttonPanel = (JPanel)button.getParent();
-                System.out.println(buttonPanel);
-                JPanel charPanel = (JPanel)buttonPanel.getParent();
-                System.out.println(charPanel);
-                JLayeredPane cardLayoutPanel = (JLayeredPane)charPanel.getParent();
-                System.out.println(cardLayoutPanel);
-                JPanel test = (JPanel)cardLayoutPanel.getParent();
-                System.out.println(test);
-                JPanel aa = (JPanel)test.getParent();
-                System.out.println(aa);
-                JPanel bb = (JPanel)aa.getParent();
-                System.out.println(bb);
-                JLayeredPane cc = (JLayeredPane)bb.getParent();
-                System.out.println(cc);
-                JRootPane dd = (JRootPane)cc.getParent();
-                System.out.println(dd);
-                JFrame ee = (JFrame) dd.getParent();
-                System.out.println(ee);
-                ee.dispose();
-                //JPanel ree = (JPanel) test.getParent();
-                
-                //dispose();
+                JPanel deathPanel = (JPanel)button.getParent().getParent().getParent();
+                JPanel startPanel = (JPanel)deathPanel.getParent().getParent();
+                JLayeredPane layeredPane = (JLayeredPane)startPanel.getParent().getParent().getParent();
+                JRootPane rootPane = (JRootPane)layeredPane.getParent();
+                JFrame frame = (JFrame) rootPane.getParent();
+                frame.dispose();
             }
         }   
     }
@@ -98,7 +81,7 @@ public class DeathPanel extends JPanel {
         cont.addActionListener(new ButtonListener());
         quit.addActionListener(new ButtonListener());
         //death.prefferedSize(
-        
+
         death.add(cont);
         death.add(quit);
 
