@@ -23,9 +23,6 @@ public class InstructionsPanel extends JPanel
      * Constructs up a JPanel with two labels.
      */
     public InstructionsPanel(){
-        JPanel deck = new JPanel(new CardLayout());//container for the panels, switches between them like playingcards
-        CardLayout cl = (CardLayout)(deck.getLayout());//manages the deck
-        
         JPanel background = new JPanel();
         background.setLayout(new BorderLayout());
         
@@ -42,7 +39,6 @@ public class InstructionsPanel extends JPanel
                          "\nabove zero. These stats are sleep, smart, and social \npoints." + 
                          " The decisions you make in this game will impact\nthose stats. If any drop below zero, you lose!" +
                          "\nAdditionally, some decisions will lead you to mini games.\nIf you lose any of those, you lose it all!");
-        JTextArea center = new JTextArea("");
         
         //importing background image
          try {
@@ -56,8 +52,8 @@ public class InstructionsPanel extends JPanel
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //setting the font sizes
         
+        //setting the font sizes        
         Font font = new Font("Verdana", Font.BOLD, 20);
         Font fontBig = new Font("Verdana", Font.BOLD, 48);
         top.setFont(fontBig);
@@ -66,30 +62,31 @@ public class InstructionsPanel extends JPanel
         right.setFont(font);
         next.setFont(font);
         
+        //makes all the boxes transparent
         top.setBackground(new Color(0,0,0,0));
+        top.setPreferredSize(new Dimension(1200,250));
         left.setBackground(new Color(0,0,0,0));
         right.setBackground(new Color(0,0,0,0));       
         
-        JLayeredPane content = new JLayeredPane();//olds a background images and a panel on top       
-
+        JLayeredPane content = new JLayeredPane();//holds a background images and a panel on top    
+        
+        //adding componants to foreground
         setLayout(new BorderLayout());
         foreground.add(top, BorderLayout.NORTH);
-        foreground.add(center, BorderLayout.CENTER);
         foreground.add(left, BorderLayout.LINE_START);
         foreground.add(right, BorderLayout.LINE_END);  
         
+        //add both back and foreground to the container
         content.setBounds(0, 0, 1200, 800); //same as frame
         foreground.setBounds(0, 00, 1200, 800);//((where the panel starts),(the panel size))
         background.setOpaque(true);
         background.setBounds(0, 00, 1200, 800); 
-        foreground.setOpaque(true);
+        foreground.setOpaque(false);
         foreground.setBackground(new Color(0,0,0,0)); //transparent
         content.add(background, new Integer(0), 0); //sets to the background
-        //content.add(foreground, new Integer(1), 0);//sets to the foregound 
+        content.add(foreground, new Integer(1), 0);//sets to the foregound 
         
-        deck.add(content, "screen");
-        
-        add(deck, BorderLayout.CENTER);
+        add(content, BorderLayout.CENTER);
         add(next,BorderLayout.SOUTH);
     }
 
