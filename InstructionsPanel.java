@@ -82,8 +82,13 @@ public class InstructionsPanel extends JPanel
         background.setOpaque(true);
         background.setBounds(0, 00, 1200, 800); 
         foreground.setOpaque(true);
+        foreground.setBackground(new Color(0,0,0,0)); //transparent
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(foreground, new Integer(1), 0);//sets to the foregound 
+        
+        deck.add(content, "screen");
+        
+        add(deck, BorderLayout.CENTER);
     }
 
     /**
