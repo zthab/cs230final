@@ -28,6 +28,7 @@ public class StartPanel extends JPanel
         l1.setBackground(Color.green); //so that the JTextArea matches the panel background
         add(next,BorderLayout.SOUTH);
         add (l1, BorderLayout.CENTER);
+
     }
     /**
      * 
