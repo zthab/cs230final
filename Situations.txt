@@ -49,7 +49,7 @@ FINALS ALREADY!! You're finally done with your first year!! But wait... a rabid 
 
 Move-in day round two! You.../Start unpacking with your new roomie/2/0/1/Find your friends as quickly as you can/-2/0/2
 To go-abroad or to not go-abroad---that is the question/No way you're leaving the comfort of Wellesley/0/2/-1/You're picking between Oxford and Edinburgh and Spain and France and .../-2/-1/3
-Quick! Find a major advisor! You.../Ask the first professor you find/0/0/0/Make a powerpoint presentation explaining why they should be your advisor/-1/2/0
+Quick! Find a major advisor! You.../Ask the first professor you find/0/0/0/Find the best fit for you/-1/2/0
 Uh oh... Where'd you leave your laptop?? You.../Find it under a pile of laundry/0/2/0/Can't find it!! Where'd it go??/-1/-2/0
 If you're going abroad you have to declare your major! You.../Double declare as soon as you can/-3/3/-1/Remain undeclared until senior fall/1/-1/2
 Winter break is quickly approaching!! How are you prepping for finals?/Netflix/2/-2/0/You've already made 257 flashcards/-2/2/-1
@@ -92,7 +92,7 @@ Quick! The deadline to apply for a thesis is two days away! You.../Are absolutel
 Looks like you needed that flu shot after all! You.../Wait for three hours in health services and they give you three cough drops/-2/-1/-1/Stick it out by sleeping for four days straight/3/-2/-2
 Quick! The deadline to apply for a thesis is two days away! You.../Are absolutely not writing a thesis/1/0/0/Think it might be fun/-2/2/-1
 Fall semester flies by and Spring Break is a month away. You're.../Going home/2/0/1/Going somewhere far away with friends/-2/0/2
-You can't believe you're almost a senior. You.../Start planning your years after you graduate/-1/2/0/Pretend its not happening and just focus on finishing the year/1/0/1
+You can't believe you're almost a senior. You.../Start planning post-grad life/-1/2/0/Pretend its not happening and just focus on finishing the year/1/0/1
 How is it almost senior year?? What are you doing this summer?/Hopefully getting a permanent job/-2/2/1/Still trying to figure it out yourself!/-2/-2/-1
 Third round of spring finals!! You are.../running from grad school applications/-2/-2/0/running from your grades and finals/-2/-2/0
 Third round of spring finals!! You are.../running from grad school applications/-2/-2/0/running from your grades and finals/-2/-2/0
@@ -122,11 +122,7 @@ Underclassmen keep asking what you're doing after you graduate so you tell them.
 Career Services keeps emailing you. How many jobs have you applied for?/Seven but you're aiming for ten/-2/2/-1/You've looked at a couple places but...zero/-1/-2/0
 There's a GRE this weekend. You.../Spent all summer studying for it and you're ready/-2/2/-1/Are going to wait a couple years before you start thinking about grad school/2/0/1
 Career Services keeps emailing you. How many jobs have you applied for?/Seven but you're aiming for ten/-2/2/-1/You've looked at a couple places but...zero/-1/-2/0
-
-
 You haven't finished the Wellesley 50 yet and your friends are going tunneling! Now's you're chance!/NO WAY/0/1/-1/At last!/0/-1/2
-
-
 Only a couple more weeks at least... Have you met PJ yet?/You're best friends/0/2/2/Does trick or treating at her house count?/-1/0/1
 There's a GRE this weekend. You.../Spent all summer studying for it and you're ready/-2/2/-1/Are going to wait a couple years before you start thinking about grad school/2/0/1
 For you're last spring break you're.../Going to the beach with friends/-2/-2/2/Spending as much time with your family as possible before you graduate/2/1/0
