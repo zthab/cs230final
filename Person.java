@@ -13,7 +13,7 @@ public class Person
     private int sleepScore, smartScore, socialScore; 
     private String name;
     
-    //the six archetypes, each have a different array of sleep, smart, social scores
+    //the 6 archetypes have different sleep, smart, social score arrays
     private final static int[] athletic = {2, 2, 4};
     private final static int[] hermit = {4, 5, 0};
     private final static int[] horse = {0, 0, 0};
@@ -26,8 +26,9 @@ public class Person
                                             society,wendy};
     //index of these names correspond to the index of their scores in allChars
     private final static String[] names = {"Athletic Alex", "Hermit Harper",
-                                            "Horse Girl Grace", "Off Campus Ollie",
-                                            "Society Skylar", "Wendy Wellesley"};                                        
+                                        "Horse Girl Grace", "Off Campus Ollie",
+                                         "Society Skylar", "Wendy Wellesley"}; 
+
     /**
      * Constructor for objects of class Person.
      * 
