@@ -102,7 +102,7 @@ You feel the need expand your social circle since your friends are abroad so you
 Winter came early and so did flu shot season! You.../Are the first one in line/2/2/2/Don't worry about it. Your immune system is great!/-2/-2/-2
 You're alarm didn't go off and your tanner starts in 10 minutes! You.../RUN/2/-1/-1/Call in sick...its better than nothing/2/-3/0
 You go into Boston instead of going to Tanner but you miss the bus and have to be back on campus soon! You.../Spend $80 dollars on an Uber so you can make it in time/0/-1/0/Cut your loses and wait for the next bus in Harvard square/0/-1/1
-You're walking back from your societies house late one night when a squirrel starts coming after you! You.../jump!/-1/2/0/climb a tree!/1/1/0
+You're walking back from your societies house late one night when a squirrel starts coming after you! You.../run left!/-1/2/0/run right!/1/1/0
 It seems like everyone already has a summer internship and its only January! You.../Start applying to every job you can find/-2/2/-1/You've already been hired by the company you worked for last year/2/2/1
 Quick! The deadline to apply for a thesis is two days away! You.../Are absolutely not writing a thesis/1/0/0/Think it might be fun/-2/2/-1
 Looks like you needed that flu shot after all! You.../Wait for three hours in health services and they give you three cough drops/-2/-1/-1/Stick it out by sleeping for four days straight/3/-2/-2
