@@ -4,10 +4,6 @@
  * and their success in the game is determined by how far they 'run'.
  * <br> Contains two private classes for the action listeners: one is a timer and one contains all the button actions. Additionally
  * there is are individual methods for the creation of each panel which represents a game screen 
- *
- * known bugs/details:
- * -sizing things. totally works fine, isn't priority to fix, just looks kinda wierd
- * -will not currently go on to the death screen for whatever reason. It hates me. 
  * 
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.15.18)
@@ -37,7 +33,14 @@ public class  RunningPanel extends JPanel {
     private TrailsBinaryTree tree;
     private Boolean isLeft;
     private Font font;
-
+    
+    /**
+     * The constructor for the running game takes three parameters and creates the running mini game
+     * 
+     * @param Person p -the person class holding the current stats
+     * @param TrailsBinary t -where the user is in the binaryTree determins their in game location
+     * @Param Boolean direct -determins to which child of the current leaf the user goes to after the game
+     */
     public RunningPanel (Person p, TrailsBinaryTree t, Boolean direct){
         player = p; 
         tree=t;
@@ -49,14 +52,9 @@ public class  RunningPanel extends JPanel {
         
         font = new Font("Verdana", Font.BOLD, 20);
 
-        // //holds all the pieces as one card and the death scene as the other
-        // deckBig = new JPanel(new CardLayout());//holds the 'smaller' deck and the death panel
-        // clBig = (CardLayout)(deckBig.getLayout());//manages the big deck
-        JPanel game = game();
+        game = game();
         dying = new DeathPanel();//the final game over screen
-        //dying.setBounds(0, 0, 1200, 800);
-        //deck.setBounds(0,0,1200,800);
-        //deckBig.setBounds(0,0,1200,800);
+        dying.setPreferredSize(new Dimension(1200,800));
 
         //all the screens that the user sees
         deck.add(intro(), "instructions");
@@ -64,31 +62,31 @@ public class  RunningPanel extends JPanel {
         //created for ease of going from the game into the final screen
         deck.add(game,"main");
         deck.add(dying,"dead");
-        //setLayout(new BorderLayout());
+
         add(deck, BorderLayout.CENTER);
     }
 
     /**
      * Timer which begins with the game panel. User is only allowed to play the game for as long as it runs
-     * and they are automatically taken to the results screen when the timer reaches 0
+     * and they are automatically taken to the results screen when the timer reaches 0.
      */
     private class timeListener implements ActionListener{
+        /**
+         * When the game panel is launched, timer for the game begins
+         */
         public void actionPerformed(ActionEvent e) {
             counter--;
             if (counter >= 0){
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
-                //remove(countdownTimerField);
-                //cl.removeLayoutComponent(game());//make the clock go away?
-                //^didn't work, just made the timer stop at 1?, not critical tho
-                if(count>=1){//deterime if go to outroWin or outroLost and go there; should be 100
+                if(count>=100){//if they win, go to the winning panel
                     refreshTimer.stop();
                     finalCount=count;
 
                     deck.add(outroWin(), "win"); 
                     cl.show(deck, "win");
-                }else{
+                }else{//else they lost, go to the losing panel
                     refreshTimer.stop();
                     finalCount=count;
 

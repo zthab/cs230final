@@ -42,7 +42,7 @@ public class DeathPanel extends JPanel {
         setPreferredSize(new Dimension(1200, 800));
         setLayout(new BorderLayout());
         content.setBounds(0, 0, 1200, 800); //same as frame
-        deck.setBounds(150, 150, 200, 100);//((where the panel starts),(the panel size))
+        deck.setBounds(500, 300, 200, 100);//((where the panel starts),(the panel size))
         background.setOpaque(true);
         background.setBounds(0, 0, 1200, 800); 
         deck.setOpaque(true);
@@ -53,7 +53,13 @@ public class DeathPanel extends JPanel {
         add(content);
     }
 
+    /**
+     * Impliments the action listeners for the two button option on this panel
+     */
     protected class ButtonListener implements ActionListener {
+        /**
+         * Depending on which button is selected, users will either be taken to the home screen or the window will close
+         */
         public void actionPerformed(ActionEvent event){
             if (event.getSource() == cont){
                 JFrame frame = new JFrame("Wellesley Trails");
@@ -73,6 +79,12 @@ public class DeathPanel extends JPanel {
             }
         }   
     }
+    
+    /**
+     * Creates the final panel which holds two buttons
+     * 
+     * @return JPanel death, the game over screen
+     */
     private JPanel death(){
         death = new JPanel();
         cont = new JButton("Try Again");
