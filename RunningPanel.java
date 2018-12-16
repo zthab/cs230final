@@ -60,7 +60,6 @@ public class  RunningPanel extends JPanel {
 
         font = new Font("Verdana", Font.BOLD, 20);
 
-        game = game();
         dying = new DeathPanel();//the final game over screen
         dying.setPreferredSize(new Dimension(1200,800));
 
@@ -68,7 +67,6 @@ public class  RunningPanel extends JPanel {
         deck.add(intro(), "instructions");
 
         //created for ease of going from the game into the final screen
-        deck.add(game,"main");
         deck.add(dying,"dead");
 
         add(deck, BorderLayout.CENTER);
