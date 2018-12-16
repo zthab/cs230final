@@ -1,3 +1,8 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.* ;
+import java.awt.Color;
+import java.util.Random;
 
 /**
  * RunningPanel is the running based mini game. The user must click a button representing steps taken in a run 
@@ -8,12 +13,6 @@
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.15.18)
  */
-
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.* ;
-import java.awt.Color;
-import java.util.Random;
 
 public class  RunningPanel extends JPanel {
     private int count, time;
@@ -83,7 +82,7 @@ public class  RunningPanel extends JPanel {
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
-                if(count>=100){//if they win, go to the winning panel
+                if(count>=40){//if they win, go to the winning panel
                     refreshTimer.stop();
                     finalCount=count;
 
