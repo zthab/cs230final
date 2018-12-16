@@ -38,11 +38,11 @@ public class MemoryPanel extends JPanel {
     protected final static String [] circumstance = {"Tunnel","FYM","Squirrel"};
     //all of the text which is specific to each circumstance
     protected final static String [] welcomeList ={"Oh no, you got lost in the"+
-           " tunnels!\nIf you can't remember how to get out, you'll be stuck"+
+            " tunnels!\nIf you can't remember how to get out, you'll be stuck"+
             " down here forever!" ,"Welcome to your study group!" +
             "\nYou had better remember everyone's name, or else you'll die of" +
             " embarassment",
-           "Ack! A rabbid squirrel has started to chase you!\nRun, fight, hide-"+
+            "Ack! A rabbid squirrel has started to chase you!\nRun, fight, hide-"+
             " do what ever you can to escape before it is too late!           "};
     protected final static String [] losingList = {"You took a wrong turn and"+
             " now you will be stuck in the tunnels forever.",
@@ -98,7 +98,7 @@ public class MemoryPanel extends JPanel {
         name=scenario;
 
         font = new Font("Verdana", Font.BOLD, 20);
-        
+
         index = -1;//hold the index of the desired wordList array
         //check that name is in circumstance
 
@@ -146,7 +146,7 @@ public class MemoryPanel extends JPanel {
         deck.add(gameOver(), "loser");
         deck.add(win(), "winner");
         deck.setFont(font);
-        
+
         //the largest container, to flip between game and outside panel
         deckBig.add(content,"main");
         deckBig.add(dying,"dead");
@@ -214,34 +214,38 @@ public class MemoryPanel extends JPanel {
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
                 clBig.show(deckBig, "dead");
-            } 
-            JLayeredPane memPanel = (JLayeredPane) content.getParent();
-            JPanel cardLayoutPanel = (JPanel)memPanel.getParent();
-            CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
-            try{
-                if (isLeft){
-                    //incremements the tree so that the current Situation
-                    //is the left child of the current Situation
-                    tree.nextLeft();
-                    //shows a SituationPanel of the new current Situation
-                    SituationPanel nextPanel = new SituationPanel(player,
-                            tree); 
-                    cardLayoutPanel.add(nextPanel,"left");
-                    layout.show(cardLayoutPanel, "left");
-                }else{
-                    //incremements the tree so that the current Situation
-                    //is the left child of the current Situation
-                    tree.nextRight();
-                    //shows a SituationPanel of the new current Situation
-                    SituationPanel nextPanel = new SituationPanel(player, 
-                            tree); 
-                    cardLayoutPanel.add(nextPanel,"right");
-                    layout.show(cardLayoutPanel, "right");
+            }else if (event.getSource() == alive){ 
+                JPanel memPanel = (JPanel) content.getParent();
+                JPanel inbetween = (JPanel) memPanel.getParent();
+                JPanel innn = (JPanel) inbetween.getParent();
+                JPanel buffer = (JPanel) innn.getParent();
+                JPanel cardLayoutPanel = (JPanel)innn.getParent();
+                CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
+                try{
+                    if (isLeft){
+                        //incremements the tree so that the current Situation
+                        //is the left child of the current Situation
+                        tree.nextLeft();
+                        //shows a SituationPanel of the new current Situation
+                        SituationPanel nextPanel = new SituationPanel(player,
+                                tree); 
+                        cardLayoutPanel.add(nextPanel,"left");
+                        layout.show(cardLayoutPanel, "left");
+                    }else{
+                        //incremements the tree so that the current Situation
+                        //is the left child of the current Situation
+                        tree.nextRight();
+                        //shows a SituationPanel of the new current Situation
+                        SituationPanel nextPanel = new SituationPanel(player, 
+                                tree); 
+                        cardLayoutPanel.add(nextPanel,"right");
+                        layout.show(cardLayoutPanel, "right");
+                    }
+                }catch(ArrayIndexOutOfBoundsException e){
+                    GraduationPanel win = new GraduationPanel(); 
+                    cardLayoutPanel.add(win,"winPanel");
+                    layout.show(cardLayoutPanel, "winPanel");
                 }
-            }catch(ArrayIndexOutOfBoundsException e){
-                GraduationPanel win = new GraduationPanel(); 
-                cardLayoutPanel.add(win,"winPanel");
-                layout.show(cardLayoutPanel, "winPanel");
             }
         }
     }
@@ -306,12 +310,12 @@ public class MemoryPanel extends JPanel {
                 " them if you can!\nOn the next screen, you will input"+
                 " those words in the correct order.\nWhen ready, hit the 'Go!'"+
                 " Button to move on.");
-                
+
         next = new JButton ("Go!");
         next.addActionListener(new ButtonListener());
 
         JLabel commands = new JLabel("Memory words: " + answerKey.toString());
-        
+
         intro.setFont(font);
         segundo.setFont(font);
         commands.setFont(font);
@@ -344,11 +348,11 @@ public class MemoryPanel extends JPanel {
         UserListener listener = new UserListener();
         answer.addActionListener (listener);
         count = 0;
-        
+
         inputLabel.setFont(font);
         answer.setFont(font);
         path.setFont(font);
-        
+
         game.setLayout(new FlowLayout());
         game.add (inputLabel);
         game.add(answer);
@@ -367,15 +371,15 @@ public class MemoryPanel extends JPanel {
         gameOver = new JPanel();
         JTextArea exit = new JTextArea(losingList[index] + 
                 "\nPlease click 'Game Over' to move on");
-                
+
         dead = new JButton("Game Over");
         dead.addActionListener(new ButtonListener());
-        
+
         exit.setFont(font);
         dead.setFont(font);
-        
+
         gameOver.setLayout(new FlowLayout());
-        
+
         gameOver.add(exit);
         gameOver.add(dead);
 
@@ -394,7 +398,7 @@ public class MemoryPanel extends JPanel {
         JTextArea congrats = new JTextArea(winningList[index] +
                 "\nPlease click 'Back to School' to move on");
         alive = new JButton("Back to School");
-        
+
         congrats.setFont(font);
         alive.setFont(font);
 
