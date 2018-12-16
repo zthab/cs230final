@@ -3,7 +3,6 @@ import javafoundations.*;
 import java.util.Scanner;
 import java.util.Vector;
 
-import com.sun.accessibility.internal.resources.accessibility_pt_BR; 
 /**
  *Creates a vector of binary trees of situations. Created specifically to 
  *represent choices made in the four years of the Wellesley Trail. Each Vector
