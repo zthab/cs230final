@@ -23,7 +23,7 @@ public class  RunningPanel extends JPanel {
     private JPanel intro, game, outroWin, outroLose, deck, dying, deckBig;//panels for moving through the game
     private CardLayout cl, clBig;//container for the panels
 
-    final int TOTAL_TIME = 10;//seconds to play the game, should be 20, set to 5 for testing
+    final int TOTAL_TIME = 20;//seconds to play the game, should be 20, set to 5 for testing
     int counter = TOTAL_TIME;
     javax.swing.Timer refreshTimer;
     JLabel countdownTimerField ;

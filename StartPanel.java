@@ -28,7 +28,7 @@ public class StartPanel extends JPanel
         background.setLayout(new BorderLayout());
                 
         Font font = new Font("Verdana", Font.BOLD, 20);
-        JButton next = new JButton("Begin Your Wellesly Experience");
+        JButton next = new JButton("Begin Your Wellesley Experience");
         next.addActionListener(new ButtonListener());
         next.setFont(font);
        
