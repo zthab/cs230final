@@ -11,14 +11,9 @@
  * Two private classes are created, one for each action listener. One is for the
  * JTextField which the user inputs answers into and the other is for the 
  * variouse buttons. 
- *
- * Known bugs/details: 
- * -The font could be larger
- * -might be nice for the user input words to not be case sensitive if we have time
- * -the user has to manually clear the TextField each time, adds unnecessary user error
  * 
  * @author (nbryant2, zthabet, gbronzi)
- * @version (12.15.18)
+ * @version (12.17.18)
  */
 import java.io.File;
 import java.io.IOException;
@@ -78,7 +73,7 @@ public class MemoryPanel extends JPanel {
     background, dying, deckBig;
     protected JButton next, start, dead, alive;
     protected int index,count;
-    protected boolean life;//we might need this?
+    protected Font font;
 
     protected Person player;
     protected TrailsBinaryTree tree;
@@ -101,6 +96,8 @@ public class MemoryPanel extends JPanel {
         isLeft=direct;
         name=scenario;
 
+        font = new Font("Verdana", Font.BOLD, 20);
+        
         index = -1;//hold the index of the desired wordList array
         //check that name is in circumstance
         for (int i = 0; i<circumstance.length;i++)
@@ -132,7 +129,7 @@ public class MemoryPanel extends JPanel {
             image = new ImageIcon(ImageIO.read(new File(images[index])));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
-                    610, 455,  java.awt.Image.SCALE_SMOOTH);  
+                    1200, 800,  java.awt.Image.SCALE_SMOOTH);  
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image));
@@ -146,17 +143,18 @@ public class MemoryPanel extends JPanel {
         deck.add(game(), "game");
         deck.add(gameOver(), "loser");
         deck.add(win(), "winner");
-
+        deck.setFont(font);
+        
         //the largest container, to flip between game and outside panel
         deckBig.add(content,"main");
         deckBig.add(dying,"dead");
 
         //set up how the gui is displayed
         setLayout(new BorderLayout());
-        content.setBounds(0, 0, 610, 455); //same as frame
-        deck.setBounds(85, 100, 450, 125);
+        content.setBounds(0, 0, 1200, 800); //same as frame
+        deck.setBounds(350, 250, 600, 125);
         background.setOpaque(true);
-        background.setBounds(0, 0, 610, 455); 
+        background.setBounds(0, 0, 1200, 800); 
         deck.setOpaque(true);
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(deck, new Integer(1), 0);//sets to the foregound      
@@ -178,6 +176,7 @@ public class MemoryPanel extends JPanel {
         public void actionPerformed (ActionEvent event) {      
             String input = answer.getText();//the command input by the user
             //displayes the user's previous choices
+            answer.setText("");
             if (count==0){
                 path.setText("Your answer:\n" +input);
             } else {
@@ -212,9 +211,9 @@ public class MemoryPanel extends JPanel {
             }else if (event.getSource() == start){
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
-                life = false; //dunno if we need this but seems helpful
                 clBig.show(deckBig, "dead");
             } 
+            //Zahra, here is the error
             JPanel pare = (JPanel) deck.getParent();
             JPanel cardLayoutPanel = (JPanel) pare.getParent();
             CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
@@ -333,6 +332,7 @@ public class MemoryPanel extends JPanel {
         path = new JTextArea ();//displays which word the user has put in
 
         answer = new JTextField (5); //box for the user input
+
         UserListener listener = new UserListener();
         answer.addActionListener (listener);
         count = 0;
