@@ -27,7 +27,7 @@ public class MemoryGame extends javax.swing.JFrame {
         JFrame frame = new JFrame ("Mini Game Challenge");
         frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 
-        MemoryPanel panel = new MemoryPanel("Squirrel");//game text panel, for now 
+        //MemoryPanel panel = new MemoryPanel("Squirrel");//game text panel, for now 
 
         frame.setPreferredSize(new Dimension(610, 455));
         
