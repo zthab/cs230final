@@ -24,8 +24,8 @@ import javax.imageio.ImageIO;
  * areas, but we could not find out how to solve the other.
  * 
  * @author zthabet
- * @author gbronzi
  * @author nbryant2
+ * @author gbronzi
  * 
  * @version 12.17.18
  */
