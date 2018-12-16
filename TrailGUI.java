@@ -30,6 +30,8 @@ public class TrailGUI
         trailGame = new JPanel(new CardLayout());
         trailGame.add(start, "StartPanel");
         trailGame.setPreferredSize(new Dimension(1200,800));
+        trailGame.setBackground(new Color(0,0,0,0));
+        trailGame.setOpaque(false);
 
         pane.add(trailGame, BorderLayout.CENTER);
     }
