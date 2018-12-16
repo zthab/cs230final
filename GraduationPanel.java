@@ -32,13 +32,11 @@ public class GraduationPanel extends JPanel
             //scaling all input files to be the same size
             ImageIcon image = 
                     new ImageIcon(ImageIO.read(new File("sevGreen.jpg")));
-                    
             Image pic = image.getImage(); // transform it 
 
             // scale it the smooth way  
             Image newimg = 
                    pic.getScaledInstance(1200, 770,java.awt.Image.SCALE_SMOOTH); 
-
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image), BorderLayout.CENTER);
