@@ -5,10 +5,13 @@ import java.awt.Color;
 import java.util.Random;
 
 /**
- * RunningPanel is the running based mini game. The user must click a button representing steps taken in a run 
- * and their success in the game is determined by how far they 'run'.
- * <br> Contains two private classes for the action listeners: one is a timer and one contains all the button actions. Additionally
- * there is are individual methods for the creation of each panel which represents a game screen 
+ * RunningPanel is the running based mini game. The user must click a button 
+ * representing steps taken in a run and their success in the game is determined 
+ * by how far they 'run'.
+ * 
+ * <br> Contains two private classes for the action listeners: one is a timer 
+ * and one contains all the button actions. Additionally there is are individual 
+ * methods for the creation of each panel which represents a game screen 
  * 
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.15.18)
@@ -19,10 +22,12 @@ public class  RunningPanel extends JPanel {
     private JButton push, start, mainGameDead, mainGameAlive;
     private JLabel label;
     private Timer timeClock;
-    private JPanel intro, game, outroWin, outroLose, deck, dying, deckBig;//panels for moving through the game
+    //panels for moving through the game
+    private JPanel intro, game, outroWin, outroLose, deck, dying, deckBig;
     private CardLayout cl, clBig;//container for the panels
 
-    final int TOTAL_TIME = 20;//seconds to play the game, should be 20, set to 5 for testing
+    //seconds to play the game, should be 20, set to 5 for testing
+    final int TOTAL_TIME = 20;
     int counter = TOTAL_TIME;
     javax.swing.Timer refreshTimer;
     JLabel countdownTimerField ;
@@ -49,7 +54,8 @@ public class  RunningPanel extends JPanel {
         isLeft = direct;
 
         count = 0; 
-        deck = new JPanel(new CardLayout());//this holds the panels and switches between them
+        //this holds the panels and switches between them
+        deck = new JPanel(new CardLayout());
         cl = (CardLayout)(deck.getLayout());//manages the deck
 
         font = new Font("Verdana", Font.BOLD, 20);
@@ -69,8 +75,9 @@ public class  RunningPanel extends JPanel {
     }
 
     /**
-     * Timer which begins with the game panel. User is only allowed to play the game for as long as it runs
-     * and they are automatically taken to the results screen when the timer reaches 0.
+     * Timer which begins with the game panel. User is only allowed to play 
+     * the game for as long as it runs and they are automatically taken to 
+     * the results screen when the timer reaches 0.
      */
     private class timeListener implements ActionListener{
         /**
@@ -82,7 +89,7 @@ public class  RunningPanel extends JPanel {
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
-                if(count>=40){//if they win, go to the winning panel
+                if(count>=55){//if they win, go to the winning panel
                     refreshTimer.stop();
                     finalCount=count;
 
@@ -100,7 +107,8 @@ public class  RunningPanel extends JPanel {
     }
 
     /**
-     * Button actions. The game is centered around the push button and the rest are transitions from panel to panel for the user
+     * Button actions. The game is centered around the push button and the rest 
+     * are transitions from panel to panel for the user
      */
     private class ButtonListener implements ActionListener {
         public void actionPerformed (ActionEvent event){
@@ -153,6 +161,7 @@ public class  RunningPanel extends JPanel {
                 //exit and go to the Death Screen, sad sad sad 
                 cardLayoutPanel.add(dying, "dead");
                 layout.show(cardLayoutPanel,"dead");
+
             } else{ 
                 JPanel pare = (JPanel) deck.getParent();
                 JPanel cardLayoutPanel = (JPanel) pare.getParent();
@@ -300,9 +309,7 @@ public class  RunningPanel extends JPanel {
         mainGameDead = new JButton("Game Over");
         mainGameDead.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("You ran " +count+ " steps."+
-                "\nSadly, you didn't make it to the omlete line in Lulu"+
-                "before it got too long."+
-                "\nWhile waiting in line, you die." +
+                "\nSadly, you didn't make it."+
                 "\nPlease click 'Game Over' to move on");
         JTextArea space = new JTextArea("TIME'S UP");
         JPanel panel = new JPanel();   
