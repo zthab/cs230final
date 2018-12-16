@@ -21,7 +21,7 @@ import javax.imageio.ImageIO;
  * 
  * @version 12.17.18
  */
-public class CharSelection extends JPanel
+public class CharSelectionPanel extends JPanel
 {
     //creates panels to distinguish between the different parts of the 
     //character selection panel
@@ -35,7 +35,7 @@ public class CharSelection extends JPanel
     private Boolean hasSelectedBefore; //tracks if next button should appear
     private JLayeredPane content;//holds the background  foreground displays
 
-    public CharSelection()
+    public CharSelectionPanel()
     {
         background = new JPanel();
         background.setLayout(new BorderLayout());

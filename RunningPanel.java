@@ -89,7 +89,7 @@ public class  RunningPanel extends JPanel {
                 countdownTimerField.setText(" Time left: " + counter);
             }
             if (counter == 0){
-                if(count>=40){//if they win, go to the winning panel
+                if(count>=55){//if they win, go to the winning panel
                     refreshTimer.stop();
                     finalCount=count;
 
