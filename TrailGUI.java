@@ -3,10 +3,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Vector;
+
 /**
- * Write a description of class WellesleyTrailGUI here.'
+ * TrailGUI controls the game. It begins at the startPanel and moves forward
+ * through the other panels and games
  * 
- * @author (zthabet,nbryant2,gbronzi)
+ * @author zthabet
+ * @author nbryant2
+ * @author gbronzi
  * @version (12.1.18)
  */
 public class TrailGUI 
@@ -16,6 +20,9 @@ public class TrailGUI
     Vector<Vector<Situation>> tree;
     int counter; 
     
+    /**
+     * Creates a new startPanel and begins the game 
+     */
     public void addComponents(Container pane){
         JPanel start = new StartPanel();
 
@@ -26,7 +33,7 @@ public class TrailGUI
 
         pane.add(trailGame, BorderLayout.CENTER);
     }
-    
+
     public static void main (String[] args) 
     {
         

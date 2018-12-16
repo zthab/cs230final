@@ -21,7 +21,8 @@ public class StartPanel extends JPanel
      * Constructs up a start panel as a JPanel
      */
     public StartPanel(){
-        JPanel deck = new JPanel(new CardLayout());//container for the panels, switches between them like playingcards
+        //container for the panels, switches between them like playingcards
+        JPanel deck = new JPanel(new CardLayout());
         CardLayout cl = (CardLayout)(deck.getLayout());//manages the deck
         
         JPanel background = new JPanel();
@@ -35,9 +36,14 @@ public class StartPanel extends JPanel
         //adding an exciting welcome screen to the background
         try {
             //scaling all input files to be the same size
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("StartImage.jpg")));
+            ImageIcon image = 
+                new ImageIcon(ImageIO.read(new File("StartImage.jpg")));
+                
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(1200, 760,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+           
+            // scale it the smooth way  
+            Image newimg = 
+                pic.getScaledInstance(1200, 760,  java.awt.Image.SCALE_SMOOTH);
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image), BorderLayout.CENTER);
@@ -52,11 +58,14 @@ public class StartPanel extends JPanel
     }
     
     /**
-     * Sets the listener for the action which will occure when the user clicks the button
+     * Sets the listener for the action which will occur when 
+     * the user clicks the button
      */
+
     private class ButtonListener implements ActionListener{
         /**
-         * When the button is selected, create an instructions panel and go to it
+         * When the button is selected, creates an instructions panel 
+         * and go to it
          */
         public void actionPerformed (ActionEvent event){
             JButton button = (JButton)event.getSource();

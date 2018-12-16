@@ -25,15 +25,15 @@ public class Option
     public Option(String dec, int[] pts)
     {
         if(pts.length==3){
-        decision = dec;
-       // for (int i: pts){
-       // System.out.println(i);
-       // }
-        points = pts;
-       // for (int i = 0 ; i <points.length; i ++){
-       // System.out.println(points[i]);
-       // }
-        //System.out.println("lalala");
+            decision = dec;
+            // for (int i: pts){
+            // System.out.println(i);
+            // }
+            points = pts;
+            // for (int i = 0 ; i <points.length; i ++){
+            // System.out.println(points[i]);
+            // }
+            //System.out.println("lalala");
         }else{
             throw new IllegalArgumentException("The length of the inputted "+
                                                "array of points is not 3 "+
@@ -41,7 +41,7 @@ public class Option
                                                +" object.");
         }
     }
-    
+
     /**
      * Constructor for objects of class Option. Allows for it's points to be
      * entered as individual integers rather than an array of intergers.
