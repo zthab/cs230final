@@ -79,7 +79,7 @@ public class MemoryPanel extends JPanel {
     protected JButton next, start, dead, alive;
     protected int index,count;
     protected boolean life;//we might need this?
-    
+
     protected Person player;
     protected TrailsBinaryTree tree;
     protected Boolean isLeft;
@@ -100,7 +100,7 @@ public class MemoryPanel extends JPanel {
         tree=t;
         isLeft=direct;
         name=scenario;
-        
+
         index = -1;//hold the index of the desired wordList array
         //check that name is in circumstance
         for (int i = 0; i<circumstance.length;i++)
@@ -214,8 +214,34 @@ public class MemoryPanel extends JPanel {
             }else if (event.getSource() == dead){
                 life = false; //dunno if we need this but seems helpful
                 clBig.show(deckBig, "dead");
-            }else{
-                //go back to main game
+            } 
+            JPanel pare = (JPanel) deck.getParent();
+            JPanel cardLayoutPanel = (JPanel) pare.getParent();
+            CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
+            try{
+                if (isLeft){
+                    //incremements the tree so that the current Situation
+                    //is the left child of the current Situation
+                    tree.nextLeft();
+                    //shows a SituationPanel of the new current Situation
+                    SituationPanel nextPanel = new SituationPanel(player,
+                            tree); 
+                    cardLayoutPanel.add(nextPanel,"left");
+                    layout.show(cardLayoutPanel, "left");
+                }else{
+                    //incremements the tree so that the current Situation
+                    //is the left child of the current Situation
+                    tree.nextRight();
+                    //shows a SituationPanel of the new current Situation
+                    SituationPanel nextPanel = new SituationPanel(player, 
+                            tree); 
+                    cardLayoutPanel.add(nextPanel,"right");
+                    layout.show(cardLayoutPanel, "right");
+                }
+            }catch(ArrayIndexOutOfBoundsException e){
+                GraduationPanel win = new GraduationPanel(); 
+                cardLayoutPanel.add(win,"winPanel");
+                layout.show(cardLayoutPanel, "winPanel");
             }
         }
     }
