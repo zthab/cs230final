@@ -14,14 +14,6 @@ import javax.imageio.ImageIO;
  * The character selection screen of The Wellesley Trail. Allows for a user to
  * to select an archetype to play as. Modifies a Person object with the 
  * archetype's sleep, smart, and social points.
- *
- * Known bugs:
- * When you view multiple archetypes, the old text displays over top of the new 
- * selection for both the radio button labels and the player stats. The issue
- * resolves itself if you resize the screen. We suspect this is related to 
- * the background being brought into the foreground because when we moved the 
- * foreground panel to the front it resolved the issue for one of the problem
- * areas, but we could not find out how to solve the other.
  * 
  * @author zthabet
  * @author gbronzi
@@ -77,8 +69,8 @@ public class CharSelectionPanel extends JPanel
         foreground.add(charPanel, BorderLayout.CENTER);
         foreground.add(botRow,BorderLayout.SOUTH);        
 
-        //text which displays at top of gui 
-        //instructRow.setLayout(new BorderLayout());
+        //testing for solving the bug 
+        //botRow.setOpaque(true);
         
         instruct1 = new JLabel("Select an archetype. Their sleep, smart and"
             + " social points will display below.");
@@ -244,7 +236,7 @@ public class CharSelectionPanel extends JPanel
         content.setBounds(0, 0, 1200, 800); //same as frame
         content.setBackground(new Color(0,0,0,0));
         foreground.setBounds(0, 00, 1200, 800);
-        background.setOpaque(false);
+        background.setOpaque(true);
         background.setBounds(0, 00, 1200, 800); 
         foreground.setOpaque(false);
         
@@ -285,8 +277,10 @@ public class CharSelectionPanel extends JPanel
                 String chosenName = source.getText();
                 player = new Person(chosenName);
                 persStats.setText(player.toString());
-                content.moveToFront(foreground);
-
+                //reloads the screen which solves the problem of the text
+                //dublicating itself
+                revalidate();
+                repaint();
                 //signals that the next button doesn't need to be created again
                 hasSelectedBefore = true;                 
             }else{ 
