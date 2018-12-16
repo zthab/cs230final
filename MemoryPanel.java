@@ -214,13 +214,14 @@ public class MemoryPanel extends JPanel {
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
                 clBig.show(deckBig, "dead");
-            }else if (event.getSource() == alive){ 
+            }else if (event.getSource() == alive){                 
                 JPanel memPanel = (JPanel) content.getParent();
                 JPanel inbetween = (JPanel) memPanel.getParent();
                 JPanel innn = (JPanel) inbetween.getParent();
                 JPanel buffer = (JPanel) innn.getParent();
-                JPanel cardLayoutPanel = (JPanel)innn.getParent();
+                JPanel cardLayoutPanel = (JPanel)buffer.getParent();
                 CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
+                System.out.println("In the alive button");
                 try{
                     if (isLeft){
                         //incremements the tree so that the current Situation
@@ -229,6 +230,7 @@ public class MemoryPanel extends JPanel {
                         //shows a SituationPanel of the new current Situation
                         SituationPanel nextPanel = new SituationPanel(player,
                                 tree); 
+                        System.out.println("In the left");        
                         cardLayoutPanel.add(nextPanel,"left");
                         layout.show(cardLayoutPanel, "left");
                     }else{
@@ -238,6 +240,7 @@ public class MemoryPanel extends JPanel {
                         //shows a SituationPanel of the new current Situation
                         SituationPanel nextPanel = new SituationPanel(player, 
                                 tree); 
+                        System.out.println("In the right");        
                         cardLayoutPanel.add(nextPanel,"right");
                         layout.show(cardLayoutPanel, "right");
                     }
@@ -398,6 +401,7 @@ public class MemoryPanel extends JPanel {
         JTextArea congrats = new JTextArea(winningList[index] +
                 "\nPlease click 'Back to School' to move on");
         alive = new JButton("Back to School");
+        alive.addActionListener(new ButtonListener());
 
         congrats.setFont(font);
         alive.setFont(font);
