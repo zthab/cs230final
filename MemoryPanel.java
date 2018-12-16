@@ -228,7 +228,6 @@ public class MemoryPanel extends JPanel {
                 JPanel buffer = (JPanel) innn.getParent();
                 JPanel cardLayoutPanel = (JPanel)buffer.getParent();
                 CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
-                System.out.println("In the alive button");
                 try{
                     if (isLeft){
                         //incremements the tree so that the current Situation
@@ -236,8 +235,7 @@ public class MemoryPanel extends JPanel {
                         tree.nextLeft();
                         //shows a SituationPanel of the new current Situation
                         SituationPanel nextPanel = new SituationPanel(player,
-                                tree); 
-                        System.out.println("In the left");        
+                                tree);         
                         cardLayoutPanel.add(nextPanel,"left");
                         layout.show(cardLayoutPanel, "left");
                     }else{
@@ -246,8 +244,7 @@ public class MemoryPanel extends JPanel {
                         tree.nextRight();
                         //shows a SituationPanel of the new current Situation
                         SituationPanel nextPanel = new SituationPanel(player, 
-                                tree); 
-                        System.out.println("In the right");        
+                                tree);        
                         cardLayoutPanel.add(nextPanel,"right");
                         layout.show(cardLayoutPanel, "right");
                     }
