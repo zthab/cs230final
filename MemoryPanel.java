@@ -1,3 +1,14 @@
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.util.*;
+import javafoundations.*;
+
 /**
  * A memory based mini game. The user is given a list of words and then 
  * prompted to input into a JTextField that same list of words in the correct 
@@ -15,18 +26,8 @@
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.17.18)
  */
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
-
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.event.*;
-import java.util.*;
-import javafoundations.*;
-
 public class MemoryPanel extends JPanel {
+
     protected ArrayQueue<String> memQueue; //holds the words given to player 
     //The commands given in different situations
     protected final static String [][] wordList={{"right", "left", "center", 
@@ -36,12 +37,12 @@ public class MemoryPanel extends JPanel {
     //references to the needed array memory words
     protected final static String [] circumstance = {"Tunnel","FYM","Squirrel"};
     //all of the text which is specific to each circumstance
-    protected final static String [] welcomeList = {"Oh no, you got lost in the"+
-            " tunnels!\nIf you can't remember how to get out, you'll be stuck"+
+    protected final static String [] welcomeList ={"Oh no, you got lost in the"+
+           " tunnels!\nIf you can't remember how to get out, you'll be stuck"+
             " down here forever!" ,"Welcome to your study group!" +
             "\nYou had better remember everyone's name, or else you'll die of" +
             " embarassment",
-            "Ack! A rabbid squirrel has started to chase you!\nRun, fight, hide-" +
+           "Ack! A rabbid squirrel has started to chase you!\nRun, fight, hide-"+
             " do what ever you can to escape before it is too late!           "};
     protected final static String [] losingList = {"You took a wrong turn and"+
             " now you will be stuck in the tunnels forever.",
@@ -100,6 +101,7 @@ public class MemoryPanel extends JPanel {
         
         index = -1;//hold the index of the desired wordList array
         //check that name is in circumstance
+
         for (int i = 0; i<circumstance.length;i++)
             if (circumstance[i].equals(name)) index=i;
         if (index == -1) {
