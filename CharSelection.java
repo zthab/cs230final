@@ -265,6 +265,8 @@ public class CharSelection extends JPanel
                 if (!hasSelectedBefore){
                     next = new JButton("next");
                     next.addActionListener(new ButtonListener());
+                    next.setBackground(new Color(0,0,0,0));
+                    botRow.setBackground(new Color(0,0,0,0));
                     botRow.add(next); //adds the next button to the bottom row
                 }
                 //the Person object gets the selected archetype's points
