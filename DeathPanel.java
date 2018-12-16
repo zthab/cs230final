@@ -31,7 +31,8 @@ public class DeathPanel extends JPanel {
             //scaling all input files to be the same size
             ImageIcon image = new ImageIcon(ImageIO.read(new File("deathScreen.jpg")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(1200, 800, 
+                                                  java.awt.Image.SCALE_SMOOTH);
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image));
@@ -58,9 +59,11 @@ public class DeathPanel extends JPanel {
      */
     protected class ButtonListener implements ActionListener {
         /**
-         * Depending on which button is selected, users will either be taken to the home screen or the window will close
+         * Depending on which button is selected, users will either be taken to
+         * the home screen or the window will close
          */
         public void actionPerformed(ActionEvent event){
+            //restarts the game
             if (event.getSource() == cont){
                 JFrame frame = new JFrame("Wellesley Trails");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,10 +71,9 @@ public class DeathPanel extends JPanel {
                 newGame.addComponents(frame.getContentPane());
                 frame.pack();
                 frame.setVisible(true);
+            //quits the game
             }else{
-                JButton button = (JButton)event.getSource();
-                JPanel deathPanel = (JPanel)button.getParent().getParent().getParent();
-                JPanel startPanel = (JPanel)deathPanel.getParent().getParent();
+                JPanel startPanel = (JPanel)death.getParent().getParent();
                 JLayeredPane layeredPane = (JLayeredPane)startPanel.getParent().getParent().getParent();
                 JRootPane rootPane = (JRootPane)layeredPane.getParent();
                 JFrame frame = (JFrame) rootPane.getParent();
@@ -81,9 +83,9 @@ public class DeathPanel extends JPanel {
     }
     
     /**
-     * Creates the final panel which holds two buttons
+     * Creates the game over panel which holds two buttons
      * 
-     * @return JPanel death, the game over screen
+     * @return JPanel the game over panels
      */
     private JPanel death(){
         death = new JPanel();

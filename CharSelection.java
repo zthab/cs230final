@@ -286,10 +286,10 @@ public class CharSelection extends JPanel
                 player = new Person(chosenName);
                 persStats.setText(player.toString());
 
-                //signals that the next button doesn't need to be xreated again
+                //signals that the next button doesn't need to be created again
                 hasSelectedBefore = true;                 
             }else{ 
-                //feteches the CardLayout
+                //fetches the CardLayout
                 JButton button = (JButton)event.getSource();
                 JPanel buttonPanel = (JPanel)button.getParent();
                 JPanel charPanel = (JPanel)buttonPanel.getParent();
