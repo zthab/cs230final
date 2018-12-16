@@ -215,10 +215,9 @@ public class MemoryPanel extends JPanel {
             }else if (event.getSource() == dead){
                 clBig.show(deckBig, "dead");
             } 
-            //Zahra, here is the error
-            JPanel pare = (JPanel) deck.getParent();
-            JPanel cardLayoutPanel = (JPanel) pare.getParent();
-            CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
+            JLayeredPane memPanel = (JLayeredPane) content.getParent();
+            JPanel cardLayoutPanel = (JPanel)memPanel.getParent();
+            CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             try{
                 if (isLeft){
                     //incremements the tree so that the current Situation

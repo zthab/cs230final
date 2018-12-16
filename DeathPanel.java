@@ -79,7 +79,6 @@ public class DeathPanel extends JPanel {
                 JPanel startPanel = (JPanel)death.getParent().getParent();
                 JLayeredPane layeredPane = 
                   (JLayeredPane)startPanel.getParent().getParent().getParent();
-                  
                 JRootPane rootPane = (JRootPane)layeredPane.getParent();
                 JFrame frame = (JFrame) rootPane.getParent();
                 frame.dispose();

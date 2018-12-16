@@ -58,7 +58,7 @@ public class CharSelectionPanel extends JPanel
 
         instructRow = new JPanel();
         //makes the background translucent
-        instructRow.setBackground(new Color(0,0,0,0));
+        //instructRow.setBackground(new Color(0,0,0,0));
         topRow = new JPanel ();
         topRow.setBackground(new Color(0,0,0,0));
         midRow = new JPanel();
@@ -97,27 +97,21 @@ public class CharSelectionPanel extends JPanel
 
         //creates archetype radio buttons
         athletic = new JRadioButton ("Athletic Alex");
-        athletic.setBackground (new Color(0,0,0,0));
         athletic.setFont(verand);
 
         hermit = new JRadioButton ("Hermit Harper");
-        hermit.setBackground (new Color(0,0,0,0));
         hermit.setFont(verand);
 
         horse = new JRadioButton ("Horse Girl Grace");
-        horse.setBackground (new Color(0,0,0,0));
         horse.setFont(verand);
 
         offCampus = new JRadioButton ("Off Campus Ollie");
-        offCampus.setBackground (new Color(0,0,0,0));
         offCampus.setFont(verand);
 
         society = new JRadioButton ("Society Skylar");
-        society.setBackground (new Color(0,0,0,0));
         society.setFont(verand);
 
         wendy = new JRadioButton ("Wendy Wellesley");
-        wendy.setBackground (new Color(0,0,0,0));
         wendy.setFont(verand);
 
         persStats = new JTextArea("");
@@ -174,7 +168,7 @@ public class CharSelectionPanel extends JPanel
                                             new File( "HorseGirlGrace.png")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
-                                      100, 200,  java.awt.Image.SCALE_SMOOTH);   
+                                      100, 200,  java.awt.Image.SCALE_SMOOTH);  
             image = new ImageIcon(newimg);  // transform it back
             
             topRow.add(new JLabel(image));
@@ -213,7 +207,6 @@ public class CharSelectionPanel extends JPanel
         }
         midRow.add (society);
 
-        
         try{
             ImageIcon image = new ImageIcon(ImageIO.read(
                                     new File("WendyWellesley.png")));
@@ -255,7 +248,6 @@ public class CharSelectionPanel extends JPanel
         background.setBounds(0, 00, 1200, 800); 
         foreground.setOpaque(false);
         
-        //foreground.setBackground(new Color(0,0,0,0)); //transparent
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(foreground, new Integer(1), 0);//sets to the foregound 
         setLayout(new BorderLayout());
@@ -263,7 +255,6 @@ public class CharSelectionPanel extends JPanel
         
         add(content, BorderLayout.CENTER);
         add(botRow,BorderLayout.SOUTH);
-
     }
     
     /**
@@ -287,7 +278,6 @@ public class CharSelectionPanel extends JPanel
                     next = new JButton("next");
                     next.addActionListener(new ButtonListener());
                     next.setBackground(new Color(0,0,0,0));
-                    //botRow.setBackground(new Color(0,0,0,0));
                     botRow.add(next); //adds the next button to the bottom row
                 }
                 //the Person object gets the selected archetype's points
@@ -300,11 +290,8 @@ public class CharSelectionPanel extends JPanel
                 //signals that the next button doesn't need to be created again
                 hasSelectedBefore = true;                 
             }else{ 
-                //fetches the CardLayout
-                JButton button = (JButton)event.getSource();
-                JPanel buttonPanel = (JPanel)button.getParent();
-                JPanel charPanel = (JPanel)buttonPanel.getParent();
-                JPanel cardLayoutPanel = (JPanel)charPanel.getParent();
+                JPanel borderPanel = (JPanel)content.getParent();
+                JPanel cardLayoutPanel = (JPanel)borderPanel.getParent();
                 CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
 
                 //creates a new situation tree from a text file
