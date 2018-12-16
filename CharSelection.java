@@ -25,7 +25,8 @@ public class CharSelection extends JPanel
 {
     //creates panels to distinguish between the different parts of the 
     //character selection panel
-    private JPanel instructRow, topRow, midRow, botRow, foreground, background;
+    private JPanel charPanel, instructRow, topRow, midRow, botRow;
+    private JPanel background, foreground;
     private JLabel instruct1, instruct2, instruct3;
     private JTextArea persStats; //displays the selected archetype's points
     private JRadioButton athletic, hermit, horse, offCampus, society,wendy;
@@ -42,11 +43,13 @@ public class CharSelection extends JPanel
         foreground = new JPanel();
         foreground.setLayout(new BorderLayout());
         
-        Font font = new Font("Verdana", Font.BOLD, 20);
+        Font verand = new Font("Verdana", Font.BOLD, 20);
 
-        hasSelectedBefore=false;
+        //next button shouldn't appear before an archetype has been selected
+        hasSelectedBefore=false; 
 
         instructRow = new JPanel();
+        //makes the background translucent
         instructRow.setBackground(new Color(0,0,0,0));
         topRow = new JPanel ();
         topRow.setBackground(new Color(0,0,0,0));
@@ -58,27 +61,29 @@ public class CharSelection extends JPanel
         botRow.setBackground(new Color(0,0,0,0));
         botRow.setOpaque(false);
         
-        JPanel a = new JPanel();
-        a.setBackground(new Color(0,0,0,0));
-        a.setOpaque(false);
-        a.add(topRow);
-        a.add(midRow);
+        charPanel = new JPanel();
+        charPanel.setBackground(new Color(0,0,0,0));
+        //creates two rows of the character archetypes
+        charPanel.add(topRow);
+        charPanel.add(midRow);
 
         //adds panels to the character selection panel in the foreground of image
         foreground.add(instructRow, BorderLayout.NORTH);
-        foreground.add(a, BorderLayout.CENTER);
+        foreground.add(charPanel, BorderLayout.CENTER);
         foreground.add(botRow,BorderLayout.SOUTH);        
 
         //text which displays at top of gui 
-        instructRow.setLayout(new BorderLayout());
+        //instructRow.setLayout(new BorderLayout());
         instruct1 = new JLabel("Select an archetype. Their sleep, smart and"
             + " social points will display below.");
-        instruct1.setFont(font);    
-        instruct2 = new JLabel("Each archetype comes with specialized points based on personality.");
-        instruct2.setFont(font);    
-        instruct3= new JLabel("When satsified with your choice, press the next"+
-            " button.");
-        instruct3.setFont(font);    
+        instruct1.setFont(verand);    
+        instruct2 = new JLabel("Each archetype comes with specialized points"+
+                                                    " based on personality.");
+        instruct2.setFont(verand);    
+        instruct3= new JLabel("When satsified with your choice, press the next"
+                                                                  +" button.");
+        instruct3.setFont(verand); 
+
         instructRow.add(instruct1,BorderLayout.NORTH);
         instructRow.add(instruct2,BorderLayout.CENTER);
         instructRow.add(instruct3,BorderLayout.SOUTH);
@@ -87,37 +92,37 @@ public class CharSelection extends JPanel
         //creates archetype radio buttons
         athletic = new JRadioButton ("Athletic Alex");
         athletic.setBackground (new Color(0,0,0,0));
-        athletic.setFont(font);
+        athletic.setFont(verand);
         athletic.setOpaque(false);
 
         hermit = new JRadioButton ("Hermit Harper");
         hermit.setBackground (new Color(0,0,0,0));
-        hermit.setFont(font);
+        hermit.setFont(verand);
         hermit.setOpaque(false);
 
         horse = new JRadioButton ("Horse Girl Grace");
         horse.setBackground (new Color(0,0,0,0));
-        horse.setFont(font);
+        horse.setFont(verand);
         horse.setOpaque(false);
 
         offCampus = new JRadioButton ("Off Campus Ollie");
         offCampus.setBackground (new Color(0,0,0,0));
-        offCampus.setFont(font);
+        offCampus.setFont(verand);
         offCampus.setOpaque(false);
 
         society = new JRadioButton ("Society Skylar");
         society.setBackground (new Color(0,0,0,0));
-        society.setFont(font);
+        society.setFont(verand);
         society.setOpaque(false);
 
         wendy = new JRadioButton ("Wendy Wellesley");
         wendy.setBackground (new Color(0,0,0,0));
-        wendy.setFont(font);
+        wendy.setFont(verand);
         wendy.setOpaque(false);
 
         persStats = new JTextArea("");
         persStats.setBackground(new Color(0,0,0,0));
-        persStats.setFont(font);
+        persStats.setFont(verand);
         persStats.setOpaque(false);
 
         ButtonGroup group = new ButtonGroup();
