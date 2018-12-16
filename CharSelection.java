@@ -33,7 +33,7 @@ public class CharSelection extends JPanel
     private JButton next; 
     private Person player; //Person object to be modified
     private Boolean hasSelectedBefore; //tracks if next button should appear
-    private JLayeredPane content;//holds the background image and foreground displays
+    private JLayeredPane content;//holds the background  foreground displays
 
     public CharSelection()
     {
@@ -53,13 +53,10 @@ public class CharSelection extends JPanel
         instructRow.setBackground(new Color(0,0,0,0));
         topRow = new JPanel ();
         topRow.setBackground(new Color(0,0,0,0));
-        topRow.setOpaque(false);
         midRow = new JPanel();
         midRow.setBackground(new Color(0,0,0,0));
-        midRow.setOpaque(false);
         botRow = new JPanel();
         botRow.setBackground(new Color(0,0,0,0));
-        botRow.setOpaque(false);
         
         charPanel = new JPanel();
         charPanel.setBackground(new Color(0,0,0,0));
@@ -67,13 +64,14 @@ public class CharSelection extends JPanel
         charPanel.add(topRow);
         charPanel.add(midRow);
 
-        //adds panels to the character selection panel in the foreground of image
+        //adds panels to the charSelect panel in the foreground of image
         foreground.add(instructRow, BorderLayout.NORTH);
         foreground.add(charPanel, BorderLayout.CENTER);
         foreground.add(botRow,BorderLayout.SOUTH);        
 
         //text which displays at top of gui 
         //instructRow.setLayout(new BorderLayout());
+        
         instruct1 = new JLabel("Select an archetype. Their sleep, smart and"
             + " social points will display below.");
         instruct1.setFont(verand);    
@@ -93,37 +91,30 @@ public class CharSelection extends JPanel
         athletic = new JRadioButton ("Athletic Alex");
         athletic.setBackground (new Color(0,0,0,0));
         athletic.setFont(verand);
-        athletic.setOpaque(false);
 
         hermit = new JRadioButton ("Hermit Harper");
         hermit.setBackground (new Color(0,0,0,0));
         hermit.setFont(verand);
-        hermit.setOpaque(false);
 
         horse = new JRadioButton ("Horse Girl Grace");
         horse.setBackground (new Color(0,0,0,0));
         horse.setFont(verand);
-        horse.setOpaque(false);
 
         offCampus = new JRadioButton ("Off Campus Ollie");
         offCampus.setBackground (new Color(0,0,0,0));
         offCampus.setFont(verand);
-        offCampus.setOpaque(false);
 
         society = new JRadioButton ("Society Skylar");
         society.setBackground (new Color(0,0,0,0));
         society.setFont(verand);
-        society.setOpaque(false);
 
         wendy = new JRadioButton ("Wendy Wellesley");
         wendy.setBackground (new Color(0,0,0,0));
         wendy.setFont(verand);
-        wendy.setOpaque(false);
 
         persStats = new JTextArea("");
         persStats.setBackground(new Color(0,0,0,0));
         persStats.setFont(verand);
-        persStats.setOpaque(false);
 
         ButtonGroup group = new ButtonGroup();
         group.add (athletic);
@@ -143,9 +134,11 @@ public class CharSelection extends JPanel
 
         //adds half of the archetype images and radio buttons to the top panel
         try{
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("AthleticAlex.png")));
+            ImageIcon image = new ImageIcon(ImageIO.read(
+                                            new File("AthleticAlex.png")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(
+                                    100, 200,  java.awt.Image.SCALE_SMOOTH); 
             image = new ImageIcon(newimg);  // transform it back
             
             topRow.add(new JLabel(image));
@@ -155,9 +148,11 @@ public class CharSelection extends JPanel
         topRow.add (athletic);
 
         try{
-            ImageIcon image = new ImageIcon(ImageIO.read(new File( "HermitHarper.png")));
+            ImageIcon image = new ImageIcon(ImageIO.read(
+                                            new File( "HermitHarper.png")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(
+                                    100, 200,  java.awt.Image.SCALE_SMOOTH);  
             image = new ImageIcon(newimg);  // transform it back
             
             topRow.add(new JLabel(image));
@@ -167,9 +162,11 @@ public class CharSelection extends JPanel
         topRow.add (hermit);
 
         try{
-            ImageIcon image = new ImageIcon(ImageIO.read(new File( "HorseGirlGrace.png")));
+            ImageIcon image = new ImageIcon(ImageIO.read(
+                                            new File( "HorseGirlGrace.png")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(
+                                      100, 200,  java.awt.Image.SCALE_SMOOTH);   
             image = new ImageIcon(newimg);  // transform it back
             
             topRow.add(new JLabel(image));
@@ -181,9 +178,11 @@ public class CharSelection extends JPanel
         //adds the second half the arhcetypes' images and radio buttons to the 
         //midRow
         try{
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("OffCampusOllie.png")));
+            ImageIcon image = new ImageIcon(ImageIO.read(
+                                            new File("OffCampusOllie.png")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(
+                                    100, 200,  java.awt.Image.SCALE_SMOOTH);   
             image = new ImageIcon(newimg);  // transform it back
             
             midRow.add(new JLabel(image));
@@ -193,9 +192,11 @@ public class CharSelection extends JPanel
         midRow.add (offCampus);
 
         try{
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("SocietySkylar.png")));
+            ImageIcon image = new ImageIcon(ImageIO.read(
+                                    new File("SocietySkylar.png")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(
+                            100, 200,  java.awt.Image.SCALE_SMOOTH);
             image = new ImageIcon(newimg);  // transform it back
             
             midRow.add(new JLabel(image));
@@ -206,9 +207,11 @@ public class CharSelection extends JPanel
 
         
         try{
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("WendyWellesley.png")));
+            ImageIcon image = new ImageIcon(ImageIO.read(
+                                    new File("WendyWellesley.png")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(100, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(
+                             100, 200,  java.awt.Image.SCALE_SMOOTH); 
             image = new ImageIcon(newimg);  // transform it back
             
             midRow.add(new JLabel(image));
@@ -220,9 +223,11 @@ public class CharSelection extends JPanel
         //importing background image
         try {
             //scaling all input files to be the same size
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("CharScreen.jpg")));
+            ImageIcon image = new ImageIcon(ImageIO.read(       
+                                        new File("CharScreen.jpg")));
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            Image newimg = pic.getScaledInstance(
+                            1200, 800,  java.awt.Image.SCALE_SMOOTH); 
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image), BorderLayout.CENTER);
@@ -235,7 +240,7 @@ public class CharSelection extends JPanel
 
         //add both back and foreground to the container
         content.setBounds(0, 0, 1200, 800); //same as frame
-        foreground.setBounds(0, 00, 1200, 800);//((where the panel starts),(the panel size))
+        foreground.setBounds(0, 00, 1200, 800);
         background.setOpaque(true);
         background.setBounds(0, 00, 1200, 800); 
         foreground.setOpaque(false);
@@ -250,6 +255,7 @@ public class CharSelection extends JPanel
         add(botRow,BorderLayout.SOUTH);
 
     }
+    
     /**
      * Represents the listener for all buttons
      */
@@ -281,8 +287,7 @@ public class CharSelection extends JPanel
                 persStats.setText(player.toString());
 
                 //signals that the next button doesn't need to be xreated again
-                hasSelectedBefore = true; 
-                //if the action is caused by the next button, go to first situation
+                hasSelectedBefore = true;                 
             }else{ 
                 //feteches the CardLayout
                 JButton button = (JButton)event.getSource();
