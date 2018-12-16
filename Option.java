@@ -44,7 +44,7 @@ public class Option
 
     /**
      * Constructor for objects of class Option. Allows for it's points to be
-     * entered as individual integers rather than an array of intergers.
+     * entered as individual integers rather than an array of integers.
      * 
      * @param dec    the decision text
      * @param sleep  the sleep points of the Option object
@@ -109,5 +109,4 @@ public class Option
         return "Decision: " + decision + "Sleep: " + points[0] + " Smart: "+
                 points[1] + " Social: " + points[2]; 
     }
-
 }

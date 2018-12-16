@@ -38,7 +38,7 @@ public class Person
     {
         int[] character = allChars[charInt]; //the archetype's scores
         name = names[charInt];
-        //sleep, smart and social in index 0,1,2 repectively
+        //sleep, smart and social in index 0,1,2 respectively
         sleepScore = character[0]+5;
         smartScore = character[1]+5;
         socialScore = character[2]+5;
@@ -54,7 +54,7 @@ public class Person
         try{
         int[] character = allChars[getIndex(n)]; //the archetype's scores
         name = n;
-        //sleep, smart and social in index 0,1,2 repectively
+        //sleep, smart and social in index 0,1,2 respectively
         sleepScore = character[0]+5;
         smartScore = character[1]+5;
         socialScore = character[2]+5;
@@ -174,5 +174,4 @@ public class Person
                     smartScore + "\nSocial Score: "+socialScore;
         return ret;
     }
-    
 }

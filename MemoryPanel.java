@@ -13,17 +13,19 @@ import javafoundations.*;
  * A memory based mini game. The user is given a list of words and then 
  * prompted to input into a JTextField that same list of words in the correct 
  * order. The constructor takes a string as a parameter and if the string
- * is one of the hard coded scenarios in the circumstaces array, the constructor
+ * is one of the hard coded scenarios in the circumstances array, the constructor
  * forms the corresponding game for the scenario. 
- * </br> Acceptable parameters for the constructor: Tunnel, FYM, Squirrel
- * </br> Methods include a method for each panel of the game which creates that
+ * <br></br> Acceptable parameters for the constructor: Tunnel, FYM, Squirrel
+ * <br></br> Methods include a method for each panel of the game which creates that
  * panel, randomize() which takes the situational commands that the user must 
  * memorize and randomly puts them into memQueue, and a toString for memeQueue.
  * Two private classes are created, one for each action listener. One is for the
  * JTextField which the user inputs answers into and the other is for the 
  * variouse buttons. 
  * 
- * @author (nbryant2, zthabet, gbronzi)
+ * @author nbryant2 
+ * @author zthabet
+ * @author gbronzi
  * @version (12.17.18)
  */
 public class MemoryPanel extends JPanel {
@@ -41,12 +43,12 @@ public class MemoryPanel extends JPanel {
             " tunnels!\nIf you can't remember how to get out,\nyou'll be stuck"+
             " down here forever!" ,"Welcome to your study group!" +
             "\nYou had better remember everyone's name, or else you'll die of" +
-            " embarassment",
+            " embarrassment",
             "Ack! A rabbid squirrel has started to chase you!\nRun, fight, hide-"+
-            " do what ever you can to escape before it is too late!           "};
+            " do whatever you can to escape before it is too late!           "};
     protected final static String [] losingList = {"You took a wrong turn."+
             "\nNow you will be stuck in the tunnels forever.",
-            "How embarassing, you messed up someone's name!" +            
+            "How embarrassing, you messed up someone's name!" +            
             "\nYou tried to hide in your room until you got over it," +
             "\nbut missed too many meals and died.",
             "Oh dear, you couldn't outsmart the squirrel." +
@@ -56,14 +58,14 @@ public class MemoryPanel extends JPanel {
             "Great job. You learned everyone's name and earned a few new "+ 
             "friends. Hurray!",
             "In the nick of time, you made it into the nearest building and "+
-            "esccaped!\nThe squirrel moved on to it's next victim,\nand you"+
+            "escaped!\nThe squirrel moved on to its next victim,\nand you"+
             " are one day closer to graduation."};             
     protected final static String [] images = {"images/Tunnel.jpg", "images/Campus.jpg", 
             "images/Squirrel.jpg"};                 
     protected Vector<String> answerKey; 
     protected String name;//the circumstance senario passed in the constructor;
 
-    protected CardLayout cl,clBig;//containes to flip through the panels
+    protected CardLayout cl,clBig;//contains to flip through the panels
     //holds two panels one of which is the background image
     protected JLayeredPane content;
     protected ImageIcon image;
@@ -81,14 +83,14 @@ public class MemoryPanel extends JPanel {
     protected Boolean isLeft;
 
     /**
-     * The constructor for the running game takes three parameters and 
-     * creates the running mini game
+     * The constructor for the running game takes three parameters and creates
+     * the running mini game
      * 
-     * @param Person p -the person class holding the current stats
-     * @param TrailsBinary t -where the user is in the binaryTree determins 
-     * their in game location
-     * @Param Boolean direct -determins to which child of the current leaf 
-     * the user goes to after the game
+     * @param p      the person class holding the current stats
+     * @param t      where the user is in the binaryTree determines their in
+     *               game location
+     * @param direct determines to which child of the current leaf the user
+     *               goes to after the game
      */
     public MemoryPanel(Person p, TrailsBinaryTree t, Boolean direct, 
     String scenario){
@@ -113,7 +115,7 @@ public class MemoryPanel extends JPanel {
         //olds a background images and a panel on top
         content = new JLayeredPane();
         background = new JPanel();//holds the scenario image
-        //container for the panels, switches between them like playingcards
+        //container for the panels, switches between them
         deck = new JPanel(new CardLayout());
         cl = (CardLayout)(deck.getLayout());//manages the deck
 
@@ -159,7 +161,7 @@ public class MemoryPanel extends JPanel {
         background.setBounds(0, 0, 1200, 800); 
         deck.setOpaque(true);
         content.add(background, new Integer(0), 0); //sets to the background
-        content.add(deck, new Integer(1), 0);//sets to the foregound      
+        content.add(deck, new Integer(1), 0);//sets to the foreground      
 
         add(deckBig, BorderLayout.CENTER);
     }
@@ -174,10 +176,12 @@ public class MemoryPanel extends JPanel {
          * If the answer is correct, the user may continue until all the 
          * answers have been inputted. If the answer is incorrect,
          * the user is taken to a game over screen.
+         * 
+         * @param event action of user entering text
          */
         public void actionPerformed (ActionEvent event) {      
             String input = answer.getText();//the command input by the user
-            //displayes the user's previous choices
+            //displays the user's previous choices
             answer.setText("");
             if (count==0){
                 path.setText("Your answer:\n" +input);
@@ -205,6 +209,8 @@ public class MemoryPanel extends JPanel {
         /**
          * Depending on which button is selected, a different action occures.
          * All of these buttons are screen transitions
+         * 
+         * @param event action of button being pressed
          */
         public void actionPerformed(ActionEvent event){
             //all of these buttons are transitions for the user
@@ -214,10 +220,11 @@ public class MemoryPanel extends JPanel {
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
                 //JPanel pare = (JPanel) deck.getParent();
-                JPanel cardLayoutPanel = (JPanel) content.getParent().getParent().getParent();
+                JPanel cardLayoutPanel = (JPanel) content.getParent()
+                                                    .getParent().getParent();
                 CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
 
-                //exit and go to the Death Screen, sad sad sad 
+                //exit and go to the Death Screen
                 cardLayoutPanel.add(dying, "dead");
                 layout.show(cardLayoutPanel,"dead");
 
@@ -279,9 +286,9 @@ public class MemoryPanel extends JPanel {
     }
 
     /**
-     * First scenario sceen- welcome the user and set the scene
+     * First scenario screen- welcome the user and set the scene
      * 
-     * @return JPanel first screen
+     * @return first JPanel which is an introduction
      */
     protected JPanel scenarioPanel(){
         scenario = new JPanel();
@@ -300,11 +307,11 @@ public class MemoryPanel extends JPanel {
         return scenario;
     }
 
-    //second screen seen, instructions
+
     /**
-     * Second scenario sceen- provides instructions for the game
+     * Second scenario screen- provides instructions for the game
      * 
-     * @return JPanel second screen
+     * @return second JPanel in sequence
      */
     protected JPanel introPanel() {
         //randomize();
@@ -338,10 +345,10 @@ public class MemoryPanel extends JPanel {
     }
 
     /**
-     * Third scenario sceen- Where the user plays the game by inputting words
+     * Third scenario screen- Where the user plays the game by inputting words
      * into a text field
      * 
-     * @return JPanel third screen
+     * @return third JPanel in sequence showing the game
      */
     protected JPanel game(){
         game = new JPanel();
@@ -369,10 +376,10 @@ public class MemoryPanel extends JPanel {
     }
 
     /**
-     * One of two possible final scenario sceen, appears if the user does 
+     * One of two possible final scenario screen, appears if the user does 
      * not input the correct word
      * 
-     * @return JPanel loser screen
+     * @return loser JPanel
      */
     protected JPanel gameOver(){
         gameOver = new JPanel();
@@ -394,7 +401,7 @@ public class MemoryPanel extends JPanel {
     }
 
     /**
-     * One of two possible final scenario sceen, appears if the user inputs 
+     * One of two possible final scenario screen, appears if the user inputs 
      * all the correct words
      * 
      * @return JPanel winner screen
@@ -418,7 +425,9 @@ public class MemoryPanel extends JPanel {
     }
 
     /**
-     * Returns String of memQueue in order.
+     * Gets String of memQueue in order.
+     * 
+     * @return a String representation of the memory queue 
      */
     public String toString(){
         String result = "";

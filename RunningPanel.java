@@ -6,17 +6,19 @@ import java.util.Random;
 
 /**
  * RunningPanel is the running based mini game. The user must click a button 
- * representing steps taken in a run and their success in the game is determined 
- * by how far they 'run'.
+ * representing steps taken in a run and their success in the game is 
+ * determined by how far they 'run'.
  * 
- * <br> Contains two private classes for the action listeners: one is a timer 
- * and one contains all the button actions. Additionally there is are individual 
- * methods for the creation of each panel which represents a game screen 
+ * <br></br> Contains two private classes for the action listeners: one is a
+ * timer and one contains all the button actions. Additionally there is are
+ * individual methods for the creation of each panel which represents a game
+ * screen
  * 
- * @author (nbryant2, zthabet, gbronzi)
- * @version (12.15.18)
+ * @author nbryant2
+ * @author zthabet
+ * @author gbronzi
+ * @version 12.17.18
  */
-
 public class  RunningPanel extends JPanel {
     private int count, time;
     private JButton push, start, mainGameDead, mainGameAlive;
@@ -42,11 +44,11 @@ public class  RunningPanel extends JPanel {
      * The constructor for the running game takes three parameters and 
      * creates the running mini game
      * 
-     * @param Person p -the person class holding the current stats
-     * @param TrailsBinary t -where the user is in the binaryTree determins 
-     * their in game location
-     * @Param Boolean direct -determins to which child of the current leaf 
-     * the user goes to after the game
+     * @param p      the person class holding the current stats
+     * @param t      where the user is in the binaryTree determines 
+     *               their in game location
+     * @param direct determines to which child of the current leaf 
+     *               the user goes to after the game
      */
     public RunningPanel (Person p, TrailsBinaryTree t, Boolean direct){
         player = p; 
@@ -80,6 +82,8 @@ public class  RunningPanel extends JPanel {
     private class timeListener implements ActionListener{
         /**
          * When the game panel is launched, timer for the game begins
+         * 
+         * @param e action of time 
          */
         public void actionPerformed(ActionEvent e) {
             counter--;
@@ -105,10 +109,16 @@ public class  RunningPanel extends JPanel {
     }
 
     /**
-     * Button actions. The game is centered around the push button and the rest 
+     * Button actions. The game is centered around the push button and the rest
      * are transitions from panel to panel for the user
      */
     private class ButtonListener implements ActionListener {
+        /**
+         * Increments the count and changes the color of the background when the
+         * user clicks a button.
+         * 
+         * @param event action of user clicking a button 
+         */
         public void actionPerformed (ActionEvent event){
             if (event.getSource() == push){
                 //everytime the user pushes this button, give them a step
@@ -244,7 +254,7 @@ public class  RunningPanel extends JPanel {
                 " game! Here is how you play:\nOn the next screen, you will"+
                 " click the button as many times as you can in 20 seconds."+
                 "\nEach click is a step in your run, and if you don't run far"+ 
-                " enough, there are consequnces!\nGood luck, and click the"+
+                " enough, there are consequences!\nGood luck, and click the"+
                 " Start button when ready");
 
         start.setFont(font);

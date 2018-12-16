@@ -64,6 +64,8 @@ public class DeathPanel extends JPanel {
         /**
          * Depending on which button is selected, users will either be taken to
          * the home screen or the window will close
+         * 
+         * @param event action of clicking a button
          */
         public void actionPerformed(ActionEvent event){
             //restarts the game

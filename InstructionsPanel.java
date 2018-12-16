@@ -88,7 +88,7 @@ public class InstructionsPanel extends JPanel
         //holds a background images and a panel on top  
         JLayeredPane content = new JLayeredPane();  
         
-        //adding componants to foreground
+        //adding componnts to foreground
         setLayout(new BorderLayout());
         foreground.add(top, BorderLayout.NORTH);
         foreground.add(left, BorderLayout.LINE_START);
@@ -105,7 +105,7 @@ public class InstructionsPanel extends JPanel
         foreground.setBackground(new Color(0,0,0,0)); 
         //sets to the background
         content.add(background, new Integer(0), 0); 
-        //sets to the foregound 
+        //sets to the foreground 
         content.add(foreground, new Integer(1), 0);
         
         add(content, BorderLayout.CENTER);
@@ -119,8 +119,9 @@ public class InstructionsPanel extends JPanel
     private class ButtonListener implements ActionListener
     {
         /**
-         * When the button is selected, create a character 
-         * panel and go to it
+         * When the button is selected, create a character panel and goes to it
+         * 
+         * @param event action of button being selected
          */
         public void actionPerformed (ActionEvent event){
             JButton button = (JButton)event.getSource();

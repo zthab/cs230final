@@ -234,7 +234,6 @@ public class SituationPanel extends JPanel{
                 cardLayoutPanel.add(win,"winPanel");
                 layout.show(cardLayoutPanel, "winPanel");
             }
-
         }
     }
 }

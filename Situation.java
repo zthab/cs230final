@@ -2,7 +2,7 @@
 /**
  * The Situation class creates an object that holds a situational question and 
  * the two options that go with the question. The class allows for manipulation
- * of the question and options. A situation object was designed specfically for
+ * of the question and options. A situation object was designed specifically for
  * implementation in a binary tree of Situation objects in that the selection
  * of an Option object will lead to one of two other Situation objects.
  *
@@ -69,5 +69,4 @@ public class Situation
         return question + " Choice 1: " + optionLeft + " Choice 2: " + 
                optionRight;
     }
-    
 }
