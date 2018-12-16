@@ -4,9 +4,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.Vector;
 /**
- * Write a description of class WellesleyTrailGUI here.'
+ * TrailGUI 
  * 
- * @author (zthabet,nbryant2,gbronzi)
+ * @author zthabet
+ * @author nbryant2
+ * @author gbronzi
  * @version (12.1.18)
  */
 public class TrailGUI 

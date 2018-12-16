@@ -20,7 +20,8 @@ public class InstructionsPanel extends JPanel
     private JPanel content;
     
     /**
-     * Constructs up a JPanel with two labels.
+     * Constructs a JPanel with two labels.
+     * Provides the instructions of the game 
      */
     public InstructionsPanel(){
         JPanel background = new JPanel();
@@ -32,20 +33,37 @@ public class InstructionsPanel extends JPanel
         JButton next = new JButton("Choose your character -->");
         next.addActionListener(new ButtonListener());
 
-        JTextArea top = new JTextArea("          Welcome to the Wellesley Trail!");
-        JTextArea left = new JTextArea("Goals:\nMake it to graduation without:\n   Being attacked by geese" +
-                 "\n   Getting lost in the tunnels\n   Dying of sleep deprivation\n   Or any of the other perils of Wellesley College");
-        JTextArea right = new JTextArea("Instructions:          \n" + "Most importantly, you must keep all three of your stats" + 
-                         "\nabove zero. These stats are sleep, smart, and social \npoints." + 
-                         " The decisions you make in this game will impact\nthose stats. If any drop below zero, you lose!" +
-                         "\nAdditionally, some decisions will lead you to mini games.\nIf you lose any of those, you lose it all!");
-        
+
+        JTextArea top = 
+                    new JTextArea("          Welcome to the Wellesley Trail!");
+                    
+        JTextArea left = 
+            new JTextArea("Goals:\nMake it to graduation without:\n "+
+                          "  Being attacked by geese" +
+                          "\n   Getting lost in the tunnels\n " +
+                          "  Dying of sleep deprivation\n   Or any of " + 
+                          "the other perils of Wellesley College");
+                          
+        JTextArea right = new JTextArea("Instructions:          \n" + 
+                "Most importantly, you must keep all three of your stats" + 
+                "\nabove zero. These stats are sleep, smart, and social " +
+                "\npoints. The decisions you make in this game will impact" +
+                "\nthose stats. If any drop below zero, you lose!" + 
+                 "\nAdditionally, some decisions will lead you to mini games."
+                 + "\nIf you lose any of those, you lose it all!");
+
         //importing background image
          try {
             //scaling all input files to be the same size
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("OregonTrail.jpg")));
+            ImageIcon image = 
+                   new ImageIcon(ImageIO.read(new File("OregonTrail.jpg")));
+                  
             Image pic = image.getImage(); // transform it 
-            Image newimg = pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+            
+            // scale it the smooth way
+            Image newimg =
+
+                pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH);       
             image = new ImageIcon(newimg);  // transform it back
 
             background.add(new JLabel(image), BorderLayout.CENTER);
@@ -68,7 +86,8 @@ public class InstructionsPanel extends JPanel
         left.setBackground(new Color(0,0,0,0));
         right.setBackground(new Color(0,0,0,0));       
         
-        JLayeredPane content = new JLayeredPane();//holds a background images and a panel on top    
+        //holds a background images and a panel on top  
+        JLayeredPane content = new JLayeredPane();  
         
         //adding componants to foreground
         setLayout(new BorderLayout());
@@ -78,27 +97,34 @@ public class InstructionsPanel extends JPanel
         
         //add both back and foreground to the container
         content.setBounds(0, 0, 1200, 800); //same as frame
-        foreground.setBounds(0, 00, 1200, 800);//((where the panel starts),(the panel size))
+        //((where the panel starts),(the panel size))
+        foreground.setBounds(0, 00, 1200, 800);
         background.setOpaque(true);
         background.setBounds(0, 00, 1200, 800); 
         foreground.setOpaque(false);
-        foreground.setBackground(new Color(0,0,0,0)); //transparent
-        content.add(background, new Integer(0), 0); //sets to the background
-        content.add(foreground, new Integer(1), 0);//sets to the foregound 
+        //transparent
+        foreground.setBackground(new Color(0,0,0,0)); 
+        //sets to the background
+        content.add(background, new Integer(0), 0); 
+        //sets to the foregound 
+        content.add(foreground, new Integer(1), 0);
         
         add(content, BorderLayout.CENTER);
         add(next,BorderLayout.SOUTH);
     }
 
     /**
-     * Sets the listener for the action which will occure when the user clicks the button
+     * Sets the listener for the action which will 
+     * occur when the user clicks the button
      */
     private class ButtonListener implements ActionListener
     {
         /**
-         * When the button is selected, create a character panel and go to it
+         * When the button is selected, create a character 
+         * panel and go to it
          */
         public void actionPerformed (ActionEvent event){
+
             JButton button = (JButton)event.getSource();
             JPanel buttonPanel = (JPanel)button.getParent();
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
@@ -109,12 +135,4 @@ public class InstructionsPanel extends JPanel
             layout.show(cardLayoutPanel, "charSelec");
         }
     }
-
-    // private JPanel content(){
-        // JPanel content = new JPanel();     
-        // JTextArea top = new JTextArea("Welcome to the Wellesley Trail!");
-        // top.setFont(JTextArea.getFont().deriveFont(16f));
-        
-        // return content;
-    // }
 }

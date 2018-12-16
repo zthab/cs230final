@@ -107,6 +107,7 @@ public class TrailsBinaryTree
                                 //creates a new Option with these values and 
                                 //assigns it to the correct index in opts for 
                                 //its situation
+
                                 opts[i]=new Option(decs[i],decPoints[i]);
                             }else{
                                 throw new IllegalArgumentException("File "+
@@ -188,7 +189,7 @@ public class TrailsBinaryTree
         try{
             return years.get(vecIndex).get(sitIndex);
         }catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("Valid vector and situation indices weren't entered.");
+            System.out.println("Invalid vector and situation indeces.");
         }
         return null;
     }
