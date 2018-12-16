@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
 /**
  * Creates a panel for a Situation object to be displayed with. Buttons
  * selected in this panel have the capability to lead to other panels.
