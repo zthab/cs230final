@@ -142,11 +142,12 @@ public class TrailsBinaryTree
      */
     public void nextLeft(){
         //checks if there are enough situations in the specific vector of years
-        if (!((2*(sitIndex)+1)>=years.get(vecIndex).size())){
+        if (!((2*(sitIndex+1)-1)>=years.get(vecIndex).size())){
             //Sets Situation index to the (2n-1)th Situation from current index
-            sitIndex=2*(sitIndex)+1;
+            sitIndex=2*(sitIndex+1)-1;
         //checks that if there are not enough situations in a vector, if there
         //are more vectors in years
+            System.out.println("here");
         }else if (vecIndex+1<years.size()){
             //increments the vector index by one, sets the situation index to
             //the beginning of the next the vector 
@@ -164,9 +165,9 @@ public class TrailsBinaryTree
      * */
     public void nextRight(){
         //checks if there are enough Situations in the specific vector of years
-        if (!((2*(sitIndex)+2)>=years.get(vecIndex).size())){
+        if (!((2*(sitIndex+1))>=years.get(vecIndex).size())){
             //Sets Situation index to the (2n)th Situation from current index
-            sitIndex=2*(sitIndex)+2;
+            sitIndex=2*(sitIndex+1);
         //checks that if there are not enough Situations in a vector, if there
         //are more vectors in years
         }else if (vecIndex+1<years.size()){

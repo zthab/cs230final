@@ -62,7 +62,6 @@ public class InstructionsPanel extends JPanel
             
             // scale it the smooth way
             Image newimg =
-
                 pic.getScaledInstance(1200, 800,  java.awt.Image.SCALE_SMOOTH);       
             image = new ImageIcon(newimg);  // transform it back
 
@@ -124,7 +123,6 @@ public class InstructionsPanel extends JPanel
          * panel and go to it
          */
         public void actionPerformed (ActionEvent event){
-
             JButton button = (JButton)event.getSource();
             JPanel buttonPanel = (JPanel)button.getParent();
             JPanel cardLayoutPanel = (JPanel)buttonPanel.getParent();
