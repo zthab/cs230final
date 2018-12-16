@@ -8,10 +8,10 @@ import java.util.Vector;
  * TrailGUI controls the game. It begins at the startPanel and moves forward
  * through the other panels and games
  * 
- * @author zthabet
- * @author nbryant2
- * @author gbronzi
- * @version (12.1.18)
+ * @author  Zahra Thabet
+ * @author  Nolen Belle Bryant
+ * @author  Giulia Bronzi
+ * @version 12.17.18
  */
 public class TrailGUI 
 {
@@ -22,6 +22,8 @@ public class TrailGUI
     
     /**
      * Creates a new startPanel and begins the game 
+     * 
+     * @param pane ContentPane of TrailGUI object
      */
     public void addComponents(Container pane){
         JPanel start = new StartPanel();
@@ -38,7 +40,6 @@ public class TrailGUI
 
     public static void main (String[] args) 
     {
-        
         JFrame frame = new JFrame("Wellesley Trails");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

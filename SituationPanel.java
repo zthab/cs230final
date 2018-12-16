@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -15,9 +16,9 @@ import javax.imageio.ImageIO;
  * Buttons pressed in this panel also affect a Person object whose sleep,
  * smart, and social scores are displayed.
  *
- * @author  gbronzi
- * @author  nbryant2
- * @author  zthabet
+ * @author  Zahra Thabet
+ * @author  Nolen Belle Bryant
+ * @author  Giulia Bronzi
  * @version 12.17.18
  */
 public class SituationPanel extends JPanel{
@@ -234,7 +235,6 @@ public class SituationPanel extends JPanel{
                 cardLayoutPanel.add(win,"winPanel");
                 layout.show(cardLayoutPanel, "winPanel");
             }
-
         }
     }
 }

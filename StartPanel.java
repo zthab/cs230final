@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
@@ -9,9 +10,7 @@ import javax.imageio.ImageIO;
 /**
  * Creates a start panel for The Wellesley Trail
  *
- * @author zthabet
- * @author gbronzi
- * @author nbryant2
+ * @author  Nolen Belle Bryant
  * @version 12.17.18
  */
 
@@ -61,11 +60,12 @@ public class StartPanel extends JPanel
      * Sets the listener for the action which will occur when 
      * the user clicks the button
      */
-
     private class ButtonListener implements ActionListener{
         /**
-         * When the button is selected, creates an instructions panel 
-         * and go to it
+         * When the button is selected, creates an instructions panel and go to
+         * it
+         * 
+         * @param event action of button being selected
          */
         public void actionPerformed (ActionEvent event){
             JButton button = (JButton)event.getSource();
@@ -79,5 +79,4 @@ public class StartPanel extends JPanel
             layout.show(cardLayoutPanel, "Instructions");
         }
     }
-
 }

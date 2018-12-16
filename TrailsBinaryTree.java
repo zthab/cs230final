@@ -1,3 +1,4 @@
+
 import java.io.*;
 import javafoundations.*;
 import java.util.Scanner;
@@ -8,10 +9,7 @@ import java.util.Vector;
  *represent choices made in the four years of the Wellesley Trail. Each Vector
  *represents a different year or period of time in the Wellesley experience.
  *
- * @author  zthabet
- * @author  gbronzi
- * @author  nbryant2
- * 
+ * @author  Zahra Thabet
  * @version 12.17.18
  */
 public class TrailsBinaryTree
@@ -64,7 +62,7 @@ public class TrailsBinaryTree
             while (sc.hasNextLine()){
                 line=sc.nextLine(); //String of Situation object
                 //Array to store the options' points of a specific Situation
-                //text in. Initalized inside while loop to prevent Situations
+                //text in. Initialized inside while loop to prevent Situations
                 //from continuously updating their Options' points.
                 int[][] decPoints = new int[2][3];
                 //if an empty line is detected, number of vectors is increased
@@ -98,7 +96,7 @@ public class TrailsBinaryTree
                                         decPoints[i][j]=Integer.parseInt(p);
                                     }else{
                                         throw new IllegalArgumentException(
-                                            "File formatted incorrectely at "+
+                                            "File formatted incorrectly at "+
                                             "line: "+ line);
                                     }
                                 }
@@ -110,7 +108,7 @@ public class TrailsBinaryTree
                                 opts[i]=new Option(decs[i],decPoints[i]);
                             }else{
                                 throw new IllegalArgumentException("File "+
-                                    "formatted incorrectely at line: "+line);
+                                    "formatted incorrectly at line: "+line);
                             }
                         }
                         //after a Situation is created, assigns it to the end
@@ -119,7 +117,7 @@ public class TrailsBinaryTree
                         sitIndex=0;
                     }else{
                         throw new IllegalArgumentException("File formatted "+
-                            "incorrectely at line: " + line);
+                            "incorrectly at line: " + line);
                     }
                     years.get(count).add(new Situation(
                                                     question,opts[0],opts[1]));
@@ -187,7 +185,7 @@ public class TrailsBinaryTree
         try{
             return years.get(vecIndex).get(sitIndex);
         }catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("Invalid vector and situation indeces.");
+            System.out.println("Invalid vector and situation indices.");
         }
         return null;
     }

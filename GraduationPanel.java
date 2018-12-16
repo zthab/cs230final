@@ -8,9 +8,9 @@ import java.io.*;
 /**
  * Creates a panel for the end of the game. Does not lead to any other panel.
  * 
- * @author gbronzi
- * @author nbryant2
- * @author zthabet
+ * @author  Giulia Bronzi
+ * @author  Zahra Thabet
+ * @author  Nolen Belle Bryant
  * @version 12.17.18
  */
 public class GraduationPanel extends JPanel 

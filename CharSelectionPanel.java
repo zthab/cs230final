@@ -15,9 +15,9 @@ import javax.imageio.ImageIO;
  * to select an archetype to play as. Modifies a Person object with the 
  * archetype's sleep, smart, and social points.
  * 
- * @author zthabet
- * @author gbronzi
- * @author nbryant2
+ * @author Zahra Thabet
+ * @author Nolen Belle Bryant
+ * @author Giulia Bronzi
  * 
  * @version 12.17.18
  */

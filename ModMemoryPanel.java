@@ -1,16 +1,4 @@
 
-/**
- * ModMemoryGame is identical to MemoryGame exxcept the user plays the game by 
- * selecting from button options instead of inputing
- * the answers.
- * <br>Overridded methods from MemoryGame are game() which constructs the game
- * panel and both private classes of action listeners are overridded to 
- * accomedate the buttons version.  
- * 
- *
- * @author (nbryant2, zthabet, gbronzi)
- * @version (12.15.18)
- */
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -21,7 +9,18 @@ import javax.swing.*;
 import javax.swing.event.*;
 import java.util.*;
 import javafoundations.*;
-
+/**
+ * ModMemoryGame is identical to MemoryGame except the user plays the game by 
+ * selecting from button options instead of inputting the answers.
+ * <br></br>Overridden methods from MemoryGame are game() which constructs the game
+ * panel and both private classes of action listeners are overridded to 
+ * accommodate the buttons version.  
+ * 
+ *
+ * @author  Nolen Belle Bryant
+ * @author  Giulia Bronzi
+ * @version 12.17.18
+ */
 public class ModMemoryPanel extends MemoryPanel  {
     protected JButton opt1,opt2,opt3,opt4,opt5;
     /**
@@ -37,7 +36,7 @@ public class ModMemoryPanel extends MemoryPanel  {
      * The screen where the user plays the game by selecting the buttons in 
      * the correct order
      * 
-     * @override
+     * @Override
      * @return JPanel game which contains the modified game mechanisms
      */
     protected JPanel game(){
@@ -80,10 +79,16 @@ public class ModMemoryPanel extends MemoryPanel  {
     }
 
     /**
-     * Instead of a JTextField, this recieves the words from the buttons
+     * Instead of a JTextField, this receives the words from the buttons
+     * 
      * @Override
      */
     protected class ButtonListener implements ActionListener {
+        /**
+         * pushes whichever option was selected as a button
+         * 
+         * @param event action of button being pressed
+         */
         public void actionPerformed(ActionEvent event){
             if (event.getSource() == next){
                 cl.next(deck);//changes to the game screen
@@ -101,10 +106,11 @@ public class ModMemoryPanel extends MemoryPanel  {
     }
 
     /**
-     * Instead of a JTextField, this recieves the words from the buttons and 
-     * displays the user choices based which button was clicked
+     * Instead of a JTextField, this receives the words from the buttons and 
+     * displays the user choices based which button was clicked.
      * 
      * @Override
+     * @param click button to be clicked
      */
     public void push(JButton click){
         String input = click.getText();
