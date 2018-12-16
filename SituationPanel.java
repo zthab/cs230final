@@ -126,12 +126,27 @@ public class SituationPanel extends JPanel{
                         cardLayoutPanel.add(run,"runningGame");
                         layout.show(cardLayoutPanel, "runningGame");
                     }else if(option1.getDecision().toLowerCase(
-                    ).contains("vocab")){
-
+                    ).contains("freeze")){
+                        //launches the squirrel memory game
+                        MemoryPanel memS = new MemoryPanel(player, tree, true, 
+                                "Squirrel");
+                        cardLayoutPanel.add(memS,"squirrelGame");
+                        layout.show(cardLayoutPanel, "squirrelGame");
                     }else if(option1.getDecision().toLowerCase(
-                    ).contains("equations")){
-
-                    }  else{
+                    ).contains("dirctory")){
+                        //launches the fym memory game
+                        MemoryPanel memF = new MemoryPanel(player, tree, true, 
+                                "FYM");
+                        cardLayoutPanel.add(memF,"fymGame");
+                        layout.show(cardLayoutPanel, "fymGame");
+                    }  else if(option1.getDecision().toLowerCase(
+                    ).contains("flashlight")){
+                        //launches the tunnel memory game
+                        MemoryPanel memT = new MemoryPanel(player, tree, true, 
+                                "Tunnel");
+                        cardLayoutPanel.add(memT,"tunnelGame");
+                        layout.show(cardLayoutPanel, "tunnelGame");
+                    }else{
                         //add the associated points to the player's points
                         player.addAllScores(option1.getPoints());
                         //if the players points are still above zero, 
@@ -157,15 +172,36 @@ public class SituationPanel extends JPanel{
                         }
                     }
 
-                    //if the source is the option 1 button
+                    //if the source is the option 2 button
                 }else{
                     if(option2.getDecision().toLowerCase().contains("run")){
+                        //launches the running game
                         RunningPanel run = new RunningPanel(
                                 player, tree, false); 
                         cardLayoutPanel.add(run,"runningGame");
                         layout.show(cardLayoutPanel, "runningGame");
-                    }//else if (is mem){}
-                    else{
+                    }else if(option2.getDecision().toLowerCase(
+                    ).contains("scamper")){
+                        //launches the squirrel modified memory game
+                        MemoryPanel memModS = new MemoryPanel(player, tree, 
+                                false,  "Squirrel");
+                        cardLayoutPanel.add(memModS,"squirrelModGame");
+                        layout.show(cardLayoutPanel, "squirrelModGame");
+                    }else if(option2.getDecision().toLowerCase(
+                    ).contains("name")){
+                        //launches the fym modified memory game
+                        MemoryPanel memModF = new MemoryPanel(player, tree, 
+                                false, "FYM");
+                        cardLayoutPanel.add(memModF,"fymModGame");
+                        layout.show(cardLayoutPanel, "fymModGame");
+                    }  else if(option2.getDecision().toLowerCase(
+                    ).contains("At last")){
+                        //launches the tunnel modified memory game
+                        MemoryPanel memModT = new MemoryPanel(player, tree,
+                                false, "Tunnel");
+                        cardLayoutPanel.add(memModT,"tunnelModGame");
+                        layout.show(cardLayoutPanel, "tunnelModGame");
+                    }else{
                         //add the associated points to the player's points
                         player.addAllScores(option2.getPoints());
                         //if the players points are still above zero, 
@@ -178,7 +214,7 @@ public class SituationPanel extends JPanel{
                             //shows a SituationPanel of the new current 
                             //Situation
                             SituationPanel nextPanel = new SituationPanel(
-                                player, tree); 
+                                    player, tree); 
                             cardLayoutPanel.add(nextPanel,"right");
                             layout.show(cardLayoutPanel, "right");
                             //if the player's points are not above zero 
