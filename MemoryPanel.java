@@ -38,14 +38,14 @@ public class MemoryPanel extends JPanel {
     protected final static String [] circumstance = {"Tunnel","FYM","Squirrel"};
     //all of the text which is specific to each circumstance
     protected final static String [] welcomeList ={"Oh no, you got lost in the"+
-            " tunnels!\nIf you can't remember how to get out, you'll be stuck"+
+            " tunnels!\nIf you can't remember how to get out,\nyou'll be stuck"+
             " down here forever!" ,"Welcome to your study group!" +
             "\nYou had better remember everyone's name, or else you'll die of" +
             " embarassment",
             "Ack! A rabbid squirrel has started to chase you!\nRun, fight, hide-"+
             " do what ever you can to escape before it is too late!           "};
-    protected final static String [] losingList = {"You took a wrong turn and"+
-            " now you will be stuck in the tunnels forever.",
+    protected final static String [] losingList = {"You took a wrong turn."+
+            "\nNow you will be stuck in the tunnels forever.",
             "How embarassing, you messed up someone's name!" +            
             "\nYou tried to hide in your room until you got over it," +
             "\nbut missed too many meals and died.",
@@ -56,7 +56,7 @@ public class MemoryPanel extends JPanel {
             "Great job. You learned everyone's name and earned a few new "+ 
             "friends. Hurray!",
             "In the nick of time, you made it into the nearest building and "+
-            "esccaped!\nThe squirrel moved on to it's next victim, and you"+
+            "esccaped!\nThe squirrel moved on to it's next victim,\nand you"+
             " are one day closer to graduation."};             
     protected final static String [] images = {"Tunnel.jpg", "Campus.jpg", 
             "Squirrel.jpg"};                 

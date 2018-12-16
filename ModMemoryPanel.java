@@ -51,8 +51,8 @@ public class ModMemoryPanel extends MemoryPanel  {
 
         //a bit artificial but the spaces are to force the buttons to a new
         //row, not ideal
-        inputLabel = new JLabel ("      Select the words in the order in"+
-            "which they appeared:       ");
+        inputLabel = new JLabel ("       Select the words in the order in"+
+            " which they appeared:        ");
         opt1.addActionListener(new ButtonListener());
         opt2.addActionListener(new ButtonListener());
         opt3.addActionListener(new ButtonListener());
