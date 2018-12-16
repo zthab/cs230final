@@ -184,21 +184,21 @@ public class SituationPanel extends JPanel{
                     }else if(option2.getDecision().toLowerCase(
                     ).contains("scamper")){
                         //launches the squirrel modified memory game
-                        MemoryPanel memModS = new MemoryPanel(player, tree, 
+                        ModMemoryPanel memModS = new ModMemoryPanel(player, tree, 
                                 false,  "Squirrel");
                         cardLayoutPanel.add(memModS,"squirrelModGame");
                         layout.show(cardLayoutPanel, "squirrelModGame");
                     }else if(option2.getDecision().toLowerCase(
                     ).contains("name")){
                         //launches the fym modified memory game
-                        MemoryPanel memModF = new MemoryPanel(player, tree, 
+                        ModMemoryPanel memModF = new ModMemoryPanel(player, tree, 
                                 false, "FYM");
                         cardLayoutPanel.add(memModF,"fymModGame");
                         layout.show(cardLayoutPanel, "fymModGame");
                     }  else if(option2.getDecision().toLowerCase(
                     ).contains("At last")){
                         //launches the tunnel modified memory game
-                        MemoryPanel memModT = new MemoryPanel(player, tree,
+                        ModMemoryPanel memModT = new ModMemoryPanel(player, tree,
                                 false, "Tunnel");
                         cardLayoutPanel.add(memModT,"tunnelModGame");
                         layout.show(cardLayoutPanel, "tunnelModGame");
