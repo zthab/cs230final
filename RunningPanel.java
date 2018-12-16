@@ -33,7 +33,7 @@ public class  RunningPanel extends JPanel {
     private TrailsBinaryTree tree;
     private Boolean isLeft;
     private Font font;
-    
+
     /**
      * The constructor for the running game takes three parameters and 
      * creates the running mini game
@@ -52,7 +52,7 @@ public class  RunningPanel extends JPanel {
         count = 0; 
         deck = new JPanel(new CardLayout());//this holds the panels and switches between them
         cl = (CardLayout)(deck.getLayout());//manages the deck
-        
+
         font = new Font("Verdana", Font.BOLD, 20);
 
         game = game();
@@ -150,7 +150,7 @@ public class  RunningPanel extends JPanel {
                 JPanel pare = (JPanel) deck.getParent();
                 JPanel cardLayoutPanel = (JPanel) pare.getParent();
                 CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
-                
+
                 //exit and go to the Death Screen, sad sad sad 
                 cardLayoutPanel.add(dying, "dead");
                 layout.show(cardLayoutPanel,"dead");
@@ -164,7 +164,8 @@ public class  RunningPanel extends JPanel {
                         //is the left child of the current Situation
                         tree.nextLeft();
                         //shows a SituationPanel of the new current Situation
-                        SituationPanel nextPanel = new SituationPanel(player, tree); 
+                        SituationPanel nextPanel = new SituationPanel(player,
+                                tree); 
                         cardLayoutPanel.add(nextPanel,"left");
                         layout.show(cardLayoutPanel, "left");
                     }else{
@@ -172,7 +173,8 @@ public class  RunningPanel extends JPanel {
                         //is the left child of the current Situation
                         tree.nextRight();
                         //shows a SituationPanel of the new current Situation
-                        SituationPanel nextPanel = new SituationPanel(player, tree); 
+                        SituationPanel nextPanel = new SituationPanel(player, 
+                                tree); 
                         cardLayoutPanel.add(nextPanel,"right");
                         layout.show(cardLayoutPanel, "right");
                     }
@@ -186,34 +188,35 @@ public class  RunningPanel extends JPanel {
     }
 
     /**
-     * The game panel where the user is challenged the push a button as many times as they can for 20 seconds
+     * The game panel where the user is challenged the push a button as many 
+     * times as they can for 20 seconds
      * 
      * @return JPanel game contains game mechanisms
      */
     private JPanel game(){
         Font gameFont = new Font("Verdana", Font.BOLD, 32);
-        
+
         game = new JPanel();
         JLabel token = new JLabel();
         refreshTimer = new javax.swing.Timer(1000, new timeListener());
         countdownTimerField = token;
         token.setFont(gameFont);
-       
+
         refreshTimer.start();
-        
+
         game.setPreferredSize(new Dimension(1200,800));
         push = new JButton ("Run!"); 
         push.setFont(gameFont);
         push.addActionListener (new ButtonListener() );        
         push.setPreferredSize(new Dimension(1200, 100));
-       
+
         game.setLayout(new GridLayout(3,1,30,30));
         label = new JLabel ("Steps: " + count);
         label.setFont(gameFont);        
         countdownTimerField.setAlignmentX(Component.CENTER_ALIGNMENT);
         push.setAlignmentX(Component.CENTER_ALIGNMENT);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
+
         game.add(countdownTimerField);       
         game.add(push);
         game.add(label);
@@ -228,52 +231,56 @@ public class  RunningPanel extends JPanel {
      */
     private JPanel intro(){
         intro = new JPanel();
-        
+
         start = new JButton("Start");
         start.addActionListener (new ButtonListener() );
-        JTextArea instructions = new JTextArea("Welcome to the running mini game! Here is how you play:" +
-                "\nOn the next screen, you will click the button as many times as you can in 20 seconds."+
-                "\nEach click is a step in your run, and if you don't run far enough, there are consequnces!" +
-                "\nGood luck, and click the Start button when ready");
+        JTextArea instructions = new JTextArea("Welcome to the running mini"+
+                " game! Here is how you play:\nOn the next screen, you will"+
+                " click the button as many times as you can in 20 seconds."+
+                "\nEach click is a step in your run, and if you don't run far"+ 
+                " enough, there are consequnces!\nGood luck, and click the"+
+                " Start button when ready");
 
         start.setFont(font);
         instructions.setFont(font);
         start.setAlignmentX(Component.CENTER_ALIGNMENT);
         instructions.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
+
         intro.setLayout(new GridLayout(3,1,30,30));
         intro.add(instructions);
         intro.add(start);
         intro.setBackground(new Color(0,39,118));
-        
+
         return intro;
     }
 
     /**
-     * One of two final screens, displays if the user 'ran' enough 'steps' and takes them back to the main game
+     * One of two final screens, displays if the user 'ran' enough 'steps' 
+     * and takes them back to the main game
      * 
      * @return JPanel winner scenario
      */
     private JPanel outroWin(){
         Font winFont = new Font("Verdana", Font.BOLD, 150);        
         outroWin = new JPanel();
-        
+
         mainGameAlive = new JButton("Back to the main game");
         mainGameAlive.addActionListener (new ButtonListener() );
-        JTextArea message = new JTextArea("Congrats, you ran " +finalCount+ " steps. Wow!"+
-                "\nBecause you ran so fast, you made it to the omlete line in Lulu before it got too long."+
+        JTextArea message = new JTextArea("Congrats, you ran " +finalCount+ 
+                " steps. Wow!\nBecause you ran so fast, you made it to the"+
+                "omlete line in Lulu before it got too long."+
                 "\nWith a full belly, you make it one day closer to graduation.");
         JTextArea space = new JTextArea("TIME'S UP");
         JPanel panel = new JPanel();   
         panel.add(space, BorderLayout.CENTER);
-        
+
         mainGameAlive.setFont(font);
         message.setFont(font);   
         space.setFont(winFont);
         mainGameAlive.setAlignmentX(Component.CENTER_ALIGNMENT);
         message.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        
+
         outroWin.setLayout(new GridLayout(3,1,30,30));
         outroWin.add(panel);
         outroWin.add(message);       
@@ -284,24 +291,26 @@ public class  RunningPanel extends JPanel {
     }
 
     /**
-     * One of two final screens, displays if the user did not 'run' enough 'steps' and takes them to the final game over screen
+     * One of two final screens, displays if the user did not 'run' enough 
+     * 'steps' and takes them to the final game over screen
      * 
      * @return JPanel loser scenario
      */
     private JPanel outroLose(){
         outroLose = new JPanel();
         Font loseFont = new Font("Verdana", Font.BOLD, 150);  
-        
+
         mainGameDead = new JButton("Game Over");
         mainGameDead.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("You ran " +count+ " steps."+
-                "\nSadly, you didn't make it to the omlete line in Lulu before it got too long."+
+                "\nSadly, you didn't make it to the omlete line in Lulu"+
+                "before it got too long."+
                 "\nWhile waiting in line, you die." +
                 "\nPlease click 'Game Over' to move on");
         JTextArea space = new JTextArea("TIME'S UP");
         JPanel panel = new JPanel();   
         panel.add(space, BorderLayout.CENTER);
-        
+
         mainGameDead.setFont(font);
         message.setFont(font);
         space.setFont(loseFont);
@@ -314,7 +323,7 @@ public class  RunningPanel extends JPanel {
         outroLose.add(message);
         outroLose.add(mainGameDead);
         outroLose.setBackground(new Color(0,39,118));
-        
+
         return outroLose;
     }
 }

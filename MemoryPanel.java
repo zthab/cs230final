@@ -95,10 +95,12 @@ public class MemoryPanel extends JPanel {
      * the user goes to after the game
      */
     public MemoryPanel(Person p, TrailsBinaryTree t, Boolean direct, 
-    String Scenario){
-        this.name = name;
-        life = true;
-
+    String scenario){
+        player=p;
+        tree=t;
+        isLeft=direct;
+        name=scenario;
+        
         index = -1;//hold the index of the desired wordList array
         //check that name is in circumstance
         for (int i = 0; i<circumstance.length;i++)

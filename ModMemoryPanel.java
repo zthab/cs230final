@@ -1,9 +1,11 @@
 
 /**
- * ModMemoryGame is identical to MemoryGame exxcept the user plays the game by selecting from button options instead of inputing
+ * ModMemoryGame is identical to MemoryGame exxcept the user plays the game by 
+ * selecting from button options instead of inputing
  * the answers.
- * <br>Overridded methods from MemoryGame are game() which constructs the game panel and both private classes of action listeners
- * are overridded to accomedate the buttons version.  
+ * <br>Overridded methods from MemoryGame are game() which constructs the game
+ * panel and both private classes of action listeners are overridded to 
+ * accomedate the buttons version.  
  * 
  *
  * @author (nbryant2, zthabet, gbronzi)
@@ -25,13 +27,15 @@ public class ModMemoryPanel extends MemoryPanel  {
     /**
      * Constructor for objects of class ModMemoryGame
      */
-    public ModMemoryPanel(String name)
+    public ModMemoryPanel(Person p, TrailsBinaryTree t, Boolean direct, 
+    String Scenario)
     {
-        super(name);
+        super(p,t,direct,Scenario);
     }
 
     /**
-     * The screen where the user plays the game by selecting the buttons in the correct order
+     * The screen where the user plays the game by selecting the buttons in 
+     * the correct order
      * 
      * @override
      * @return JPanel game which contains the modified game mechanisms
@@ -44,9 +48,10 @@ public class ModMemoryPanel extends MemoryPanel  {
         opt4 = new JButton(wordList[index][3]);
         opt5 = new JButton(wordList[index][4]);
         path = new JTextArea ();
-        
+
         //a bit artificial but the spaces are to force the buttons to a new row, not ideal
-        inputLabel = new JLabel ("      Select the words in the order in which they appeared:       ");
+        inputLabel = new JLabel ("      Select the words in the order in"+
+            "which they appeared:       ");
         opt1.addActionListener(new ButtonListener());
         opt2.addActionListener(new ButtonListener());
         opt3.addActionListener(new ButtonListener());
@@ -77,19 +82,19 @@ public class ModMemoryPanel extends MemoryPanel  {
             }
             if (event.getSource() == start){
                 cl.next(deck);//go to instructions
-            }
-            //this seems clunky, feel free to fix if you see how and we have extra time
+            }          
             if (event.getSource() == opt1) push(opt1);
             if (event.getSource() == opt2) push(opt2);
             if (event.getSource() == opt3) push(opt3);
             if (event.getSource() == opt4) push(opt4);
             if (event.getSource() == opt5) push(opt5);
-            
+
         }
     }
 
     /**
-     * Instead of a JTextField, this recieves the words from the buttons and displays the user choices based which button was clicked
+     * Instead of a JTextField, this recieves the words from the buttons and 
+     * displays the user choices based which button was clicked
      * 
      * @Override
      */
