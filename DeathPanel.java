@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
 /**
  * Creates a death panel for when a player dies in The Wellesley Trail. 
  * Provides the user with options of restarting or quitting the game.
@@ -29,7 +30,8 @@ public class DeathPanel extends JPanel {
         background = new JPanel();//holds the scenario image
         try {
             //scaling all input files to be the same size
-            ImageIcon image = new ImageIcon(ImageIO.read(new File("deathScreen.jpg")));
+            ImageIcon image = 
+                    new ImageIcon(ImageIO.read(new File("deathScreen.jpg")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(1200, 800, 
                                                   java.awt.Image.SCALE_SMOOTH);
@@ -43,7 +45,8 @@ public class DeathPanel extends JPanel {
         setPreferredSize(new Dimension(1200, 800));
         setLayout(new BorderLayout());
         content.setBounds(0, 0, 1200, 800); //same as frame
-        deck.setBounds(500, 300, 200, 100);//((where the panel starts),(the panel size))
+        //((where the panel starts),(the panel size))
+        deck.setBounds(500, 300, 200, 100);
         background.setOpaque(true);
         background.setBounds(0, 0, 1200, 800); 
         deck.setOpaque(true);
@@ -74,7 +77,9 @@ public class DeathPanel extends JPanel {
             //quits the game
             }else{
                 JPanel startPanel = (JPanel)death.getParent().getParent();
-                JLayeredPane layeredPane = (JLayeredPane)startPanel.getParent().getParent().getParent();
+                JLayeredPane layeredPane = 
+                  (JLayeredPane)startPanel.getParent().getParent().getParent();
+                  
                 JRootPane rootPane = (JRootPane)layeredPane.getParent();
                 JFrame frame = (JFrame) rootPane.getParent();
                 frame.dispose();
