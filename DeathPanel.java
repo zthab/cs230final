@@ -49,7 +49,7 @@ public class DeathPanel extends JPanel {
         deck.setBackground(new Color(0,0,0,0));
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(deck, new Integer(1),0);//sets to the foregound    
-        //this.getParent();
+
         add(content);
     }
 
