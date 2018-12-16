@@ -239,15 +239,17 @@ public class CharSelection extends JPanel
         content = new JLayeredPane();
 
         //add both back and foreground to the container
+        foreground.setBackground(new Color(0,0,0,0));
         content.setBounds(0, 0, 1200, 800); //same as frame
+        content.setBackground(new Color(0,0,0,0));
         foreground.setBounds(0, 00, 1200, 800);
-        background.setOpaque(true);
+        background.setOpaque(false);
         background.setBounds(0, 00, 1200, 800); 
         foreground.setOpaque(false);
-        foreground.setBackground(new Color(0,0,0,0)); //transparent
+        
+        //foreground.setBackground(new Color(0,0,0,0)); //transparent
         content.add(background, new Integer(0), 0); //sets to the background
         content.add(foreground, new Integer(1), 0);//sets to the foregound 
-
         setLayout(new BorderLayout());
         botRow.add (persStats);//adds the person's scores to the bottom row
         
@@ -277,7 +279,7 @@ public class CharSelection extends JPanel
                     next = new JButton("next");
                     next.addActionListener(new ButtonListener());
                     next.setBackground(new Color(0,0,0,0));
-                    botRow.setBackground(new Color(0,0,0,0));
+                    //botRow.setBackground(new Color(0,0,0,0));
                     botRow.add(next); //adds the next button to the bottom row
                 }
                 //the Person object gets the selected archetype's points
@@ -285,6 +287,7 @@ public class CharSelection extends JPanel
                 String chosenName = source.getText();
                 player = new Person(chosenName);
                 persStats.setText(player.toString());
+                content.moveToFront(foreground);
 
                 //signals that the next button doesn't need to be created again
                 hasSelectedBefore = true;                 
