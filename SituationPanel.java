@@ -134,7 +134,7 @@ public class SituationPanel extends JPanel{
                         cardLayoutPanel.add(memS,"squirrelGame");
                         layout.show(cardLayoutPanel, "squirrelGame");
                     }else if(option1.getDecision().toLowerCase(
-                    ).contains("dirctory")){
+                    ).contains("directory")){
                         //launches the fym memory game
                         MemoryPanel memF = new MemoryPanel(player, tree, true, 
                                 "FYM");
