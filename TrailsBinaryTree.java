@@ -147,6 +147,7 @@ public class TrailsBinaryTree
             sitIndex=2*(sitIndex+1)-1;
         //checks that if there are not enough situations in a vector, if there
         //are more vectors in years
+            System.out.println("here");
         }else if (vecIndex+1<years.size()){
             //increments the vector index by one, sets the situation index to
             //the beginning of the next the vector 
@@ -192,14 +193,6 @@ public class TrailsBinaryTree
             System.out.println("Invalid vector and situation indeces.");
         }
         return null;
-    }
-    
-    /**
-     * Resets the index and vector values to 0
-     */
-    public void reset(){
-        vecIndex = 0;
-        sitIndex = 0;
     }
 
     /**
