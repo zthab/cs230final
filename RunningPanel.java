@@ -14,9 +14,9 @@ import java.util.Random;
  * individual methods for the creation of each panel which represents a game
  * screen
  * 
- * @author nbryant2
- * @author zthabet
- * @author gbronzi
+ * @author  Nolen Belle Bryant
+ * @author  Zahra Thabet
+ * @author  Giulia Bronzi
  * @version 12.17.18
  */
 public class  RunningPanel extends JPanel {

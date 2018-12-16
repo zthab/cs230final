@@ -10,9 +10,8 @@ import javax.imageio.ImageIO;
 /**
  * Instructions panel for The Wellesley Trail
  *
- * @author  gbronzi
- * @author  nbryant2
- * @author  zthabet
+ * @author  Giulia Bronzi
+ * @author  Nolen Belle Bryant
  * @version 12.17.18
  */
 public class InstructionsPanel extends JPanel 

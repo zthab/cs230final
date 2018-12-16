@@ -3,9 +3,9 @@
  * The Person class holds all the information for each of the six archetypes. 
  * A person object can have its scores manipulated.
  *
- * @author gbronzi
- * @author zthabet
- * @author nbryant2
+ * @author  Giulia Bronzi
+ * @author  Zahra Thabet
+ * @author  Nolen Belle Bryant
  * @version 12.17.18
  */
 public class Person

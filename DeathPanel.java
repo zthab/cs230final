@@ -10,9 +10,9 @@ import javax.imageio.ImageIO;
  * Creates a death panel for when a player dies in The Wellesley Trail. 
  * Provides the user with options of restarting or quitting the game.
  *
- * @author nbryant2
- * @author gbronzi
- * @author zthabet
+ * @author Nolen Belle Bryant
+ * @author Giulia Bronzi
+ * @author Zahra Thabet
  * @version 12.17.18
  */
 public class DeathPanel extends JPanel {
@@ -81,7 +81,8 @@ public class DeathPanel extends JPanel {
                 JPanel startPanel = (JPanel)death.getParent().getParent();
                 JPanel layeredPane = 
                   (JPanel)startPanel.getParent().getParent().getParent();
-                JRootPane rootPane = (JRootPane)layeredPane.getParent().getParent().getParent();
+                JRootPane rootPane = (JRootPane)layeredPane.getParent()
+                                                    .getParent().getParent();
                 JFrame frame = (JFrame) rootPane.getParent();
                 frame.dispose();
             }
@@ -100,7 +101,6 @@ public class DeathPanel extends JPanel {
 
         cont.addActionListener(new ButtonListener());
         quit.addActionListener(new ButtonListener());
-        //death.prefferedSize(
 
         death.add(cont);
         death.add(quit);

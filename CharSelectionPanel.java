@@ -23,9 +23,9 @@ import javax.imageio.ImageIO;
  * foreground panel to the front it resolved the issue for one of the problem
  * areas, but we could not find out how to solve the other.
  * 
- * @author zthabet
- * @author nbryant2
- * @author gbronzi
+ * @author Zahra Thabet
+ * @author Nolen Belle Bryant
+ * @author Giulia Bronzi
  * 
  * @version 12.17.18
  */

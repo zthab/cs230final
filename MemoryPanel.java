@@ -23,10 +23,9 @@ import javafoundations.*;
  * JTextField which the user inputs answers into and the other is for the 
  * variouse buttons. 
  * 
- * @author nbryant2 
- * @author zthabet
- * @author gbronzi
- * @version (12.17.18)
+ * @author  Nolen Belle Bryant 
+ * @author  Giulia Bronzi
+ * @version 12.17.18
  */
 public class MemoryPanel extends JPanel {
 

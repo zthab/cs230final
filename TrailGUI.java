@@ -8,9 +8,9 @@ import java.util.Vector;
  * TrailGUI controls the game. It begins at the startPanel and moves forward
  * through the other panels and games
  * 
- * @author zthabet
- * @author nbryant2
- * @author gbronzi
+ * @author  Zahra Thabet
+ * @author  Nolen Belle Bryant
+ * @author  Giulia Bronzi
  * @version 12.17.18
  */
 public class TrailGUI 

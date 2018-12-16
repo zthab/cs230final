@@ -9,9 +9,7 @@ import javax.imageio.ImageIO;
 /**
  * Creates a start panel for The Wellesley Trail
  *
- * @author zthabet
- * @author gbronzi
- * @author nbryant2
+ * @author  Nolen Belle Bryant
  * @version 12.17.18
  */
 

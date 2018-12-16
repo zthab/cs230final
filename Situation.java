@@ -6,9 +6,8 @@
  * implementation in a binary tree of Situation objects in that the selection
  * of an Option object will lead to one of two other Situation objects.
  *
- * @author  gbronzi
- * @author  nbryant2
- * @author  zthabet 
+ * @author  Zahra Thabet 
+ * @author  Giulia Bronzi
  * @version 12.17.18
  */
 public class Situation

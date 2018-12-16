@@ -17,9 +17,8 @@ import javafoundations.*;
  * accommodate the buttons version.  
  * 
  *
- * @author nbryant2
- * @author zthabet 
- * @author gbronzi
+ * @author  Nolen Belle Bryant
+ * @author  Giulia Bronzi
  * @version 12.17.18
  */
 public class ModMemoryPanel extends MemoryPanel  {

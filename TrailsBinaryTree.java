@@ -8,10 +8,7 @@ import java.util.Vector;
  *represent choices made in the four years of the Wellesley Trail. Each Vector
  *represents a different year or period of time in the Wellesley experience.
  *
- * @author  zthabet
- * @author  gbronzi
- * @author  nbryant2
- * 
+ * @author  Zahra Thabet
  * @version 12.17.18
  */
 public class TrailsBinaryTree

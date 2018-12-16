@@ -5,9 +5,8 @@
  * answer to a question. The Option object was designed to be stored along with
  * a corresponding question in a Situation object.
  *
- * @author gbronzi
- * @author nbryant2
- * @author zthabet 
+ * @author Giulia Bronzi
+ * @author Zahra Thabet 
  * @version 12.17.18
  */
 public class Option
