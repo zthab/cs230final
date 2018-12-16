@@ -61,33 +61,6 @@ public class Situation
     }
     
     /**
-     * Sets the question to the inputted string
-     * 
-     * @param str new question text
-     */
-    public void setQuestion(String str){
-        question = str;
-    }
-    
-    /**
-     * Sets the left-pointing option to the inputted string
-     * 
-     * @param opt option to be assigned
-     */
-    public void setoptionLeft(Option opt){
-        optionLeft = opt;
-    }
-    
-    /**
-     * Sets the right-pointing option to the inputted string
-     * 
-     * @param opt option to be assigned
-     */
-    public void setoptionRight(Option opt){
-        optionRight = opt;
-    }
-    
-    /**
      * Gets a String representation of the Situation object
      * 
      * @return String of the Situation object

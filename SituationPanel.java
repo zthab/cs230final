@@ -34,7 +34,7 @@ public class SituationPanel extends JPanel{
     private TrailsBinaryTree tree;    
 
     private JLayeredPane content;//holds the background and foreground
-    private JPanel topRow, midRow; //holds the buttons
+    private JPanel opPanel, topRow, midRow; //holds the buttons
 
     /**
      * Constructor for objects of class SituationPanel. Creates a Situation
@@ -47,7 +47,7 @@ public class SituationPanel extends JPanel{
     {
         player = p;       
         tree=t; 
-        setPreferredSize(new Dimension(1200,800));
+        
         topRow = new JPanel ();
         topRow.setBackground(new Color(0,39,118));
         topRow.setOpaque(false);
@@ -55,15 +55,11 @@ public class SituationPanel extends JPanel{
         midRow.setBackground(new Color(0,39,118));
         midRow.setOpaque(false);
 
-        JPanel a = new JPanel();
-        a.setBackground(new Color(0,39,118));
-        a.setOpaque(false);
-        //a.add(topRow);
-        //a.add(midRow);
-        a.setLayout(new GridLayout(2,1,30,30));
-        //r236,g222,b187
+        opPanel = new JPanel();
+        opPanel.setBackground(new Color(0,39,118));
+        opPanel.setLayout(new GridLayout(2,1,30,30));
 
-        Font font = new Font("Verdana", Font.BOLD, 28);
+        Font verand = new Font("Verdana", Font.BOLD, 28);
 
         //accesses all the relevant Situation object components 
         sit = tree.getCurrent();
@@ -73,7 +69,7 @@ public class SituationPanel extends JPanel{
 
         //displays the Situation's question
         questionText = new JTextArea (question);
-        questionText.setFont(font);
+        questionText.setFont(verand);
         questionText.setLineWrap(true);
         questionText.setBackground(new Color(0,39,118));
         questionText.setForeground(new Color(236,222,187));
@@ -81,26 +77,26 @@ public class SituationPanel extends JPanel{
         //displays the players current point totals
         playerStatus = new JTextArea(player.toString());
         playerStatus.setBackground(new Color(236,222,187));
-        playerStatus.setFont(font);
+        playerStatus.setFont(verand);
 
         //displays the Situation's two Options' decisions as buttons
         option1Button = new JButton(option1.getDecision());
-        option1Button.setFont(font);
+        option1Button.setFont(verand);
         option2Button = new JButton(option2.getDecision());
-        option2Button.setFont(font);
+        option2Button.setFont(verand);
 
-        a.add(option1Button);
-        a.add(option2Button);
+        opPanel.add(option1Button);
+        opPanel.add(option2Button);
 
         option1Button.addActionListener(new ButtonListener());
         option2Button.addActionListener(new ButtonListener());
 
-        setBounds(0, 00, 1200, 800); 
         setBackground(new Color(0,39,118));
+        setPreferredSize(new Dimension(1200,800));
 
         setLayout(new BorderLayout());
         add(questionText, BorderLayout.NORTH);
-        add(a, BorderLayout.CENTER);
+        add(opPanel, BorderLayout.CENTER);
         add(playerStatus,BorderLayout.SOUTH);
     }
 
@@ -117,14 +113,9 @@ public class SituationPanel extends JPanel{
          */
         public void actionPerformed (ActionEvent event)
         {
-            JButton button = (JButton)event.getSource();//option
-            JPanel buttonPanel = (JPanel)button.getParent(); //grid layout panel
-            JPanel buttonPanContainer = (JPanel) buttonPanel.getParent(); //border layout panel
-            //JPanel borderPanel = (JPanel) buttonPanContainer.getParent(); //
-            //JPanel a = (JPanel) borderPanel.getParent();
-            //JPanel b = (JPanel) a.getParent();
+            JPanel sitPanel = (JPanel) opPanel.getParent(); 
             
-            JPanel cardLayoutPanel = (JPanel)buttonPanContainer.getParent();
+            JPanel cardLayoutPanel = (JPanel)sitPanel.getParent();
             
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             try{
