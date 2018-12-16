@@ -1,9 +1,7 @@
 
 /**
  * Gui for the MemoryGame mini game. Displays the memory game based on a scenario
- * 
- * Known bugs:
- * -eventually we will want this gui to take the scenario string in the constructor
+
  *
  * @author (nbryant2, zthabet, gbronzi)
  * @version (12.15.18)
