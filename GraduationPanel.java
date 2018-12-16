@@ -6,31 +6,23 @@ import javax.imageio.ImageIO;
 import java.io.*;
 
 /**
- * Creates a panal for the end of the game. Does not lead to anything 
- * else just shows that you won
+ * Creates a panel for the end of the game. Does not lead to any other panel.
  * 
- * 
- * @author zthabet
  * @author gbronzi
  * @author nbryant2
+ * @author zthabet
  * @version 12.17.18
  */
-
 public class GraduationPanel extends JPanel 
 {
-   
     /**
-     * Constructor for objects of class GraduationPanel
+     * Constructor for objects of class GraduationPanel. Creates a graduation 
+     * panel
      */
     public GraduationPanel()
     {
        //creates background panel
        JPanel background = new JPanel();
-       background.setLayout(new BorderLayout());
-
-       //container for the panels, switches between them like playingcards
-       JPanel deck = new JPanel(new CardLayout());
-       CardLayout cl = (CardLayout)(deck.getLayout());//manages the deck
         
        background.setLayout(new BorderLayout());
        background.setOpaque(true);
@@ -53,7 +45,6 @@ public class GraduationPanel extends JPanel
        }catch (IOException e) {
            e.printStackTrace();
        }
-       deck.add(background, "screen");
-       add(deck, BorderLayout.CENTER);
+       add(background);
     }
 }
