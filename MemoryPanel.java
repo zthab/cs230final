@@ -213,11 +213,18 @@ public class MemoryPanel extends JPanel {
             }else if (event.getSource() == start){
                 cl.show(deck,"rules");//go to instructions
             }else if (event.getSource() == dead){
-                clBig.show(deckBig, "dead");
+                //JPanel pare = (JPanel) deck.getParent();
+                JPanel cardLayoutPanel = (JPanel) content.getParent().getParent().getParent();
+                CardLayout layout = (CardLayout) cardLayoutPanel.getLayout(); 
+
+                //exit and go to the Death Screen, sad sad sad 
+                cardLayoutPanel.add(dying, "dead");
+                layout.show(cardLayoutPanel,"dead");
+
             }else if (event.getSource() == alive){                 
                 JPanel memPanel = (JPanel) content.getParent();
                 JPanel inbetween = (JPanel) memPanel.getParent();
-                JPanel innn = (JPanel) inbetween.getParent();
+                JPanel innn = (JPanel) content.getParent();
                 JPanel buffer = (JPanel) innn.getParent();
                 JPanel cardLayoutPanel = (JPanel)buffer.getParent();
                 CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
