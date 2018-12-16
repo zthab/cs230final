@@ -6,14 +6,14 @@ It's 90 degrees outside and can't deal with the heat. You.../Jump in the lake/0/
 You decide to go to the org fair. You.../Put your email down at every single table/0/-1/1/Join frisbee, obviously!!!/0/1/3
 It's the Saturday before classes start and your friend told you about a party at MIT so you.../Hop on the Peter!/-3/0/3/Decide you need sleep instead/3/0/0
 You decide to go to the org fair. You.../Put your email down at every single table/0/-1/1/Join frisbee, obviously!!!/0/1/3
-FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+FDOC! You.../You're up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
 Your makeshift AC has attracted a lot of attention. You.../Decide to throw a party so everyone can enjoy it/-2/1/3/Pretend it broke, you don't want to share its cool, cool air/2/0/-1
-FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+FDOC! You.../You're up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
 You go to the first open frisbee practice and you are.../1000% joining/0/1/3/Not sure sports are your thing/1/0/0
 You got lost in some building in MIT. You.../Ask someone for help/1/2/1/Walk in circles until you see something familiar/-1/-1/-1
-FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+FDOC! You.../You're up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
 Uh oh... You signed up for too many orgs. You.../Decide just to go to the cultural org/0/1/2/Decide to tryout for one of the acapella groups/-1/0/2
-FDOC! You.../Your up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
+FDOC! You.../You're up 3 hours before class to get ready/-2/0/0/You forgot to wake up.../2/-2/0
 Your FY Writing class has a 8 page paper due the second week of classes!! You.../Start writing immediately/0/3/0/Don't stress! (Shadow grading duhh)/2/-1/1
 First midterm!! You.../Pull an all nighter in sci/-4/1/0/Started studying at a reasonable time/2/3/0
 Looks like your AC attracted too much attention...campus po just showed up so you.../HIDE/0/1/1/Hope that if you start crying they'll go away/1/1/0
@@ -79,7 +79,7 @@ Sophomore year already done?? Time for Spring finals! You're studying with a gro
 Sophomore year already done?? Time for Spring finals! You're studying with a group but you can't remember their names. You.../Look them up in the directory/0/0/0/Hope you don't have to say their name/0/0/0
 Sophomore year already done?? Time for Spring finals! You're studying with a group but you can't remember their names. You.../Look them up in the directory/0/0/0/Hope you don't have to say their name/0/0/0
 
-Year 3 is starting and you've already committed to going to parties for the next month. You.../Go to every single one because you said you would/-3/-1/3/Burn out after the first one and decide never to leave your room ever again/-1/2/-2
+Year 3 is starting and you've already committed to going to parties for the next month. You.../Go to every single one because you said you would/-3/-1/3/Burn out after the first one and decide never to leave your room ever again/2/2/-2
 Your best friend decided to study abroad so you.../Sit in your room and mope around because she's having fun in France without you/1/1/-2/Decide to go out and make some more friends/-1/0/2
 You told your professor about your awesome summer internship and they recommend you do a Tanner. You.../Think its a great idea and start planning immediately/-2/3/1/Ask everyone you know if they think its a good idea/0/1/1
 You feel the need expand your social circle since your friends are abroad so you.../Tea a society/-3/0/2/Join a new org/-1/1/1

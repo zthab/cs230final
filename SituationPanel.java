@@ -47,7 +47,7 @@ public class SituationPanel extends JPanel{
     {
         player = p;       
         tree=t; 
-        
+
         topRow = new JPanel ();
         topRow.setBackground(new Color(0,39,118));
         topRow.setOpaque(false);
@@ -114,9 +114,9 @@ public class SituationPanel extends JPanel{
         public void actionPerformed (ActionEvent event)
         {
             JPanel sitPanel = (JPanel) opPanel.getParent(); 
-            
+
             JPanel cardLayoutPanel = (JPanel)sitPanel.getParent();
-            
+
             CardLayout layout = (CardLayout)cardLayoutPanel.getLayout();
             try{
                 //if the source is the option 1 button
@@ -125,26 +125,31 @@ public class SituationPanel extends JPanel{
                         RunningPanel run = new RunningPanel(player, tree, true); 
                         cardLayoutPanel.add(run,"runningGame");
                         layout.show(cardLayoutPanel, "runningGame");
-                    }else if(option1.getDecision().toLowerCase().contains("vocab")){
+                    }else if(option1.getDecision().toLowerCase(
+                    ).contains("vocab")){
 
-                    }else if(option1.getDecision().toLowerCase().contains("equations")){
-                        
+                    }else if(option1.getDecision().toLowerCase(
+                    ).contains("equations")){
+
                     }  else{
                         //add the associated points to the player's points
                         player.addAllScores(option1.getPoints());
-                        //if the players points are still above zero, continue to
-                        //the left child SituationPanel
+                        //if the players points are still above zero, 
+                        //continue to the left child SituationPanel
                         if (player.isAboveZero()){
-                            //incremements the tree so that the current Situation
-                            //is the left child of the current Situation
+                            //incremements the tree so that the current 
+                            //Situation is the left child of the current 
+                            //Situation
                             tree.nextLeft();
-                            //shows a SituationPanel of the new current Situation
-                            SituationPanel nextPanel = new SituationPanel(player, tree); 
+                            //shows a SituationPanel of the new current 
+                            //Situation
+                            SituationPanel nextPanel = new SituationPanel(
+                                    player, tree); 
                             cardLayoutPanel.add(nextPanel,"left");
                             layout.show(cardLayoutPanel, "left");
-                            //if the player's points are not above zero after pressing
-                            //the button, shows the death panel
-                        
+                            //if the player's points are not above zero 
+                            //after pressing the button, shows the death panel
+
                         }else{
                             DeathPanel death = new DeathPanel(); 
                             cardLayoutPanel.add(death,"loss");
@@ -155,25 +160,29 @@ public class SituationPanel extends JPanel{
                     //if the source is the option 1 button
                 }else{
                     if(option2.getDecision().toLowerCase().contains("run")){
-                        RunningPanel run = new RunningPanel(player, tree, false); 
+                        RunningPanel run = new RunningPanel(
+                                player, tree, false); 
                         cardLayoutPanel.add(run,"runningGame");
                         layout.show(cardLayoutPanel, "runningGame");
                     }//else if (is mem){}
                     else{
                         //add the associated points to the player's points
                         player.addAllScores(option2.getPoints());
-                        //if the players points are still above zero, continue to
-                        //the right child SituationPanel
+                        //if the players points are still above zero, 
+                        //continue to the right child SituationPanel
                         if (player.isAboveZero()){
-                            //incremements the tree so that the current Situation
-                            //is the right child of the current Situation
+                            //incremements the tree so that the current
+                            //Situation is the right child of the 
+                            //current Situation
                             tree.nextRight();
-                            //shows a SituationPanel of the new current Situation
-                            SituationPanel nextPanel = new SituationPanel(player, tree); 
+                            //shows a SituationPanel of the new current 
+                            //Situation
+                            SituationPanel nextPanel = new SituationPanel(
+                                player, tree); 
                             cardLayoutPanel.add(nextPanel,"right");
                             layout.show(cardLayoutPanel, "right");
-                            //if the player's points are not above zero after pressing
-                            //the button, shows the death panel
+                            //if the player's points are not above zero 
+                            //after pressing the button, shows the death panel
                         }else{
                             DeathPanel death = new DeathPanel(); 
                             cardLayoutPanel.add(death,"loss");
@@ -181,7 +190,8 @@ public class SituationPanel extends JPanel{
                         }
                     }
                 }
-                //if there is no child Situation, proceeds to the graduation panel
+                //if there is no child Situation, proceeds to the 
+                //graduation panel
             }catch(ArrayIndexOutOfBoundsException e){
                 GraduationPanel win = new GraduationPanel(); 
                 cardLayoutPanel.add(win,"winPanel");

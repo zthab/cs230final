@@ -35,11 +35,14 @@ public class  RunningPanel extends JPanel {
     private Font font;
     
     /**
-     * The constructor for the running game takes three parameters and creates the running mini game
+     * The constructor for the running game takes three parameters and 
+     * creates the running mini game
      * 
      * @param Person p -the person class holding the current stats
-     * @param TrailsBinary t -where the user is in the binaryTree determins their in game location
-     * @Param Boolean direct -determins to which child of the current leaf the user goes to after the game
+     * @param TrailsBinary t -where the user is in the binaryTree determins 
+     * their in game location
+     * @Param Boolean direct -determins to which child of the current leaf 
+     * the user goes to after the game
      */
     public RunningPanel (Person p, TrailsBinaryTree t, Boolean direct){
         player = p; 
