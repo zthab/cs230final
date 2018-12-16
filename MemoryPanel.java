@@ -58,8 +58,8 @@ public class MemoryPanel extends JPanel {
             "In the nick of time, you made it into the nearest building and "+
             "esccaped!\nThe squirrel moved on to it's next victim,\nand you"+
             " are one day closer to graduation."};             
-    protected final static String [] images = {"Tunnel.jpg", "Campus.jpg", 
-            "Squirrel.jpg"};                 
+    protected final static String [] images = {"images/Tunnel.jpg", "images/Campus.jpg", 
+            "images/Squirrel.jpg"};                 
     protected Vector<String> answerKey; 
     protected String name;//the circumstance senario passed in the constructor;
 
