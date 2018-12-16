@@ -266,9 +266,7 @@ public class  RunningPanel extends JPanel {
         mainGameAlive = new JButton("Back to the main game");
         mainGameAlive.addActionListener (new ButtonListener() );
         JTextArea message = new JTextArea("Congrats, you ran " +finalCount+ 
-                " steps. Wow!\nBecause you ran so fast, you made it to the"+
-                "omlete line in Lulu before it got too long."+
-                "\nWith a full belly, you make it one day closer to graduation.");
+                " steps. Wow! You're one day closer to graduation.");
         JTextArea space = new JTextArea("TIME'S UP");
         JPanel panel = new JPanel();   
         panel.add(space, BorderLayout.CENTER);
