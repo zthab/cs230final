@@ -58,6 +58,13 @@ public class ModMemoryPanel extends MemoryPanel  {
         opt3.addActionListener(new ButtonListener());
         opt4.addActionListener(new ButtonListener());
         opt5.addActionListener(new ButtonListener());
+        inputLabel.setFont(font);
+        opt1.setFont(font);
+        opt2.setFont(font);
+        opt3.setFont(font);
+        opt4.setFont(font);
+        opt5.setFont(font);
+        path.setFont(font);
         count = 0;
 
         game.setLayout(new FlowLayout());
