@@ -137,7 +137,7 @@ public class CharSelectionPanel extends JPanel
         //adds half of the archetype images and radio buttons to the top panel
         try{
             ImageIcon image = new ImageIcon(ImageIO.read(
-                                            new File("AthleticAlex.png")));
+                                            new File("images/AthleticAlex.png")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
                                     100, 200,  java.awt.Image.SCALE_SMOOTH); 
@@ -151,7 +151,7 @@ public class CharSelectionPanel extends JPanel
 
         try{
             ImageIcon image = new ImageIcon(ImageIO.read(
-                                            new File( "HermitHarper.png")));
+                                            new File( "images/HermitHarper.png")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
                                     100, 200,  java.awt.Image.SCALE_SMOOTH);  
@@ -165,7 +165,7 @@ public class CharSelectionPanel extends JPanel
 
         try{
             ImageIcon image = new ImageIcon(ImageIO.read(
-                                            new File( "HorseGirlGrace.png")));
+                                            new File( "images/HorseGirlGrace.png")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
                                       100, 200,  java.awt.Image.SCALE_SMOOTH);  
@@ -181,7 +181,7 @@ public class CharSelectionPanel extends JPanel
         //midRow
         try{
             ImageIcon image = new ImageIcon(ImageIO.read(
-                                            new File("OffCampusOllie.png")));
+                                            new File("images/OffCampusOllie.png")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
                                     100, 200,  java.awt.Image.SCALE_SMOOTH);   
@@ -195,7 +195,7 @@ public class CharSelectionPanel extends JPanel
 
         try{
             ImageIcon image = new ImageIcon(ImageIO.read(
-                                    new File("SocietySkylar.png")));
+                                    new File("images/SocietySkylar.png")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
                             100, 200,  java.awt.Image.SCALE_SMOOTH);
@@ -209,7 +209,7 @@ public class CharSelectionPanel extends JPanel
 
         try{
             ImageIcon image = new ImageIcon(ImageIO.read(
-                                    new File("WendyWellesley.png")));
+                                    new File("images/WendyWellesley.png")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
                              100, 200,  java.awt.Image.SCALE_SMOOTH); 
@@ -225,7 +225,7 @@ public class CharSelectionPanel extends JPanel
         try {
             //scaling all input files to be the same size
             ImageIcon image = new ImageIcon(ImageIO.read(       
-                                        new File("CharScreen.jpg")));
+                                        new File("images/CharScreen.jpg")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(
                             1200, 800,  java.awt.Image.SCALE_SMOOTH); 

@@ -37,7 +37,7 @@ public class StartPanel extends JPanel
         try {
             //scaling all input files to be the same size
             ImageIcon image = 
-                new ImageIcon(ImageIO.read(new File("StartImage.jpg")));
+                new ImageIcon(ImageIO.read(new File("images/StartImage.jpg")));
                 
             Image pic = image.getImage(); // transform it 
            

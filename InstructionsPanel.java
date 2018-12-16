@@ -56,7 +56,7 @@ public class InstructionsPanel extends JPanel
          try {
             //scaling all input files to be the same size
             ImageIcon image = 
-                   new ImageIcon(ImageIO.read(new File("OregonTrail.jpg")));
+                   new ImageIcon(ImageIO.read(new File("images/OregonTrail.jpg")));
                   
             Image pic = image.getImage(); // transform it 
             

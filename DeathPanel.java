@@ -31,7 +31,7 @@ public class DeathPanel extends JPanel {
         try {
             //scaling all input files to be the same size
             ImageIcon image = 
-                    new ImageIcon(ImageIO.read(new File("deathScreen.jpg")));
+                    new ImageIcon(ImageIO.read(new File("images/deathScreen.jpg")));
             Image pic = image.getImage(); // transform it 
             Image newimg = pic.getScaledInstance(1200, 800, 
                                                   java.awt.Image.SCALE_SMOOTH);
