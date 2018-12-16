@@ -128,7 +128,6 @@ public class TrailsBinaryTree
                 //when a vector is created vector index becomes 0
                 vecIndex=0;
             }
-            System.out.println(years.get(0).get(0));
             //Once the textFile runs out of lines, closes the scanner.
             sc.close();
         }catch(FileNotFoundException e){
